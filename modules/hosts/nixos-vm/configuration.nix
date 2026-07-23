@@ -10,26 +10,14 @@
   # Use systemd bootloader
   boot.loader.systemd-boot.enable = true;
 
-  # Use the GRUB 2 boot loader.
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/vdb";
-  # boot.loader.grub.efiSupport = true;
-  # Use provided UUIDs instead of blkid probing (required for btrfs subvolumes)
-  # boot.loader.grub.fsIdentifier = "provided";
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
-  networking.hostName = "nixos-vm"; # Define your hostname.
+  # Define the hostname
+  networking.hostName = "nixos-vm";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Bangkok";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -47,7 +35,7 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -58,9 +46,6 @@
     layout = "us";
     variant = "";
   };
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -88,33 +73,20 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
 
-    # Brave browser
-    brave
+      # Brave browser
+      brave
 
-    # Proton
-    proton-vpn
-    proton-pass
-    proton-authenticator
-    protonmail-desktop
+      # Proton
+      proton-vpn
+      proton-pass
+      proton-authenticator
+      protonmail-desktop
 
-    # VSCode
-    vscode
+      # VSCode
+      vscode
 
     ];
-
-  # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "happymab.dev";
-        email = "happymab.dev@pm.me";
-      };
-    };
-  };
-
 
   };
 
@@ -147,33 +119,8 @@
     };
   };
 
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
   # Enable Spice VD agent (for VM guest)
   services.spice-vdagentd.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -193,8 +140,6 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
-
-
 
   };
   
