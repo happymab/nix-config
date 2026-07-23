@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.nixos-vmConfiguration = {
+  flake.nixosModules.nixos-vmConfiguration = { pkgs, lib, ... }: {
   
   imports =
     [ # Include the results of the hardware scan.
@@ -89,7 +89,33 @@
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
+
+    # Brave browser
+    brave
+
+    # Proton
+    proton-vpn
+    proton-pass
+    proton-authenticator
+    protonmail-desktop
+
+    # VSCode
+    vscode
+
     ];
+
+  # basic configuration of git, please change to your own
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "happymab.dev";
+        email = "happymab.dev@pm.me";
+      };
+    };
+  };
+
+
   };
 
   # Install firefox.
@@ -108,6 +134,19 @@
     vim
     wget
   ];
+
+    # starship - an customizable prompt for any shell
+  programs.starship = {
+    enable = true;
+    # custom settings
+    settings = {
+      add_newline = true;
+      # aws.disabled = true;
+      # gcloud.disabled = true;
+      # line_break.disabled = true;
+    };
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -157,6 +196,6 @@
 
 
 
-  }
+  };
   
 }
