@@ -4,7 +4,7 @@
   
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      self.nixosModules.nixos-vmHardware
     ];
 
   # Use systemd bootloader
