@@ -5,7 +5,11 @@
   imports =
     [ # Include the results of the hardware scan.
       self.nixosModules.nixos-vmHardware
+      self.nixosModules.niri
     ];
+
+  # Enable the Flakes feature and the accompanying new nix command-line tool
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use systemd bootloader
   boot.loader.systemd-boot.enable = true;
@@ -95,9 +99,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
