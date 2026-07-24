@@ -23,19 +23,19 @@
     programs.firefox.enable = true;
 
     home.packages = [
-      kdePackages.kate
+      pkgs.kdePackages.kate
 
       # Brave browser
-      brave
+      pkgs.brave
 
       # Proton
-      proton-vpn
-      proton-pass
-      proton-authenticator
-      protonmail-desktop
+      pkgs.proton-vpn
+      pkgs.proton-pass
+      pkgs.proton-authenticator
+      pkgs.protonmail-desktop
 
       # VSCode
-      vscode
+      pkgs.vscode
 
       pkgs.hello 
     ];

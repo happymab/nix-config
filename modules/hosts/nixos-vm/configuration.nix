@@ -6,6 +6,7 @@
     [ # Include the results of the hardware scan.
       self.nixosModules.nixos-vmHardware
       self.nixosModules.niri
+      self.nixosModules.nixos-vmModule
       self.nixosModules.myHomeManager
     ];
 
@@ -74,15 +75,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."mab" = {
-    isNormalUser = true;
-    shell = pkgs.bash;
-    extraGroups = [ "networkmanager" "wheel" ];
-};
-
-  # Use home-manager
-  home-manager.users.mab = self.homeModules.mabModule;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -90,15 +82,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-  ];
-
-    # starship - an customizable prompt for any shell
+  # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
     # custom settings
