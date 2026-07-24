@@ -3,7 +3,6 @@
   # This is your standalone home-manager configuration, meant to be used on non-nixos machines
   # with the home-manager command
   flake.homeConfigurations.mab = inputs.home-manager.lib.homeManagerConfiguration {
-    # pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
     modules = [
       self.homeModules.mabModule
       {
@@ -22,22 +21,22 @@
 
     programs.firefox.enable = true;
 
-    home.packages = [
-      pkgs.kdePackages.kate
+    home.packages = with pkgs; [
+      kdePackages.kate
 
       # Brave browser
-      pkgs.brave
+      brave
 
       # Proton
-      pkgs.proton-vpn
-      pkgs.proton-pass
-      pkgs.proton-authenticator
-      pkgs.protonmail-desktop
+      proton-vpn
+      proton-pass
+      proton-authenticator
+      protonmail-desktop
 
       # VSCode
-      pkgs.vscode
+      vscode
 
-      pkgs.hello 
+      hello 
     ];
     home.stateVersion = "26.05";
   };
