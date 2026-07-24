@@ -76,26 +76,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."mab" = {
     isNormalUser = true;
-    description = "Martin";
+    shell = pkgs.bash;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
+};
 
-      # Brave browser
-      brave
-
-      # Proton
-      proton-vpn
-      proton-pass
-      proton-authenticator
-      protonmail-desktop
-
-      # VSCode
-      vscode
-
-    ];
-
-  };
+  # Use home-manager
+  home-manager.users.mab = self.homeModules.mabModule;
 
   # Install firefox.
   programs.firefox.enable = true;
