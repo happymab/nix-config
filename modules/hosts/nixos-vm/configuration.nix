@@ -17,6 +17,9 @@
   # Define the hostname
   networking.hostName = "nixos-vm";
 
+  # Use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
