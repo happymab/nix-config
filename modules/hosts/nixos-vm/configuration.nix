@@ -5,7 +5,7 @@
   imports =
     [ # Include the results of the hardware scan.
       self.nixosModules.nixos-vmHardware
-      # self.nixosModules.niri
+      self.nixosModules.niri
     ];
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
