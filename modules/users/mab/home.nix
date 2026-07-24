@@ -3,7 +3,7 @@
   # This is your standalone home-manager configuration, meant to be used on non-nixos machines
   # with the home-manager command
   flake.homeConfigurations.mab = inputs.home-manager.lib.homeManagerConfiguration {
-    pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+    # pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
     modules = [
       self.homeModules.mabModule
       {
