@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
 
   # Define the hostname
-  networking.hostName = "nixos-vm";
+  networking.hostName = "panther";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
