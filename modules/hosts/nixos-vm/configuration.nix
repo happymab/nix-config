@@ -76,24 +76,6 @@
   # services.libinput.enable = true;
 
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # starship - an customizable prompt for any shell
-  programs.starship = {
-    enable = true;
-    # custom settings
-    settings = {
-      add_newline = true;
-      # aws.disabled = true;
-      # gcloud.disabled = true;
-      # line_break.disabled = true;
-    };
-  };
-
   # Enable Spice VD agent (for VM guest)
   services.spice-vdagentd.enable = true;
 
