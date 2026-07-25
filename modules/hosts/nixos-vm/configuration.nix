@@ -6,9 +6,9 @@
       # Include the results of the hardware scan.
       self.nixosModules.nixos-vmHardware
       self.nixosModules.nixos-vmSystem
-      self.nixosModules.nixos-vmUsers
       self.nixosModules.niri
       self.nixosModules.myHomeManager
+      self.nixosModules.mabUser
     ];
 
   };
