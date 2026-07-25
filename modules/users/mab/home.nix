@@ -39,7 +39,7 @@
       # Nix formatter
       nixfmt
 
-      hello 
+      hello
     ];
     home.stateVersion = "26.05";
   };

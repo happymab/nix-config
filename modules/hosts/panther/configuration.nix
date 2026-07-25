@@ -1,9 +1,9 @@
 { self, inputs, ... }: {
 
   flake.nixosModules.pantherConfiguration = { pkgs, lib, ... }: {
-  
-  imports =
-    [ # Include the results of the hardware scan.
+
+    imports = [
+      # Include the results of the hardware scan.
       self.nixosModules.pantherHardware
       self.nixosModules.pantherSystem
       self.nixosModules.pantherUsers
@@ -15,12 +15,14 @@
 
   flake.nixosModules.pantherSystem = { pkgs, ... }: {
 
-  
     # Enable the Flakes feature and the accompanying new nix command-line tool
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
     boot = {
-      
+
       # Use systemd bootloader
       loader.systemd-boot.enable = true;
 
@@ -28,7 +30,7 @@
       kernelPackages = pkgs.linuxPackages_latest;
 
     };
-  
+
     networking = {
 
       # Define the hostname
@@ -50,7 +52,7 @@
         };
       };
     };
-  
+
     # Set your time zone.
     time.timeZone = "Asia/Bangkok";
 
@@ -70,17 +72,17 @@
 
     # Enable the X11 windowing system.
     services.xserver.enable = false;
-    
+
     # Enable the KDE Plasma Desktop Environment.
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
-    
+
     # Configure keymap in X11
     services.xserver.xkb = {
       layout = "us";
       variant = "";
     };
-    
+
     # Enable sound with pipewire.
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
@@ -95,13 +97,13 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
-    
+
     # Enable touchpad support (enabled default in most desktopManager).
     # services.libinput.enable = true;
-       
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-    
+
     # starship - an customizable prompt for any shell
     programs.starship = {
       enable = true;
@@ -113,10 +115,10 @@
         # line_break.disabled = true;
       };
     };
-    
+
     # Install firefox.
     programs.firefox.enable = true;
-    
+
     # List packages installed in system profile.
     # You can use https://search.nixos.org/ to find more packages (and options).
     environment.systemPackages = with pkgs; [
@@ -143,7 +145,7 @@
     #
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "26.05"; # Did you read the comment?
-  
+
   };
-  
+
 }

@@ -5,5 +5,5 @@
       self.nixosModules.nixos-vmConfiguration
     ];
   };
-  
+
 }
