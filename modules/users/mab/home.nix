@@ -36,6 +36,9 @@
       # VSCode
       vscode
 
+      # Nix formatter
+      nixfmt
+
       hello 
     ];
     home.stateVersion = "26.05";
