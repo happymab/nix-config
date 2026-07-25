@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-    flake.nixosModules.nixos-vmModule = { pkgs, ... }: {
+    flake.nixosModules.nixos-vmSystem = { pkgs, ... }: {
 
     # Enable the Flakes feature and the accompanying new nix command-line tool
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -96,16 +96,6 @@
       vim
       wget
     ];
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users."mab" = {
-      isNormalUser = true;
-      shell = pkgs.bash;
-      extraGroups = [ "networkmanager" "wheel" ];
-    };
-
-    # Use home-manager
-    home-manager.users.mab = self.homeModules.mabModule;
 
   };
 
