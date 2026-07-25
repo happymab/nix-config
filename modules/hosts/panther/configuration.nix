@@ -15,16 +15,33 @@
 
   flake.nixosModules.pantherSystem = { pkgs, ... }: {
 
-    # Enable the Flakes feature and the accompanying new nix command-line tool
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    nix.settings = {
+
+      # Enable the Flakes feature and the accompanying new nix command-line tool
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+
+      # Deduplicate files in nix store
+      auto-optimise-store = true;
+
+    };
+
+    # Automatic clean up of nix store
+    nix.gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 30d";
+    };
 
     boot = {
 
-      # Use systemd bootloader
-      loader.systemd-boot.enable = true;
+      # Use systemd bootloader, limit to 10 boot entries
+      loader.systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
 
       # Use latest kernel
       kernelPackages = pkgs.linuxPackages_latest;
