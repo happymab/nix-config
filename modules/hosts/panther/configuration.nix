@@ -8,7 +8,7 @@
       self.nixosModules.pantherSystem
       self.nixosModules.niri
       self.nixosModules.myHomeManager
-      self.nixosModules.mabUsers
+      self.nixosModules.mabUser
     ];
 
   };
