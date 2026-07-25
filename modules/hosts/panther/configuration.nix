@@ -6,9 +6,9 @@
       # Include the results of the hardware scan.
       self.nixosModules.pantherHardware
       self.nixosModules.pantherSystem
-      self.nixosModules.pantherUsers
-      self.nixosModules.myHomeManager
       self.nixosModules.niri
+      self.nixosModules.myHomeManager
+      self.nixosModules.mabUsers
     ];
 
   };
