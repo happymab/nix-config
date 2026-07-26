@@ -8,6 +8,7 @@
       self.nixosModules.pantherSystem
       self.nixosModules.niri
       self.nixosModules.myHomeManager
+      self.nixosModules.myLanzaboote
       self.nixosModules.mabUser
     ];
 
@@ -37,10 +38,18 @@
 
     boot = {
 
-      # Use systemd bootloader, limit to 10 boot entries
+      # Lanzaboote currently replaces the systemd-boot module.
+      # This setting is usually set to true in configuration.nix
+      # generated at installation time. So we force it to false
+      # for now.
       loader.systemd-boot = {
-        enable = true;
+        enable = lib.mkForce false;
         configurationLimit = 10;
+      };
+
+      boot.lanzaboote = {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl";
       };
 
       # Use latest kernel
@@ -142,6 +151,9 @@
       git
       vim
       wget
+
+      # For debugging and troubleshooting Secure Boot.
+      sbctl
     ];
 
     # This option defines the first version of NixOS you have installed on this particular machine,
