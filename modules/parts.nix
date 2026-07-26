@@ -2,6 +2,7 @@
   imports = [
     # adds home-manager options to flake-parts
     inputs.home-manager.flakeModules.home-manager
+    inputs.lanzaboote.flakeModules.lanzaboote
   ];
 
   config.systems = [

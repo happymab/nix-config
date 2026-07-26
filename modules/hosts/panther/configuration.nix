@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.pantherConfiguration = { pkgs, lib, ... }: {
+  flake.nixosModules.pantherConfiguration = { pkgs, lib, lanzaboote, ... }: {
 
     imports = [
       # Include the results of the hardware scan.
