@@ -20,23 +20,7 @@
         enable = true;
         autoReboot = true;
       };
-
-      # Enable measured boot
-      measuredBoot = {
-        enable = true;
-        pcrs = [
-          0
-          4
-          7
-        ];
-      };
-
-      # 8 generations is the limit for measured boot
-      configurationLimit = 8;
     };
-
-    # Required for measured boot
-    boot.initrd.systemd.enable = true;
 
     # Install sbctl key management and troubleshooting Secure Boot
     environment.systemPackages = [
