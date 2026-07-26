@@ -5,6 +5,7 @@
     imports = [
       # Include the results of the hardware scan.
       self.nixosModules.pantherHardware
+      self.nixosModules.secureboot
       self.nixosModules.pantherSystem
       self.nixosModules.niri
       self.nixosModules.myHomeManager
