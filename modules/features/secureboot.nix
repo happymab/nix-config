@@ -30,6 +30,9 @@
           7
         ];
       };
+
+      # 8 generations is the limit for measured boot
+      configurationLimit = 8;
     };
 
     # Required for measured boot
