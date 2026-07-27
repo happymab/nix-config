@@ -11,15 +11,19 @@
 
     boot.lanzaboote = {
       enable = true;
-      
+
       pkiBundle = "/var/lib/sbctl";
-      
+
       autoGenerateKeys.enable = true;
 
       autoEnrollKeys = {
         enable = true;
         autoReboot = true;
       };
+
+      # Keep 10 generations
+      configurationLimit = 10;
+
     };
 
     # Install sbctl key management and troubleshooting Secure Boot

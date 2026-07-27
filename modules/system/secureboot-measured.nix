@@ -17,7 +17,7 @@
       };
 
       # 8 generations is the limit for measured boot
-      configurationLimit = 8;
+      configurationLimit = lib.mkForce 8;
 
     };
 
