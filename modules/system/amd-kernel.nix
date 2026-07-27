@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 {
-  flake.nixosModules.amdKernel = { ... }: {
+  flake.nixosModules.amdKernel = { pkgs, ... }: {
     inherit pkgs;
 
     # Use latest kernel
