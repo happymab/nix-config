@@ -1,6 +1,5 @@
-{ config, lib, ... }:
+{ self, inputs, ... }: {
 
-{
   flake.nixosModules.amdKernel = { pkgs, ... }: {
     inherit pkgs;
 
