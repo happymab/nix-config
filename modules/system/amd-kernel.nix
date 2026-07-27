@@ -1,7 +1,6 @@
 { self, inputs, ... }: {
 
   flake.nixosModules.amdKernel = { pkgs, ... }: {
-#    inherit pkgs;
 
     # Use latest kernel
     boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -34,5 +33,9 @@
       "kvm-amd" # AMD-V virtualization
       "amdgpu" # Ensure loaded
     ];
+
+    # ── AMD microcode updates ────────────────────────────────────
+    hardware.cpu.amd.updateMicrocode = true;
+
   };
 }
