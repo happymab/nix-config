@@ -8,6 +8,7 @@
       self.nixosModules.securebootMeasured
       self.nixosModules.pantherSystem
       self.nixosModules.niri
+      self.nixosModules.amdAi
       self.nixosModules.myHomeManager
       self.nixosModules.mabUser
     ];
