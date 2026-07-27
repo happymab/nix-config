@@ -12,6 +12,8 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "video"
+        "render"
       ];
     };
 
@@ -29,7 +31,7 @@
         home.homeDirectory = "/home/mab";
       }
     ];
-  };  
+  };
 
   # Module to configure home-manager
   # It's imported both in standalone configuration above, and in nixos configuration
