@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
 
   flake.nixosModules.amdKernel = { pkgs, ... }: {
-    inherit pkgs;
+#    inherit pkgs;
 
     # Use latest kernel
     boot.kernelPackages = pkgs.linuxPackages_latest;
