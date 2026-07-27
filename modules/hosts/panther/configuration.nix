@@ -129,7 +129,6 @@
       enable = true;
       # enable32Bit = true; # If running 32-bit games via Steam/Proton
       extraPackages = with pkgs; [
-        amdvlk # AMD Vulkan driver (alternative to RADV)
         rocmPackages.clr.icd # OpenCL support
       ];
     };
