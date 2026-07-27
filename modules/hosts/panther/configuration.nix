@@ -47,6 +47,10 @@
       # Use latest kernel
       kernelPackages = pkgs.linuxPackages_latest;
 
+      # Kernel params
+      kernelParams = [
+        "amdgpu.ppfeaturemask=0xffffffff" # Unlock PowerPlay features for tuning
+      ];
     };
 
     networking = {
@@ -114,7 +118,20 @@
     };
 
     # Enable the X11 windowing system.
-    services.xserver.enable = false;
+    services.xserver = {
+      enable = false;
+      videoDrivers = [ "amdgpu" ];
+    };
+
+    # Mesa / OpenGL
+    hardware.graphics = {
+      enable = true;
+      # enable32Bit = true; # If running 32-bit games via Steam/Proton
+      extraPackages = with pkgs; [
+        amdvlk # AMD Vulkan driver (alternative to RADV)
+        rocmPackages.clr.icd # OpenCL support
+      ];
+    };
 
     # Enable the KDE Plasma Desktop Environment.
     services.displayManager.sddm.enable = true;

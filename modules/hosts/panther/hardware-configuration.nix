@@ -22,6 +22,7 @@
         "usb_storage"
         "sd_mod"
         "rtsx_pci_sdmmc"
+        "amdgpu" # Load amdgpu early (helps with display initialization during boot)
       ];
       boot.initrd.kernelModules = [ ];
       boot.kernelModules = [ "kvm-amd" ];
