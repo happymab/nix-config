@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.amdAi = { pkgs, lib, ... }: {
+  flake.nixosModules.amdNpuAi = { pkgs, lib, ... }: {
     imports = [ inputs.nix-amd-ai.nixosModules.default ];
 
     hardware.amd-npu = {
@@ -25,6 +25,12 @@
       ]; # GPU/NPU device access
     };
     users.groups.lemonade = { };
+
+    # ── Override GFX version for RDNA 3.5 (if needed) ────────────
+    # The Radeon 880M may need HSA_OVERRIDE for some ROCm operations.
+    # Uncomment if you encounter "unsupported GPU" errors
+    # (shouldn't be required with newer versions):
+    # systemd.services.lemond.environment.HSA_OVERRIDE_GFX_VERSION = "11.0.0";
 
     # Add binary cache (works only for trusted users)
     nix.settings = {

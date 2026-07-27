@@ -14,6 +14,7 @@
         "wheel"
         "video"
         "render"
+        "libvirtd"
       ];
     };
 

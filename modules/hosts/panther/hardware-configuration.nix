@@ -22,7 +22,6 @@
         "usb_storage"
         "sd_mod"
         "rtsx_pci_sdmmc"
-        "amdgpu" # Load amdgpu early (helps with display initialization during boot)
       ];
       boot.initrd.kernelModules = [ ];
       boot.kernelModules = [ "kvm-amd" ];
@@ -31,11 +30,6 @@
       fileSystems."/" = {
         device = "/dev/mapper/luks-b1b9b962-5559-4f25-9104-6c29f0f2da77";
         fsType = "btrfs";
-        options = [
-          "compress=zstd:3"
-          "noatime"
-          "discard=async"
-        ];
       };
 
       boot.initrd.luks.devices."luks-b1b9b962-5559-4f25-9104-6c29f0f2da77".device =
@@ -44,23 +38,13 @@
       fileSystems."/home" = {
         device = "/dev/mapper/luks-b1b9b962-5559-4f25-9104-6c29f0f2da77";
         fsType = "btrfs";
-        options = [
-          "subvol=home"
-          "compress=zstd:3"
-          "noatime"
-          "discard=async"
-        ];
+        options = [ "subvol=home" ];
       };
 
       fileSystems."/nix" = {
         device = "/dev/mapper/luks-b1b9b962-5559-4f25-9104-6c29f0f2da77";
         fsType = "btrfs";
-        options = [
-          "subvol=nix"
-          "compress=zstd:3"
-          "noatime"
-          "discard=async"
-        ];
+        options = [ "subvol=nix" ];
       };
 
       fileSystems."/boot" = {
