@@ -59,6 +59,13 @@
 
     };
 
+    # ZRam swap
+    zramSwap = {
+      enable = true;
+      memoryPercent = 50; # 50% of RAM = ~16 GB compressed swap
+      algorithm = "zstd";
+    };
+
     # Bluetooth
     hardware.bluetooth = {
       enable = true;
