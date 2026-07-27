@@ -66,6 +66,24 @@
       algorithm = "zstd";
     };
 
+    # Btrfs house keeping
+    systemd = {
+      services.btrfs-scrub = {
+        description = "Btrfs scrub";
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${pkgs.btrfs-progs}/bin/btrfs scrub start -B /";
+        };
+      };
+      timers.btrfs-scrub = {
+        wantedBy = [ "timers.target" ];
+        timerConfig = {
+          OnCalendar = "monthly";
+          Persistent = true;
+        };
+      };
+    };
+
     # Bluetooth
     hardware.bluetooth = {
       enable = true;
