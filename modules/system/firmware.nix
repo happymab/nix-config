@@ -10,6 +10,6 @@
     hardware.enableRedistributableFirmware = true;
 
     # If you need proprietary/non-redistributable firmware:
-    # hardware.enableAllFirmware = true;
+    hardware.enableAllFirmware = true;
   };
 }
