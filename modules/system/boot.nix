@@ -6,7 +6,7 @@
       theme = "breeze"; # Matches KDE Plasma aesthetic
 
       themePackages = with pkgs; [
-        breeze # Default KDE theme (optional, but recommended)
+        # breeze # Default KDE theme (optional, but recommended)
       ];
     };
 
