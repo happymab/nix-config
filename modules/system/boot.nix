@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.modules.nixos.boot = { pkgs, ... }: {
+  flake.nixosModules.boot = { pkgs, ... }: {
     # ── Plymouth for Silent Boot ─────────────────────────────────
     boot.plymouth = {
       enable = true;
