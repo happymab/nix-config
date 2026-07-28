@@ -14,7 +14,6 @@
     # ── Packages ─────────────────────────────────────────────────
     environment.systemPackages = with pkgs; [
       powertop # Diagnosis
-      powerprofilesctl # CLI to check/set profile
     ];
   };
 }
