@@ -9,9 +9,9 @@
     services.xserver.videoDrivers = [ "amdgpu" ];
 
     # ── Unlock PowerPlay for manual GPU tuning ──────────────────
-    boot.kernelParams = [
-      "amdgpu.ppfeaturemask=0xffffffff"
-    ];
+    # boot.kernelParams = [
+    #   "amdgpu.ppfeaturemask=0xffffffff"
+    # ];
 
     # ── Graphics / Mesa ──────────────────────────────────────────
     hardware.graphics = {
