@@ -8,9 +8,9 @@
 
       # ── Boot manager ──────────────────────────────────────────
       self.nixosModules.securebootMeasured
+      self.nixosModules.silentBoot
 
       # ── System modules ────────────────────────────────────────
-      self.nixosModules.boot
       self.nixosModules.btrfsFilesystem
       self.nixosModules.zramSwap
       self.nixosModules.radeonGpu

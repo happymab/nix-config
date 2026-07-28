@@ -1,10 +1,24 @@
 { self, inputs, ... }: {
-  flake.nixosModules.boot = { pkgs, ... }: {
+  flake.nixosModules.silentBoot = { pkgs, ... }: {
     # ── Plymouth for Silent Boot ──────────────────────────────────
-    boot.plymouth = {
-      enable = true;
-      theme = "breeze"; # Matches KDE Plasma aesthetic
+    boot = {
+      plymouth = {
+        enable = true;
+      };
 
+      # Enable "Silent boot"
+      consoleLogLevel = 3;
+      initrd.verbose = false;
+      kernelParams = [
+        "quiet"
+        "rd.udev.log_level=3"
+        "rd.systemd.show_status=auto"
+      ];
+
+      # Optionally hide the OS choice for bootloaders.
+      # It's still possible to open the bootloader list by pressing any key
+      # It will just not appear on screen unless a key is pressed
+      # loader.timeout = 0;
     };
   };
 }
