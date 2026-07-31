@@ -19,13 +19,13 @@
 
         # apparmor policies
         policies = {
-          "default_deny" = {
-            enforce = false;
-            enable = false;
-            profile = ''
-              profile default_deny /** { }
-            '';
-          };
+          # "default_deny" = {
+          #   enforce = false;
+          #   enable = false;
+          #   profile = ''
+          #     profile default_deny /** { }
+          #   '';
+          # };
 
           "sudo" = {
             enforce = false;
