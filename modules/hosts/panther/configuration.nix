@@ -19,8 +19,8 @@
       self.nixosModules.firmware
       self.nixosModules.amdKernel
       self.nixosModules.nixConfig
-      self.nixosModules.appArmor
       self.nixosModules.networking
+      self.nixosModules.appArmor
       self.nixosModules.bluetooth
       self.nixosModules.audio
       self.nixosModules.locale

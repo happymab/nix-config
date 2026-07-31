@@ -1,17 +1,62 @@
 { self, inputs, ... }: {
-  flake.nixosModules.appArmor = { pkgs, ... }: {
+  flake.nixosModules.appArmor =
+    {
+      config,
+      pkgs,
+      ...
+    }:
+    {
+      services.dbus.apparmor = "enabled";
+      security.apparmor = {
+        enable = true;
 
-    # Enable AppArmor
-    security.apparmor = {
-      enable = true;
-      
-      # Import the roddhjav-apparmor-rules from the apparmor.d project
-      # (maintained by roddhjav on GitHub). The package contains over 
-      # 1,500 profiles designed to confine most common Linux services 
-      # and desktop apps.
-      packages = [
-        pkgs.roddhjav-apparmor-rules
+        # kill process that are not confined but have apparmor profiles enabled
+        killUnconfinedConfinables = true;
+        packages = with pkgs; [
+          apparmor-utils
+          apparmor-profiles
+        ];
+
+        # apparmor policies
+        policies = {
+          "default_deny" = {
+            enforce = false;
+            enable = false;
+            profile = ''
+              profile default_deny /** { }
+            '';
+          };
+
+          "sudo" = {
+            enforce = false;
+            enable = false;
+            profile = ''
+              ${pkgs.sudo}/bin/sudo {
+                file /** rwlkUx,
+              }
+            '';
+          };
+
+          "nix" = {
+            enforce = false;
+            enable = false;
+            profile = ''
+              ${config.nix.package}/bin/nix {
+                unconfined,
+              }
+            '';
+          };
+        };
+      };
+
+      environment.systemPackages = with pkgs; [
+        apparmor-bin-utils
+        apparmor-profiles
+        apparmor-parser
+        libapparmor
+        apparmor-kernel-patches
+        apparmor-pam
+        apparmor-utils
       ];
     };
-  };
 }
