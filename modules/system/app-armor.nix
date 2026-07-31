@@ -27,25 +27,25 @@
           #   '';
           # };
 
-          "sudo" = {
-            enforce = false;
-            enable = false;
-            profile = ''
-              ${pkgs.sudo}/bin/sudo {
-                file /** rwlkUx,
-              }
-            '';
-          };
+          # "sudo" = {
+          #   enforce = false;
+          #   enable = false;
+          #   profile = ''
+          #     ${pkgs.sudo}/bin/sudo {
+          #       file /** rwlkUx,
+          #     }
+          #   '';
+          # };
 
-          "nix" = {
-            enforce = false;
-            enable = false;
-            profile = ''
-              ${config.nix.package}/bin/nix {
-                unconfined,
-              }
-            '';
-          };
+          # "nix" = {
+          #   enforce = false;
+          #   enable = false;
+          #   profile = ''
+          #     ${config.nix.package}/bin/nix {
+          #       unconfined,
+          #     }
+          #   '';
+          # };
         };
       };
 
