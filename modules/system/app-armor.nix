@@ -54,7 +54,7 @@
         apparmor-profiles
         apparmor-parser
         libapparmor
-        apparmor-kernel-patches
+        # apparmor-kernel-patches
         apparmor-pam
         apparmor-utils
       ];
