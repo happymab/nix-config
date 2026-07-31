@@ -19,6 +19,7 @@
       self.nixosModules.firmware
       self.nixosModules.amdKernel
       self.nixosModules.nixConfig
+      self.nixosModules.appArmor
       self.nixosModules.networking
       self.nixosModules.bluetooth
       self.nixosModules.audio
@@ -26,8 +27,6 @@
       self.nixosModules.shell
       self.nixosModules.basePackages
       self.nixosModules.desktopKde
-
-      self.nixosModules.pantherSystem
 
       # ── Home-manager ──────────────────────────────────────────
       self.nixosModules.myHomeManager
@@ -37,10 +36,6 @@
       self.nixosModules.niri
       self.nixosModules.virtualization
     ];
-
-  };
-
-  flake.nixosModules.pantherSystem = { pkgs, ... }: {
 
     # Define the host name
     networking.hostName = "panther";
