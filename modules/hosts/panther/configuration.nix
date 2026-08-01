@@ -34,6 +34,9 @@
       # ── Features ──────────────────────────────────────────────
       self.nixosModules.niri
       self.nixosModules.virtualization
+      self.nixosModules.docker
+      self.nixosModules.podman
+      self.nixosModules.distrobox
     ];
 
     # Define the host name

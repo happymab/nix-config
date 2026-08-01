@@ -15,6 +15,7 @@
         "video"
         "render"
         "libvirtd"
+        "podman"
       ];
     };
 
