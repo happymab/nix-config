@@ -9,7 +9,7 @@
           mkProfileEntry = name: profileDir: {
             "${name}" = {
               inherit name;
-              exec = "brave-browser --profile-directory=\"${profileDir}\" %U";
+              exec = "brave --profile-directory=\"${profileDir}\" %U";
               icon = "brave";
               categories = [
                 "Network"
