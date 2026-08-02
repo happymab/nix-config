@@ -17,7 +17,7 @@
               ];
               terminal = false;
               comment = "Brave - ${name} Profile";
-              startupWMClass = "Brave-browser";
+              settings.StartupWMClass = "Brave-browser";
             };
           };
         in
