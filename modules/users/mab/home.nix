@@ -29,7 +29,7 @@
     modules = [
       self.homeModules.mabModule
       {
-        home.mab = "mab";
+        home.username = "mab";
         home.homeDirectory = "/home/mab";
       }
     ];
@@ -39,7 +39,7 @@
   # It's imported both in standalone configuration above, and in nixos configuration
   flake.homeModules.mabModule = { pkgs, ... }: {
 
-    modules = [
+    imports = [
       self.homeModules.braveConfigMab
     ];
 
@@ -52,7 +52,7 @@
       kdePackages.kate
 
       # Brave browser
-      brave
+      # brave
 
       # Proton
       proton-vpn
