@@ -39,6 +39,10 @@
   # It's imported both in standalone configuration above, and in nixos configuration
   flake.homeModules.mabModule = { pkgs, ... }: {
 
+    modules = [
+      self.homeModules.braveConfigMab
+    ];
+
     programs.bash.enable = true;
     programs.bash.shellAliases.ll = "ls -l";
 
