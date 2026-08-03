@@ -6,7 +6,7 @@
 
       # Install custom icons to the icon theme directory
       home.file = {
-        ".local/share/icons/brave-default.png".source = ./assets/icons/brave.png;
+        ".local/share/icons/brave-default.png".source = "${self}/assets/icons/brave.png";
         ".local/share/icons/brave-personal.png".source = ./assets/icons/brave_blue.png;
         ".local/share/icons/brave-work.png".source = ./assets/icons/brave_pink.png;
       };
