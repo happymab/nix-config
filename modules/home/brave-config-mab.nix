@@ -2,48 +2,35 @@
   flake.homeModules.braveConfigMab = { pkgs, lib, ... }: {
 
     config = {
-      home.file = builtins.listToAttrs (
-        map
-          (name: {
-            name = ".local/share/icons/brave_${name}.png";
-            value.source = "${./.}/assets/icons/${name}.png";
-          })
-          [
-            "blue"
-            "green"
-            "pink"
-          ]
-      );
+      home.packages = [ pkgs.brave ];
+
+      # Install custom icons to the icon theme directory
+      home.file = {
+        ".local/share/icons/brave-default.png".source = ./assets/icons/brave.png;
+        ".local/share/icons/brave-personal.png".source = ./assets/icons/brave_blue.png;
+        ".local/share/icons/brave-work.png".source = ./assets/icons/brave_pink.png;
+      };
 
       xdg.desktopEntries =
         let
-          profiles = {
-            "Default" = {
-              dir = "Default";
-              icon = "brave_blue";
-            };
-            "Personal" = {
-              dir = "Personal";
-              icon = "brave_green";
-            };
-            "Work" = {
-              dir = "Work";
-              icon = "brave_pink";
+          mkProfileEntry = name: profileDir: iconName: {
+            "${name}" = {
+              inherit name;
+              exec = "brave --profile-directory=\"${profileDir}\" %U";
+              icon = "brave-${name}"; # Matches the filename without extension
+              categories = [
+                "Network"
+                "WebBrowser"
+              ];
+              terminal = false;
+              comment = "Brave - ${name} Profile";
+              settings.StartupWMClass = "Brave-browser";
             };
           };
         in
-        builtins.mapAttrs (_: p: {
-          name = "Brave - ${p.name}";
-          exec = "brave --profile-directory=\"${p.dir}\" %U";
-          icon = p.icon;
-          categories = [
-            "Network"
-            "WebBrowser"
-          ];
-          terminal = false;
-          comment = "Brave - ${p.name} Profile";
-          settings.StartupWMClass = "Brave-browser";
-        }) profiles;
+        mkProfileEntry "Default" "Default" "default"
+        // mkProfileEntry "Personal" "Personal" "personal"
+        // mkProfileEntry "Work" "Work" "work";
     };
 
   };
