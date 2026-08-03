@@ -6,9 +6,9 @@
 
       # Install custom icons to the icon theme directory
       home.file = {
-        "/home/mab/.local/share/icons/brave-default.png".source = "./assets/icons/brave.png";
-        "/home/mab/.local/share/icons/brave-personal.png".source = ./assets/icons/brave_blue.png;
-        "/home/mab/.local/share/icons/brave-work.png".source = ./assets/icons/brave_pink.png;
+        ".local/share/icons/brave-default.png".source = ./assets/icons/brave.png;
+        ".local/share/icons/brave-personal.png".source = ./assets/icons/brave_blue.png;
+        ".local/share/icons/brave-work.png".source = ./assets/icons/brave_pink.png;
       };
 
       xdg.desktopEntries =
