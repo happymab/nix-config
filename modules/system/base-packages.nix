@@ -11,6 +11,7 @@
       git
       vim
       wget
+      restic
       # Add more packages here as needed
     ];
   };
