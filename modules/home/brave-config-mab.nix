@@ -4,30 +4,24 @@
     config = {
       home.packages = [ pkgs.brave ];
 
-      # Install icons into the hicolor icon theme hierarchy
+      # Install icons
       home.file = {
-        ".local/share/icons/brave-default.png".source = ./assets/icons/brave.png;
-        ".local/share/icons/brave-personal.png".source = ./assets/icons/brave_blue.png;
-        ".local/share/icons/brave-work.png".source = ./assets/icons/brave_pink.png;
-
-        # ".local/share/icons/hicolor/48x48/apps/brave-default.png".source = ./assets/icons/brave.png;
-        # ".local/share/icons/hicolor/48x48/apps/brave-personal.png".source = ./assets/icons/brave_blue.png;
-        # ".local/share/icons/hicolor/48x48/apps/brave-work.png".source = ./assets/icons/brave_pink.png;
-
-        # Also install larger sizes for sharper rendering at high DPI
-        # ".local/share/icons/hicolor/256x256/apps/brave-default.png".source = ./assets/icons/brave.png;
-        # ".local/share/icons/hicolor/256x256/apps/brave-personal.png".source = ./assets/icons/brave_blue.png;
-        # ".local/share/icons/hicolor/256x256/apps/brave-work.png".source = ./assets/icons/brave_pink.png;
+        ".local/share/icons/brave_blue.png".source = ./assets/icons/brave_blue.png;
+        ".local/share/icons/brave_pink.png".source = ./assets/icons/brave_pink.png;
+        ".local/share/icons/brave_green.png".source = ./assets/icons/brave_green.png;
+        ".local/share/icons/brave_red.png".source = ./assets/icons/brave_red.png;
+        ".local/share/icons/brave_yellow.png".source = ./assets/icons/brave_yellow.png;
+        ".local/share/icons/brave_orange.png".source = ./assets/icons/brave_orange.png;
+        ".local/share/icons/brave_purple.png".source = ./assets/icons/brave_purple.png;
       };
 
       xdg.desktopEntries =
         let
-          # Use iconName (lowercase) for the icon lookup, not name (capitalized)
           mkProfileEntry = name: profileDir: iconName: {
             "${name}" = {
               inherit name;
               exec = "brave --profile-directory=\"${profileDir}\" %U";
-              icon = iconName; # Just the name, no path, no extension
+              icon = iconName;
               categories = [
                 "Network"
                 "WebBrowser"
@@ -38,10 +32,13 @@
             };
           };
         in
-        mkProfileEntry "Default" "Default" "brave-default"
-        // mkProfileEntry "Personal" "Personal" "brave-personal"
-        // mkProfileEntry "Work" "Work" "brave-work";
+        mkProfileEntry "Default" "Standard" "brave_blue"
+        // mkProfileEntry "Development" "Development" "brave_pink"
+        // mkProfileEntry "Investing" "Investing" "brave_green"
+        // mkProfileEntry "Banking" "Banking" "brave_red"
+        // mkProfileEntry "VentureWise" "Venture Wise" "brave_yellow"
+        // mkProfileEntry "Crypto" "Crypto" "brave_orange"
+        // mkProfileEntry "Proton" "Proton" "brave_purple";
     };
-
   };
 }
