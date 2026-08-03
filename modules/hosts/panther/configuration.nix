@@ -26,6 +26,7 @@
       self.nixosModules.shell
       self.nixosModules.basePackages
       self.nixosModules.desktopKde
+      self.nixosModules.flatpak
 
       # ── Home-manager ──────────────────────────────────────────
       self.nixosModules.myHomeManager
