@@ -1,6 +1,8 @@
 { self, inputs, ... }: {
   flake.nixosModules.podman = { pkgs, ... }: {
 
+    environment.systemPackages = [ pkgs.podman-desktop ];
+
     virtualisation = {
       containers.enable = true;
       podman = {
