@@ -15,11 +15,14 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.1.0";
-
-      # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     # AMD NPU drivers and local lemonade AI server
     nix-amd-ai.url = "github:noamsto/nix-amd-ai";
   };
