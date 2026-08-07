@@ -4,7 +4,7 @@
 
     imports = [
       # ── Hardware ──────────────────────────────────────────────
-      self.nixosModules.nixos-vmHardware
+      self.nixosModules.hostNixos-vm
 
       # ── Disko ─────────────────────────────────────────────────
       inputs.disko.nixosModules.disko
@@ -31,8 +31,8 @@
       self.nixosModules.mabUser
 
       # ── Features ──────────────────────────────────────────────
-      # self.nixosModules.niri
-      # self.nixosModules.docker
+      self.nixosModules.niri
+      self.nixosModules.docker
       self.nixosModules.podman
       self.nixosModules.distrobox
     ];
