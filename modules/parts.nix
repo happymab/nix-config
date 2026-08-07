@@ -4,7 +4,7 @@
     inputs.home-manager.flakeModules.home-manager
 
     # adds disko options to flake-parts
-    inputs.disko.nixosModules.disko
+    # inputs.disko.nixosModules.disko
   ];
 
   config.systems = [

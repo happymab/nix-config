@@ -7,9 +7,8 @@
     users.users."mab" = {
       isNormalUser = true;
       shell = pkgs.bash; # define shell
-      # initialHashedPassword = "$y$j9T$mqXVyJk/jjF75FmL.6UsV0$N5QecXnSDe94jr9Fxh5NFjMmNSF9a63O5LZb8b9v1l0";
-      # initialPassword = "welcome";
-
+      initialHashedPassword = "$y$j9T$mqXVyJk/jjF75FmL.6UsV0$N5QecXnSDe94jr9Fxh5NFjMmNSF9a63O5LZb8b9v1l0";
+      
       # Add user to groups
       extraGroups = [
         "networkmanager"
