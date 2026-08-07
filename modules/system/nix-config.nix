@@ -26,8 +26,21 @@
     nix.gc = {
       automatic = true;
       dates = "daily";
+      randomizedDelaySec = "30min";
       options = "--delete-older-than 30d";
     };
+
+    # Automatic updates
+    system.autoUpgrade = {
+      enable = true;
+      allowReboot = false;
+      flake = inputs.self.outPath; # References the current flake
+      flags = [
+        "-L" # print build logs
+      ];
+      dates = "daily";
+      randomizedDelaySec = "30min";
+    };    
 
   };
 }

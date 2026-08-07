@@ -33,22 +33,25 @@
                       "/root" = {
                         mountpoint = "/";
                         mountOptions = [
-                          "compress=zstd"
-                          "noatime"
+                        "compress=zstd:3" # Good ratio/speed balance
+                        "noatime" # Don't write access timestamps
+                        "discard=async" # Background TRIM (modern SSDs)
                         ];
                       };
                       "/home" = {
                         mountpoint = "/home";
                         mountOptions = [
-                          "compress=zstd"
-                          "noatime"
+                        "compress=zstd:3"
+                        "noatime"
+                        "discard=async"
                         ];
                       };
                       "/nix" = {
                         mountpoint = "/nix";
                         mountOptions = [
-                          "compress=zstd"
-                          "noatime"
+                        "compress=zstd:3"
+                        "noatime"
+                        "discard=async"
                         ];
                       };
                     };

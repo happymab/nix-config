@@ -3,7 +3,7 @@
     # Bluetooth
     hardware.bluetooth = {
       enable = true;
-      powerOnBoot = false; # Set to true if you want BT to start automatically on boot
+      powerOnBoot = true;
 
       settings = {
         General = {

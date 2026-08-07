@@ -16,6 +16,7 @@
       self.nixosModules.silentBoot
 
       # ── System modules ────────────────────────────────────────
+      self.nixosModules.security
       self.nixosModules.btrfsFilesystem
       self.nixosModules.zramSwap
       self.nixosModules.nixConfig
