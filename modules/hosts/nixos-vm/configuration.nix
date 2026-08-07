@@ -10,7 +10,6 @@
       inputs.disko.nixosModules.disko
       self.diskoConfigurations.hostNixos-vm
 
-
       # ── Boot manager ──────────────────────────────────────────
       self.nixosModules.secureboot
       self.nixosModules.silentBoot
