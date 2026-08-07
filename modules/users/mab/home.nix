@@ -15,7 +15,7 @@
         "wheel"
         "video"
         "render"
-        "libvirtd"
+        # "libvirtd"
         "podman"
       ];
     };
