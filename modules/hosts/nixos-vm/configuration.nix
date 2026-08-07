@@ -31,9 +31,8 @@
       self.nixosModules.mabUser
 
       # ── Features ──────────────────────────────────────────────
-      self.nixosModules.niri
-      self.nixosModules.virtualization
-      self.nixosModules.docker
+      # self.nixosModules.niri
+      # self.nixosModules.docker
       self.nixosModules.podman
       self.nixosModules.distrobox
     ];
