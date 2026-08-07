@@ -9,7 +9,7 @@
             type = "gpt";
             partitions = {
               ESP = {
-                size = "512M";
+                size = "1G";
                 type = "EF00";
                 content = {
                   type = "filesystem";
@@ -23,13 +23,9 @@
                 content = {
                   type = "luks";
                   name = "crypted";
-                  # disable settings.keyFile if you want to use interactive password entry
-                  # passwordFile = "/tmp/secret.key"; # Interactive
                   settings = {
                     allowDiscards = true;
-                    # keyFile = "/tmp/secret.key";
                   };
-                  # additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
                   content = {
                     type = "btrfs";
                     extraArgs = [ "-f" ];
@@ -54,10 +50,6 @@
                           "compress=zstd"
                           "noatime"
                         ];
-                      };
-                      "/swap" = {
-                        mountpoint = "/.swapvol";
-                        swap.swapfile.size = "20M";
                       };
                     };
                   };
