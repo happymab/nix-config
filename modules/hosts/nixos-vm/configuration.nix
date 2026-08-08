@@ -1,13 +1,13 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.nixos-vmConfiguration = { pkgs, lib, ... }: {
+  flake.nixosModules.nixos-vmConfiguration = { pkgs, lib, disko, ... }: {
 
     imports = [
       # ── Hardware ──────────────────────────────────────────────
       self.nixosModules.hostNixos-vm
 
       # ── Disko ─────────────────────────────────────────────────
-      self.nixosModules.myDisko
+      disko.nixosModules.default
       self.diskoConfigurations.hostNixos-vm
 
       # ── Boot manager ──────────────────────────────────────────
