@@ -1,0 +1,25 @@
+{ self, inputs, ... }: {
+  flake.nixosModules.silentBoot = { pkgs, lib, ... }: {
+    # ── Plymouth for Silent Boot ──────────────────────────────────
+    boot = {
+      plymouth = {
+        enable = true;
+      };
+
+      # Enable "Silent boot"
+      consoleLogLevel = 3;
+      initrd.verbose = false;
+      kernelParams = [
+        "quiet"
+        "rd.udev.log_level=3"
+        "rd.systemd.show_status=auto"
+      ];
+
+      # Optionally hide the OS choice for bootloaders.
+      # It's still possible to open the bootloader list by pressing any key
+      # It will just not appear on screen unless a key is pressed
+      # loader.timeout = 0;
+      loader.timeout = lib.mkDefault 2;
+    };
+  };
+}

@@ -6,26 +6,34 @@
     };
   };
 
-  perSystem = { pkgs, lib, self', ... }: {
-    packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
-      inherit pkgs; # THIS PART IS VERY IMPORTAINT, I FORGOT IT IN THE VIDEO!!!
-      settings = {
-        spawn-at-startup = [
-          (lib.getExe self'.packages.myNoctalia)
-        ];
+  perSystem =
+    {
+      pkgs,
+      lib,
+      self',
+      ...
+    }:
+    {
+      packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
+        inherit pkgs;
+        settings = {
 
-        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+          spawn-at-startup = [
+            (lib.getExe self'.packages.myNoctalia)
+          ];
 
-        input.keyboard.xkb.layout = "us,ua";
+          xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
-        layout.gaps = 5;
+          input.keyboard.xkb.layout = "us,ua";
 
-        binds = {
-          "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
-          "Mod+Q".close-window = null;
-          "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          layout.gaps = 5;
+
+          binds = {
+            "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
+            "Mod+Q".close-window = { };
+            "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          };
         };
       };
     };
-  };
 }
