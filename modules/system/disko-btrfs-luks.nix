@@ -1,11 +1,11 @@
 { self, inputs, ... }: {
-  flake.nixosModules.diskoBtrfsLuks = {
+  flake.nixosModules.diskoBtrfsLuks = { lib, ...}: {
     imports = [ inputs.disko.nixosModules.default ];
 
     disko.devices = {
       disk.main = {
         type = "disk";
-        device = "/dev/disk/by-id/drive-ID"; # Placeholder, override in host configuration
+        device = lib.mkDefault "/dev/disk/by-id/drive-ID"; # Placeholder, override in host configuration
         content = {
           type = "gpt";
           partitions = {
