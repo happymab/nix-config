@@ -2,8 +2,6 @@
   imports = [
     # adds home-manager options to flake-parts
     inputs.home-manager.flakeModules.home-manager
-
-    inputs.disko.nixosModules.disko
   ];
 
   config.systems = [

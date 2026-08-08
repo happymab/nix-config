@@ -1,5 +1,6 @@
-{
-  flake.diskoConfigurations.hostNixos-vm = {
+{ self, inputs, ... }: {
+
+  flake.diskoConfigurations.hostNixos-vm = { pkgs, ... }: {
     disko.devices = {
       disk = {
         main = {
