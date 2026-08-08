@@ -44,7 +44,7 @@
     ];
 
     # Disko drive definition
-    den.aspects.nixos-vm.nixos = diskoBtrfsLuks { device = "/dev/vda"; };
+    diskoConfigurations = diskoBtrfsLuks { device = "/dev/vda"; };
     # disko.devices.disk.main.device = "/dev/vda";
 
     # Define the host name
