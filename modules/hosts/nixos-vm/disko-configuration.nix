@@ -3,7 +3,7 @@
   flake.diskoConfigurations.hostNixos-vm = { pkgs, ... }: {
     disko.devices = {
       disk = {
-        main = {
+        main-vm = {
           type = "disk";
           device = "/dev/vda";
           content = {
