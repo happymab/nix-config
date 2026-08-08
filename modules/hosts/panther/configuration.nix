@@ -44,7 +44,7 @@
     ];
 
     # Disko drive definition
-    nixos.disko.devices.disk.main.device = "/dev/vda";
+    disko.devices.disk.main.device = "/dev/vda";
 
     # Define the host name
     networking.hostName = "panther";
