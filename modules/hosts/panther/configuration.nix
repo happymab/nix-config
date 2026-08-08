@@ -8,7 +8,7 @@
 
       # ── Disko ─────────────────────────────────────────────────
       disko.nixosModules.default
-      self.diskoConfigurations.hostPanther
+      ./disko-configuration.nix
 
       # ── Boot manager ──────────────────────────────────────────
       self.nixosModules.securebootMeasured

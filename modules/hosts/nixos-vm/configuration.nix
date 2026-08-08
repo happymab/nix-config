@@ -8,7 +8,7 @@
 
       # ── Disko ─────────────────────────────────────────────────
       disko.nixosModules.default
-      self.diskoConfigurations.hostNixos-vm
+      ./disko-configuration.nix
 
       # ── Boot manager ──────────────────────────────────────────
       self.nixosModules.secureboot
