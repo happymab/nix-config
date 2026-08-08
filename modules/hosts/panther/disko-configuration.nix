@@ -1,9 +1,9 @@
 {
-  disko.devices = {
+  devices = {
     disk = {
       main = {
         type = "disk";
-        
+
         # CAUTION: Select the correct disk device! 
         device = "/dev/disk/by-id/ata-INTEL_SSDSCKJF180A5_SATA_180GB_CVTQ6176031L180A";  # External SSD 180GB for testing
         # device = "/dev/disk/by-id/nvme-WD_BLACK_SN850X_2000GB_25133E806030";  # Primary SSD 2000GB
