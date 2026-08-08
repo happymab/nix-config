@@ -7,6 +7,7 @@
       self.nixosModules.hostNixos-vm
 
       # ── Disko ─────────────────────────────────────────────────
+      self.nixosModules.myDisko
       self.diskoConfigurations.hostNixos-vm
 
       # ── Boot manager ──────────────────────────────────────────
