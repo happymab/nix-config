@@ -3,7 +3,6 @@
     # adds home-manager options to flake-parts
     inputs.home-manager.flakeModules.home-manager
 
-    # adds disko to flake-parts
     inputs.disko.nixosModules.disko
   ];
 
