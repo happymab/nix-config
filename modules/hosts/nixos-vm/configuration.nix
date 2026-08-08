@@ -37,8 +37,8 @@
     ];
 
     # Disko drive definition
-    disko = self.nixosModules.diskoBtrfsLuks;
-    disko.devices.disk.main.device = "/dev/vda";
+    disko = self.nixosModules.diskoBtrfsLuks { device = "/dev/vda"; };
+    # disko.devices.disk.main.device = "/dev/vda";
 
     # Define the hostname
     networking.hostName = "nixos-vm";
