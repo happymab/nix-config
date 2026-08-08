@@ -9,7 +9,7 @@
 
   # This option allows to define disko configurations for different hosts in different flakes
   # Required for merging disko configurations from different flakes into one configuration
-  options.flake.diskoConfigurations = { pkgs, lib, ... }: lib.mkOption {
+  options.diskoConfigurations = { pkgs, lib, ... }: lib.mkOption {
     type = lib.types.attrsOf lib.types.anything;
     default = {};
   };  
