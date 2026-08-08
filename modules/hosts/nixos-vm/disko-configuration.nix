@@ -1,9 +1,8 @@
-{ self, inputs, ... }: {
-
-  flake.diskoConfigurations.hostNixos-vm = { pkgs, ... }: {
+{
+  flake.diskoConfigurations.hostNixos-vm = {
     disko.devices = {
       disk = {
-        main-vm = {
+        main = {
           type = "disk";
           device = "/dev/vda";
           content = {
