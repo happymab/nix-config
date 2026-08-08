@@ -1,9 +1,11 @@
-{
-  disko.devices = {
-    disk = {
-      main = {
+{ self, inputs, ... }: {
+  flake.nixosModules.diskoBtrfsLuks = {
+    imports = [ inputs.disko.nixosModules.default ];
+
+    disko.devices = {
+      disk.main = {
         type = "disk";
-        device = "/dev/vda";
+        device = "/dev/disk/by-id/drive-ID"; # Placeholder, override in host configuration
         content = {
           type = "gpt";
           partitions = {
@@ -60,6 +62,6 @@
           };
         };
       };
-    };
+    };    
   };
-}
+}   

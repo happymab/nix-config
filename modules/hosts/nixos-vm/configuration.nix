@@ -7,8 +7,7 @@
       self.nixosModules.hostNixos-vm
 
       # ── Disko ─────────────────────────────────────────────────
-      disko.nixosModules.default
-      ./disko-configuration.nix
+      self.nixosModules.diskoBtrfsLuks
 
       # ── Boot manager ──────────────────────────────────────────
       self.nixosModules.secureboot
@@ -37,6 +36,8 @@
       self.nixosModules.distrobox
     ];
 
+    # Disko drive definition
+    nixos.disko.devices.disk.main.device = "/dev/vda";
 
     # Define the hostname
     networking.hostName = "nixos-vm";
