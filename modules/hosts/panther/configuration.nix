@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.pantherConfiguration = { pkgs, lib, ... }: {
+  flake.nixosModules.pantherConfiguration = { pkgs, lib, disko, ... }: {
 
     imports = [
       # ── Hardware ──────────────────────────────────────────────
