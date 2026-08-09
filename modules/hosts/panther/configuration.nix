@@ -36,6 +36,7 @@
       self.nixosModules.mabUser
 
       # ── Features ──────────────────────────────────────────────
+      self.nixosModules.flatpak
       self.nixosModules.niri
       self.nixosModules.virtualization
       self.nixosModules.docker
