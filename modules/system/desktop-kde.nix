@@ -1,9 +1,7 @@
 { self, inputs, ... }: {
   flake.nixosModules.desktopKde = { pkgs, ... }: {
     # Enable Wayland (X11 is disabled intentionally for modern KDE/Plasma 6)
-    services.xserver = {
-      enable = false;
-    };
+    services.xserver = { enable = false; };
 
     # Configure keymap for display manager (Wayland session still uses this)
     services.xserver.xkb = {
@@ -23,5 +21,14 @@
     services.xserver.displayManager.sessionCommands = ''
       # Additional session commands if needed
     '';
+
+    # Enable KDE-specific services and features
+    programs.kdeconnect.enable = true;
+    programs.partition-manager.enable = true;
+    programs.kde-gtk-config.enable = true;
+
+    environment.systemPackages = with pkgs; [ 
+      kdePackages.ksystemlog 
+    ];
   };
 }
