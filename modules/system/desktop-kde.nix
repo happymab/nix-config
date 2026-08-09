@@ -25,7 +25,6 @@
     # Enable KDE-specific services and features
     programs.kdeconnect.enable = true;
     programs.partition-manager.enable = true;
-    programs.kde-gtk-config.enable = true;
 
     environment.systemPackages = with pkgs; [ 
       kdePackages.ksystemlog 
