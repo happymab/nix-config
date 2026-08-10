@@ -40,9 +40,15 @@
       enable = true;
 
       # Plugins
-      ohMyZsh = {
+      oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "z" "zsh-autosuggestions" "zsh-syntax-highlighting" ];
+        plugins = [
+          "git"
+          "z"
+          "zsh-autosuggestions"
+          "zsh-autocomplete"
+          "zsh-syntax-highlighting"
+        ];
       };
 
       # Shell options
