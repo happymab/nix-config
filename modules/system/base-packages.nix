@@ -5,7 +5,7 @@
 
     programs = {
       # Enable zsh program at system level
-      zsh.enable = true;
+      # zsh.enable = true;
 
       # Install firefox.
       firefox.enable = true;
