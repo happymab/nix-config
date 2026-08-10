@@ -4,20 +4,18 @@
     nixpkgs.config.allowUnfree = true;
 
     programs = {
-      # Enable Zsh
-      zsh.enable = true;
 
       # Install firefox.
       firefox.enable = true;
     };
 
+    # Enable multiple shells
+    environment.shells = with pkgs; [ bash zsh fish ];
+
+    # Default shell for new users
+    users.defaultUserShell = pkgs.bash;
+
     # List packages installed in system profile
-    environment.systemPackages = with pkgs; [
-      git
-      vim
-      wget
-      bash
-      fish
-    ];
+    environment.systemPackages = with pkgs; [ git vim wget ];
   };
 }

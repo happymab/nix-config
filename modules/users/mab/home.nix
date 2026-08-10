@@ -38,32 +38,8 @@
 
     imports = [ self.homeModules.braveConfigMab ];
 
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-
-      shellAliases = {
-        ll = "ls -l";
-        la = "ls -la";
-        edit = "sudo -e";
-        update = "sudo nixos-rebuild switch";
-      };
-
-      history.size = 10000;
-      history.ignoreAllDups = true;
-      history.path = "$HOME/.zsh_history";
-      history.ignorePatterns = [ "rm *" "pkill *" "cp *" ];
-    };
-
-    # programs.firefox.enable = true;
-
     home.packages = with pkgs; [
       kdePackages.kate
-
-      # Brave browser
-      # brave
 
       # Proton
       proton-vpn
