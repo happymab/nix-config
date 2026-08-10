@@ -46,9 +46,7 @@
       syntaxHighlighting.enable = true;
 
       # Make sure shellInit runs
-      shellInit = ''
-        # Force initialization
-      '';
+      shellInit = "";
 
       shellAliases = {
         ll = "ls -l";
