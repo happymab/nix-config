@@ -3,15 +3,21 @@
     # Allow unfree packages (required for some multimedia codecs, NVIDIA drivers, etc.)
     nixpkgs.config.allowUnfree = true;
 
-    # Install firefox.
-    programs.firefox.enable = true;
+    programs = {
+      # Install firefox.
+      firefox.enable = true;
+
+      # Install zsh and fish
+      zsh.enable = true;
+      fish.enable = true;
+    };
 
     # List packages installed in system profile
     environment.systemPackages = with pkgs; [
       git
       vim
       wget
-      # Add more packages here as needed
+
     ];
   };
 }

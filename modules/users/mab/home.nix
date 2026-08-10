@@ -6,18 +6,13 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {
       isNormalUser = true;
-      shell = pkgs.bash; # define shell
-      initialHashedPassword = "$y$j9T$mqXVyJk/jjF75FmL.6UsV0$N5QecXnSDe94jr9Fxh5NFjMmNSF9a63O5LZb8b9v1l0";
-      
+      shell = pkgs.zsh; # define shell
+      initialHashedPassword =
+        "$y$j9T$mqXVyJk/jjF75FmL.6UsV0$N5QecXnSDe94jr9Fxh5NFjMmNSF9a63O5LZb8b9v1l0";
+
       # Add user to groups
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "video"
-        "render"
-        "libvirtd"
-        "podman"
-      ];
+      extraGroups =
+        [ "networkmanager" "wheel" "video" "render" "libvirtd" "podman" ];
     };
 
     # Use home-manager
@@ -26,28 +21,43 @@
 
   # Standalone home-manager configuration, to be used on non-nixos machines
   # with the home-manager command
-  flake.homeConfigurations.mab = inputs.home-manager.lib.homeManagerConfiguration {
-    modules = [
-      self.homeModules.mabModule
-      {
-        home.username = "mab";
-        home.homeDirectory = "/home/mab";
-      }
-    ];
-  };
+  flake.homeConfigurations.mab =
+    inputs.home-manager.lib.homeManagerConfiguration {
+      modules = [
+        self.homeModules.mabModule
+        {
+          home.username = "mab";
+          home.homeDirectory = "/home/mab";
+        }
+      ];
+    };
 
   # Module to configure home-manager
   # It's imported both in standalone configuration above, and in nixos configuration
   flake.homeModules.mabModule = { pkgs, ... }: {
 
-    imports = [
-      self.homeModules.braveConfigMab
-    ];
+    imports = [ self.homeModules.braveConfigMab ];
 
-    programs.bash.enable = true;
-    programs.bash.shellAliases.ll = "ls -l";
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
 
-    programs.firefox.enable = true;
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -la";
+        edit = "sudo -e";
+        update = "sudo nixos-rebuild switch";
+      };
+
+      history.size = 10000;
+      history.ignoreAllDups = true;
+      history.path = "$HOME/.zsh_history";
+      history.ignorePatterns = [ "rm *" "pkill *" "cp *" ];
+    };
+
+    # programs.firefox.enable = true;
 
     home.packages = with pkgs; [
       kdePackages.kate
