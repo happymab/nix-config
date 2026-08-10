@@ -45,9 +45,6 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      # This forces generation even if zsh isn't default
-      dotdir = "~/.config/zsh"; # Optional: different location
-
       # Make sure shellInit runs
       shellInit = ''
         # Force initialization
