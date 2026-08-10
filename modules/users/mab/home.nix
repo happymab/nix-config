@@ -45,9 +45,6 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      # Make sure shellInit runs
-      loginShellInit = "";
-
       shellAliases = {
         ll = "ls -l";
         la = "ls -la";
