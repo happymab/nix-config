@@ -71,6 +71,8 @@
     programs.firefox.enable = true;
 
     home.packages = with pkgs; [
+      zsh # Explicitly add to home environment
+
       kdePackages.kate
 
       # Brave browser
