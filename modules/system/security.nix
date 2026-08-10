@@ -8,9 +8,6 @@
 
     # Disable root password login
     users.users.root.hashedPassword = "!";
-
-    # Enable polkit for privilege escalation
-    security.polkit.enable = true;
   };
 }
 
