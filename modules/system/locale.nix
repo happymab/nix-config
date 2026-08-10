@@ -24,7 +24,6 @@
     };
 
     environment.systemPackages = [ pkgs.stdenv.cc.libc.out ];
-    pathsToLink = [ "/share/i18n" ];
 
   };
 }
