@@ -4,6 +4,9 @@
     nixpkgs.config.allowUnfree = true;
 
     programs = {
+      # Enable Zsh
+      zsh.enable = true;
+
       # Install firefox.
       firefox.enable = true;
     };
@@ -14,7 +17,6 @@
       vim
       wget
       bash
-      zsh
       fish
     ];
   };
