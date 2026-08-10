@@ -6,10 +6,6 @@
     programs = {
       # Install firefox.
       firefox.enable = true;
-
-      # Install zsh and fish
-      zsh.enable = true;
-      fish.enable = true;
     };
 
     # List packages installed in system profile
@@ -17,7 +13,9 @@
       git
       vim
       wget
-
+      bash
+      zsh
+      fish
     ];
   };
 }
