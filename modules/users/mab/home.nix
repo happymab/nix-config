@@ -6,7 +6,7 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {
       isNormalUser = true;
-      shell = pkgs.zsh; # define shell
+      shell = pkgs.zsh;
       initialHashedPassword =
         "$y$j9T$mqXVyJk/jjF75FmL.6UsV0$N5QecXnSDe94jr9Fxh5NFjMmNSF9a63O5LZb8b9v1l0";
 
@@ -35,6 +35,42 @@
   # Module to configure home-manager
   # It's imported both in standalone configuration above, and in nixos configuration
   flake.homeModules.mabModule = { pkgs, ... }: {
+
+    programs.zsh = {
+      enable = true;
+
+      # Plugins
+      ohMyZsh = {
+        enable = true;
+        plugins = [ "git" "z" "zsh-autosuggestions" "zsh-syntax-highlighting" ];
+      };
+
+      # Shell options
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+
+      # Default aliases
+      autocd = true; # cd without typing 'cd' command
+      extendedglob = true;
+      multios = true;
+
+      history.size = 10000;
+      history.ignoreAllDups = true;
+      history.path = "$HOME/.zsh_history";
+      history.ignorePatterns = [ "rm *" "pkill *" "cp *" ];
+
+      # Custom shell functions
+      shellAliases = {
+        ll = "ls -l --color=auto";
+        la = "ls -la --color=auto";
+        ls = "ls --color=auto";
+        grep = "grep --color=auto";
+        h = "history";
+        ".." = "cd ..";
+      };
+
+    };
 
     imports = [ self.homeModules.braveConfigMab ];
 
