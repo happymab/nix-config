@@ -12,7 +12,7 @@
     };
 
     # Enable multiple shells
-    environment.shells = with pkgs; [ bash zsh fish ];
+    # environment.shells = with pkgs; [ bash zsh fish ];
 
     # Default shell for new users
     users.defaultUserShell = pkgs.bash;
