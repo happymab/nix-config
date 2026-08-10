@@ -28,6 +28,7 @@
       # ── Home-manager ──────────────────────────────────────────
       # self.nixosModules.myHomeManager
       self.nixosModules.mabUser
+      self.nixosModules.mabModule
 
       # ── Features ──────────────────────────────────────────────
       self.nixosModules.flatpak

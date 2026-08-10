@@ -16,7 +16,7 @@
     };
 
     # Use home-manager
-    home-manager.users.mab = self.homeModules.mabModule;
+    # home-manager.users.mab = self.homeModules.mabModule;
   };
 
   # Standalone home-manager configuration, to be used on non-nixos machines
