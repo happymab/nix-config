@@ -4,6 +4,8 @@
     nixpkgs.config.allowUnfree = true;
 
     programs = {
+      # Enable zsh program at system level
+      zsh.enable = true;
 
       # Install firefox.
       firefox.enable = true;
