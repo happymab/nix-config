@@ -15,6 +15,11 @@ ENV PREBUILD_HOME_MANAGER_FLAKE=""
 
 COPY library-scripts /library-scripts
 
-RUN nix-env -iA nixpkgs.nixfmt-classic
+RUN nix-env -iA nixpkgs.nixfmt-classic \
+         && nix-env -iA nixpkgs.starship
+
+# Configure starship for bash
+RUN mkdir -p /root/.config \
+    && echo 'eval "$(starship init bash)"' >> /etc/bashrc 
 
 RUN bash /library-scripts/build/all.sh
