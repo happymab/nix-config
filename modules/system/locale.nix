@@ -6,7 +6,8 @@
     # Select internationalisation properties
     i18n = {
       defaultLocale = "en_US.UTF-8";
-      extraLocales = [ "all" ];
+      extraLocales = "all";
+      imperativeLocale = true;
       extraLocaleSettings = {
         LC_ADDRESS = "en_US.UTF-8";
         LC_IDENTIFICATION = "en_US.UTF-8";
@@ -21,5 +22,9 @@
         LC_TIME = "en_DK.UTF-8";
       };
     };
+
+    environment.systemPackages = [ pkgs.stdenv.cc.libc.out ];
+    pathsToLink = [ "/share/i18n" ];
+
   };
 }
