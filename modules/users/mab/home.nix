@@ -52,7 +52,6 @@
 
       # Default aliases
       autocd = true; # cd without typing 'cd' command
-      multios = true;
 
       history.size = 10000;
       history.ignoreAllDups = true;
