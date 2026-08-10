@@ -4,8 +4,15 @@
     nixpkgs.config.allowUnfree = true;
 
     programs = {
+      # Home-manager module integration
+      home-manager = {
+        enable = true;
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
+
       # Enable zsh program at system level
-      # zsh.enable = true;
+      zsh.enable = true;
 
       # Install firefox.
       firefox.enable = true;

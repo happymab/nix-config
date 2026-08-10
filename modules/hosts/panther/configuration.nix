@@ -32,7 +32,7 @@
       self.nixosModules.desktopKde
 
       # ── Home-manager ──────────────────────────────────────────
-      self.nixosModules.myHomeManager
+      # self.nixosModules.myHomeManager
       self.nixosModules.mabUser
 
       # ── Features ──────────────────────────────────────────────

@@ -6,7 +6,7 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {
       isNormalUser = true;
-      # shell = pkgs.zsh;
+      shell = pkgs.zsh;
       initialHashedPassword =
         "$y$j9T$mqXVyJk/jjF75FmL.6UsV0$N5QecXnSDe94jr9Fxh5NFjMmNSF9a63O5LZb8b9v1l0";
 
@@ -21,20 +21,25 @@
 
   # Standalone home-manager configuration, to be used on non-nixos machines
   # with the home-manager command
-  flake.homeConfigurations.mab =
-    inputs.home-manager.lib.homeManagerConfiguration {
-      modules = [
-        self.homeModules.mabModule
-        {
-          home.username = "mab";
-          home.homeDirectory = "/home/mab";
-        }
-      ];
-    };
+  #flake.homeConfigurations.mab =
+  #  inputs.home-manager.lib.homeManagerConfiguration {
+  #    modules = [
+  #      self.homeModules.mabModule
+  #      {
+  #        home.username = "mab";
+  #        home.homeDirectory = "/home/mab";
+  #      }
+  #    ];
+  #  };
 
   # Module to configure home-manager
   # It's imported both in standalone configuration above, and in nixos configuration
   flake.homeModules.mabModule = { pkgs, ... }: {
+
+    imports = [ self.homeModules.braveConfigMab ];
+
+    home.username = "mab";
+    home.homeDirectory = "/home/mab";
 
     programs.zsh = {
       enable = true;
@@ -75,8 +80,6 @@
       };
 
     };
-
-    imports = [ self.homeModules.braveConfigMab ];
 
     home.packages = with pkgs; [
       kdePackages.kate
