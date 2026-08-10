@@ -44,8 +44,9 @@
       self.homeModules.braveConfigMab
     ];
 
-    programs.bash.enable = true;
-    programs.bash.shellAliases.ll = "ls -l";
+    programs.zsh.enable = true;
+    programs.zsh.shellAliases.ll = "ls -l";
+    programs.zsh.shellAliases.la = "ls -la";
 
     programs.firefox.enable = true;
 
