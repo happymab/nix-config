@@ -3,7 +3,7 @@
 
     hjem.users.mab = {
       # Install brave browser for user mab
-      packages = pkgs.brave;
+      packages = [ pkgs.brave ];
 
       # Add desktop entries for different profiles
       xdg.data.files = let
