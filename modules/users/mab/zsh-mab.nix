@@ -8,7 +8,7 @@
       files = {
         ".zshrc".source = ./dotfiles/.zshrc;
         ".zshenv".source = ./dotfiles/.zshenv;
-        ".config/zsh".source = ./dotfiles/.config/zsh;
+        #".config/zsh".source = ./dotfiles/.config/zsh;
         ".config/zsh.aliases.zsh".source = ./dotfiles/aliases.zsh;
 
         # Zsh plugins
