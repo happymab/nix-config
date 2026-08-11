@@ -20,7 +20,11 @@
   flake.nixosModules.mabHjemModule = { pkgs, ... }: {
 
     # imports = [ self.nixosModules.braveConfigMabHjem ];
-    imports = [ inputs.hjem.nixosModules.default ];
+    imports =
+      [ 
+        inputs.hjem.nixosModules.default 
+        self.nixosModules.braveConfigMabHjem 
+      ];
 
     hjem.users = {
       mab = {
