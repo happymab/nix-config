@@ -9,7 +9,7 @@
         ".zshrc".source = ./dotfiles/.zshrc;
         ".zshenv".source = ./dotfiles/.zshenv;
         #".config/zsh".source = ./dotfiles/.config/zsh;
-        ".config/zsh.aliases.zsh".source = ./dotfiles/aliases.zsh;
+        ".config/aliases.zsh".source = ./dotfiles/aliases.zsh;
 
         # Zsh plugins
         ".config/zsh/plugins/zsh-autosuggestions".source =
