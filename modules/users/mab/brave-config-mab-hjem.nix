@@ -6,21 +6,23 @@
 
       xdg.data.files = let
         mkDesktopEntry = name: profileDir: iconName: className: {
-          "applications/brave-${name}.desktop".text = ''
-            [Desktop Entry]
-            Comment=Brave - ${name} Profile
-            Exec=brave --profile-directory="${profileDir}" --class="${className}" %U
-            GenericName=Web Browser
-            Name=Brave - ${name} Profile
-            Icon=${iconName}
-            NoDisplay=false
-            StartupNotify=true
-            Terminal=false
-            Type=Application
-            Categories=Network;WebBrowser;
-          '';
-          # overwrite existing unmanaged file, if present
-          "applications/brave-${name}.desktop".clobber = true;
+          "applications/brave-${name}.desktop" = {
+            text = ''
+              [Desktop Entry]
+              Comment=Brave - ${name} Profile
+              Exec=brave --profile-directory="${profileDir}" --class="${className}" %U
+              GenericName=Web Browser
+              Name=Brave - ${name} Profile
+              Icon=${iconName}
+              NoDisplay=false
+              StartupNotify=true
+              Terminal=false
+              Type=Application
+              Categories=Network;WebBrowser;
+            '';
+            # overwrite existing unmanaged file, if present
+            clobber = true;
+          };
         };
         # Icons
       in {
