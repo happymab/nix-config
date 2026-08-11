@@ -4,6 +4,8 @@
     hjem.users.mab = {
       # packages = with pkgs; [ brave ];
 
+      clobberFiles = true;
+
       xdg.data.files = let
         mkDesktopEntry = name: profileDir: iconName: className: {
           "applications/brave-${name}.desktop" = {
