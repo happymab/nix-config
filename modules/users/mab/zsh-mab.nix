@@ -13,9 +13,9 @@
 
         # Zsh plugins
         ".config/zsh/plugins/zsh-autosuggestions".source =
-          "github:zsh-users/zsh-autosuggestions";
+          builtins.readFile "${my-inputs.zsh-users}/zsh-autosuggestions";
         ".config/zsh/plugins/zsh-syntax-highlighting".source =
-          "github:zsh-users/zsh-syntax-highlighting";
+          builtins.readFile "${my-inputs.zsh-users}/zsh-syntax-highlighting";
       };
 
     };
