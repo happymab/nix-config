@@ -19,7 +19,7 @@
   # Module to configure home-hjem
   flake.nixosModules.mabHjemModule = { pkgs, ... }: {
 
-    imports = [ self.nixosModules.braveConfigMabHjem ];
+    # imports = [ self.nixosModules.braveConfigMabHjem ];
 
     input.hjem.users = {
       mab = {
