@@ -20,7 +20,7 @@
             Categories=Network;WebBrowser;
           '';
           # overwrite existing unmanaged file, if present
-          clobber = true;
+          "applications/brave-${name}.desktop".clobber = true;
         };
         # Icons
       in {
