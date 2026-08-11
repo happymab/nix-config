@@ -8,7 +8,7 @@
       inputs.hjem.nixosModules.default
 
       # ── Features configurations ─────────────────────────────
-      self.nixosModules.braveConfigMabHjem
+      self.nixosModules.braveMab
     ];
 
     hjem.users = {
