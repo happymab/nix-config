@@ -17,6 +17,7 @@
             StartupNotify=true
             Terminal=false
             Type=Application
+            Categories=Internet;Network;WebBrowser;
           '';
         };
         # Icons
