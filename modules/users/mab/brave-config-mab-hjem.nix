@@ -22,13 +22,13 @@
         };
         # Icons
       in {
-        "icons/brave_blue.png".source = ./assets/icons/brave_blue.png;
-        "icons/brave_pink.png".source = ./assets/icons/brave_pink.png;
-        "icons/brave_green.png".source = ./assets/icons/brave_green.png;
-        "icons/brave_red.png".source = ./assets/icons/brave_red.png;
-        "icons/brave_yellow.png".source = ./assets/icons/brave_yellow.png;
-        "icons/brave_orange.png".source = ./assets/icons/brave_orange.png;
-        "icons/brave_purple.png".source = ./assets/icons/brave_purple.png;
+        "icons/brave_blue.png".source = ${self}/assets/icons/brave_blue.png;
+        "icons/brave_pink.png".source = ${self}/assets/icons/brave_pink.png;
+        "icons/brave_green.png".source = ${self}/assets/icons/brave_green.png;
+        "icons/brave_red.png".source = ${self}/assets/icons/brave_red.png;
+        "icons/brave_yellow.png".source = ${self}/assets/icons/brave_yellow.png;
+        "icons/brave_orange.png".source = ${self}/assets/icons/brave_orange.png;
+        "icons/brave_purple.png".source = ${self}/assets/icons/brave_purple.png;
       }
       # Desktop entries (merged via // operator)
       // mkDesktopEntry "Standard" "Default" "brave_blue" "brave-standard"

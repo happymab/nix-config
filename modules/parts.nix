@@ -3,9 +3,6 @@
     # adds home-manager options to flake-parts
     # inputs.home-manager.flakeModules.home-manager
 
-    # adds hjem options to flake-parts
-    # inputs.hjem.nixosModules.default
-
   ];
 
   config.systems =
