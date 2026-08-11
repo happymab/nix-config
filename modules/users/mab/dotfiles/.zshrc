@@ -1,6 +1,6 @@
 # ====== Oh My Zsh ======
 export ZSH="$HOME/.cache/oh-my-zsh"
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 plugins=(git z sudo extract dotenv)
 source $ZSH/oh-my-zsh.sh
 
