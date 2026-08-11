@@ -1,11 +1,11 @@
 { self, inputs, ... }: {
-  flake.nixosModules.braveConfigMabHjem = { pkgs, lib, ... }: {
+  flake.nixosModules.braveMab = { pkgs, lib, ... }: {
 
     hjem.users.mab = {
-      # packages = with pkgs; [ brave ];
+      # Install brave browser for user mab
+      packages = pkgs.brave;
 
-      clobberFiles = true;
-
+      # Add desktop entries for different profiles
       xdg.data.files = let
         mkDesktopEntry = name: profileDir: iconName: className: {
           "applications/brave-${name}.desktop".text = ''

@@ -20,7 +20,7 @@
       git
       vim
       wget
-      # Add more packages here as needed
+      curl
     ];
   };
 }

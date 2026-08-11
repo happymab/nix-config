@@ -25,10 +25,8 @@
       self.nixosModules.basePackages
       self.nixosModules.desktopKde
 
-      # ── Home-manager ──────────────────────────────────────────
-      # self.nixosModules.myHomeManager
-      self.nixosModules.mabUser
-      self.nixosModules.mabHjemModule
+      # ── User and Home configuration ───────────────────────────
+      self.nixosModules.userMab
 
       # ── Features ──────────────────────────────────────────────
       self.nixosModules.flatpak
