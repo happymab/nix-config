@@ -32,7 +32,7 @@
           kdePackages.kate
 
           # Brave browser
-          # brave
+          brave
 
           # Proton
           proton-vpn

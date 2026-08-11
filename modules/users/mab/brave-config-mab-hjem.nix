@@ -2,7 +2,7 @@
   flake.nixosModules.braveConfigMabHjem = { pkgs, lib, ... }: {
 
     input.hjem.users.mab = {
-      packages = with pkgs; [ brave ];
+      # packages = with pkgs; [ brave ];
 
       xdg.data.files = let
         mkDesktopEntry = name: profileDir: iconName: className: {
