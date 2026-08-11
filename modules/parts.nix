@@ -1,13 +1,13 @@
 { inputs, ... }: {
   imports = [
     # adds home-manager options to flake-parts
-    inputs.home-manager.flakeModules.home-manager
+    # inputs.home-manager.flakeModules.home-manager
+
+    # adds hjem options to flake-parts
+    inputs.hjem.nixosModules.default
+
   ];
 
-  config.systems = [
-    "x86_64-linux"
-    "aarch64-linux"
-    "x86_64-darwin"
-    "aarch64-darwin"
-  ];
+  config.systems =
+    [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 }

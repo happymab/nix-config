@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  # home-manager configuration flake for nixos, import in configuration.nix
+  # home configuration flake
   flake.nixosModules.mabUser = { pkgs, ... }: {
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -14,85 +14,41 @@
       extraGroups =
         [ "networkmanager" "wheel" "video" "render" "libvirtd" "podman" ];
     };
-
-    # Use home-manager
-    home-manager.users.mab = self.homeModules.mabModule;
   };
 
-  # Standalone home-manager configuration, to be used on non-nixos machines
-  # with the home-manager command
-  flake.homeConfigurations.mab =
-    inputs.home-manager.lib.homeManagerConfiguration {
-      modules = [
-        self.homeModules.mabModule
-        {
-          home.username = "mab";
-          home.homeDirectory = "/home/mab";
-        }
-      ];
-    };
+  # Module to configure home-hjem
+  flake.nixosModules.mabHjemModule = { pkgs, ... }: {
 
-  # Module to configure home-manager
-  # It's imported both in standalone configuration above, and in nixos configuration
-  flake.homeModules.mabModule = { pkgs, ... }: {
+    imports = [ self.nixosModules.braveConfigMabHjem ];
 
-    imports = [ self.homeModules.braveConfigMab ];
+    hjem.users = {
+      mab = {
+        # enable = true; # This is not necessary, since enable is 'true' by default
+        user = "mab"; # this is the name of the user
+        directory = "/home/mab"; # where the user's $HOME resides
 
-    # zsh configuration
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
+        packages = with pkgs; [
 
-      shellAliases = {
-        ll = "ls -l";
-        la = "ls -la";
-        edit = "sudo -e";
-        update = "sudo nixos-rebuild switch";
-      };
+          kdePackages.kate
 
-      history.size = 10000;
-      history.ignoreAllDups = true;
-      history.path = "$HOME/.zsh_history";
-      history.ignorePatterns = [ "rm *" "pkill *" "cp *" ];
+          # Brave browser
+          # brave
 
-      oh-my-zsh = {
-        enable = true;
-        plugins = [
-          "git" # also requires `programs.git.enable = true;`
+          # Proton
+          proton-vpn
+          proton-pass
+          proton-authenticator
+          protonmail-desktop
+
+          # VSCode
+          vscode
+
+          # Nix formatter
+          nixfmt
+
+          hello
         ];
-        theme = "robbyrussell";
       };
     };
-
-    programs.git.enable = true;
-
-    programs.firefox.enable = true;
-
-    home.packages = with pkgs; [
-      zsh # Explicitly add to home environment
-
-      kdePackages.kate
-
-      # Brave browser
-      # brave
-
-      # Proton
-      proton-vpn
-      proton-pass
-      proton-authenticator
-      protonmail-desktop
-
-      # VSCode
-      vscode
-
-      # Nix formatter
-      nixfmt
-
-      hello
-    ];
-    home.stateVersion = "26.05";
   };
-
 }
