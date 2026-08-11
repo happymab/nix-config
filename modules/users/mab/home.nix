@@ -20,8 +20,9 @@
   flake.nixosModules.mabHjemModule = { pkgs, ... }: {
 
     # imports = [ self.nixosModules.braveConfigMabHjem ];
+    imports = [ inputs.hjem.nixosModules.default ];
 
-    input.hjem.users = {
+    hjem.users = {
       mab = {
         # enable = true; # This is not necessary, since enable is 'true' by default
         user = "mab"; # this is the name of the user
