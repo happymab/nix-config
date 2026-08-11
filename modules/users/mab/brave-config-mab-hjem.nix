@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
   flake.nixosModules.braveConfigMabHjem = { pkgs, lib, ... }: {
 
-    hjem.users.mab = {
+    input.hjem.users.mab = {
       packages = with pkgs; [ brave ];
 
       xdg.data.files = let

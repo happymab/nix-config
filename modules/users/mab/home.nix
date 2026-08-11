@@ -21,7 +21,7 @@
 
     imports = [ self.nixosModules.braveConfigMabHjem ];
 
-    hjem.users = {
+    input.hjem.users = {
       mab = {
         # enable = true; # This is not necessary, since enable is 'true' by default
         user = "mab"; # this is the name of the user
