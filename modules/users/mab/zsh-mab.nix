@@ -2,22 +2,22 @@
   flake.nixosModules.zshMab = { pkgs, lib, ... }: {
 
     hjem.users.mab = {
-      programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        autosuggestions.enable = true;
-        syntaxHighlighting.enable = true;
+      # Enable oh-my-zsh for managing the zsh configuration
+      packages = [ pkgs.oh-my-zsh ];
 
-        shellAliases = {
-          ll = "ls -l";
-          edit = "sudo -e";
-          update = "sudo nixos-rebuild switch";
-        };
+      files = {
+        ".zshrc".source = ./dotfiles/.zshrc;
+        ".zshenv".source = ./dotfiles/.zshenv;
+        ".config/zsh".source = ./dotfiles/.config/zsh;
+        ".config/zsh.aliases.zsh".source = ./dotfiles/aliases.zsh;
 
-        histSize = 10000;
-        histFile = "$HOME/.zsh_history";
-        setOptions = [ "HIST_IGNORE_ALL_DUPS" ];
+        # Zsh plugins
+        ".config/zsh/plugins/zsh-autosuggestions".source =
+          "github:zsh-users/zsh-autosuggestions";
+        ".config/zsh/plugins/zsh-syntax-highlighting".source =
+          "github:zsh-users/zsh-syntax-highlighting";
       };
+
     };
   };
 }
