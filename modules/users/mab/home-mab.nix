@@ -42,6 +42,9 @@
           # Starship prompt configuration
           ".config/starship.toml".source =
             "${self}/config/starship/starship.toml";
+
+          # Zsh configuration - create an empty .zshrc to avoid the initialization message
+          ".zshrc".text = "";
         };
       };
     };
