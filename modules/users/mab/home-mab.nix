@@ -9,7 +9,6 @@
 
       # ── Features configurations ─────────────────────────────
       self.nixosModules.braveMab
-      # self.nixosModules.zshMab
     ];
 
     hjem.users = {
@@ -23,8 +22,6 @@
         # Packages installed in the user's home profile
         packages = with pkgs; [
 
-          # kdePackages.kate
-
           # Proton
           proton-vpn
           proton-pass
@@ -34,9 +31,18 @@
           # VSCode
           vscode
 
-          # Nix formatter
+          # Development
           nixfmt
+
+          # Miscellaneous
+          cowsay
         ];
+
+        files = {
+          # Starship prompt configuration
+          ".config/starship.toml".source =
+            "${self}/config/starship/starship.toml";
+        };
       };
     };
   };
