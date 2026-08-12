@@ -13,6 +13,9 @@
       };
     };
 
+    # Install bash
+    bash.enable = true;
+
     # Zsh — shell configuration
     programs.zsh = {
       enable = true;
@@ -36,4 +39,19 @@
       setOptions = [ "HIST_IGNORE_ALL_DUPS" ];
     };
   };
+
+  # Fish shell configuration
+  programs.fish = {
+    enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    fishPlugins.done
+    fishPlugins.fzf-fish
+    fishPlugins.forgit
+    fishPlugins.hydro
+    fzf
+    fishPlugins.grc
+    grc
+  ];
 }

@@ -11,7 +11,7 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {
       isNormalUser = true;
-      shell = pkgs.zsh; # define shell
+      shell = pkgs.fish; # define shell
       initialHashedPassword =
         "$y$j9T$mqXVyJk/jjF75FmL.6UsV0$N5QecXnSDe94jr9Fxh5NFjMmNSF9a63O5LZb8b9v1l0";
 
