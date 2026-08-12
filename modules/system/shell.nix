@@ -14,7 +14,9 @@
     };
 
     # Install bash
-    bash.enable = true;
+    programs.bash = {
+      enable = true;
+    };
 
     # Zsh — shell configuration
     programs.zsh = {
