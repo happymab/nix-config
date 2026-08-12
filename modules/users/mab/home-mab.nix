@@ -9,7 +9,7 @@
 
       # ── Features configurations ─────────────────────────────
       self.nixosModules.braveMab
-      self.nixosModules.zshMab
+      # self.nixosModules.zshMab
     ];
 
     hjem.users = {
