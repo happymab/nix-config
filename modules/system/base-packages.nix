@@ -21,8 +21,6 @@
       noto-fonts
       noto-fonts-color-emoji
       liberation_ttf
-      fira-code
-      fira-code-symbols
       mplus-outline-fonts.githubRelease
       dina-font
       proggyfonts
@@ -34,11 +32,10 @@
       # Nerd Fonts
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
-      nerd-fonts.noto
+      nerd-fonts.iosevka
       nerd-fonts.geist-mono
       nerd-fonts.sauce-code-pro
       nerd-fonts.droid-sans-mono
-      nerd-fonts.iosevka
     ];
 
     fonts.fontconfig.defaultFonts = {
