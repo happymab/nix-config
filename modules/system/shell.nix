@@ -38,20 +38,19 @@
       histFile = "$HOME/.zsh_history";
       setOptions = [ "HIST_IGNORE_ALL_DUPS" ];
     };
+
+    # Fish shell configuration
+    programs.fish = { enable = true; };
+
+    environment.systemPackages = with pkgs; [
+      fishPlugins.done
+      fishPlugins.fzf-fish
+      fishPlugins.forgit
+      fishPlugins.hydro
+      fzf
+      fishPlugins.grc
+      grc
+    ];
   };
 
-  # Fish shell configuration
-  programs.fish = {
-    enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    fishPlugins.done
-    fishPlugins.fzf-fish
-    fishPlugins.forgit
-    fishPlugins.hydro
-    fzf
-    fishPlugins.grc
-    grc
-  ];
 }
