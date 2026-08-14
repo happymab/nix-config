@@ -11,7 +11,18 @@
     environment.shells = with pkgs; [ bash zsh fish ];
 
     # List packages installed in system profile
-    environment.systemPackages = with pkgs; [ git vim wget curl ];
+    environment.systemPackages = with pkgs; [ 
+      git
+      vim
+      wget
+      curl
+      htop
+
+      rsync
+      rclone
+      restic
+      p7zip
+    ];
 
     # Install default fonts
     fonts.enableDefaultPackages = true;

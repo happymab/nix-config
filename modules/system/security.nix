@@ -2,8 +2,8 @@
   flake.nixosModules.security = { pkgs, ... }: {
     # Enable sudo with password prompt for users in the wheel group
     security.sudo = {
-        enable = true;
-        wheelNeedsPassword = true;
+      enable = true;
+      wheelNeedsPassword = true;
     };
 
     # Disable root password login
@@ -11,7 +11,12 @@
 
     # Enable polkit for privilege escalation
     security.polkit.enable = true;
+
+    # Install security-related packages
+    environment.systemPackages = with pkgs; [
+      gnupg
+      ssh-tools
+    ];
   };
 }
-
 

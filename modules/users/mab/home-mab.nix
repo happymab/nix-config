@@ -34,6 +34,9 @@
           # Development
           nixfmt
 
+          # Utilities
+          restic-browser
+
           # Miscellaneous
           cowsay
         ];
