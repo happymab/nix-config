@@ -58,6 +58,14 @@
                         [url "git@github.com:"]
                           insteadOf = https://github.com/
           '';
+
+          # ssh configuration
+          ".ssh/config".text = ''
+                        Host github.com
+                          IdentityFile ~/.ssh/github_ed25519
+                          IdentitiesOnly yes
+                          AddKeysToAgent yes
+          '';
         };
       };
     };
