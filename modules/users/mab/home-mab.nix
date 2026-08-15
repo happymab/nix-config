@@ -61,16 +61,16 @@
 
           # ssh configuration
           ".ssh/config".text = ''
-                        Host github.com
-                          IdentityFile ~/.ssh/github_ed25519
-                          IdentitiesOnly yes
-                          AddKeysToAgent yes
+            Host github.com
+              IdentityFile ~/.ssh/github_ed25519
+              IdentitiesOnly yes
+              AddKeysToAgent yes
           '';
         };
       };
       root = {
         user = "root"; # this is the name of the user
-        directory = "/root"; # where the user's $HOME resides 
+        directory = "/root"; # where the user's $HOME resides
 
         # Overwrite (dot-) files in the user's home directory with files from this flake
         clobberFiles = true;
@@ -78,10 +78,11 @@
         files = {
           # Git configuration to allow root to commit as the user "happymab"
           ".gitconfig".text = ''
-                        [safe]
-                          directory = /home/mab/Projects/nix-config/
+            [safe]
+              directory = /home/mab/Projects/nix-config/
           '';
         };
+      };
     };
   };
 }
