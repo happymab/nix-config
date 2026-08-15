@@ -30,7 +30,7 @@
       options = "--delete-older-than 30d";
     };
 
-    # Automatic updates
+    # Automatic upgrades
     system.autoUpgrade = {
       enable = true;
       allowReboot = false;
@@ -40,7 +40,6 @@
       ];
       dates = "daily";
       randomizedDelaySec = "30min";
-    };    
-
+    };
   };
 }
