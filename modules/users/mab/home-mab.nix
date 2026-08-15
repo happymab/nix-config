@@ -43,11 +43,21 @@
 
         files = {
           # Starship prompt configuration
-          ".config/starship.toml".source =
-            "${self}/config/starship/starship.toml";
+          ".config/starship.toml".source = "${self}/config/starship/starship.toml";
 
           # Zsh configuration - create an empty .zshrc to avoid the initialization message
           ".zshrc".text = "";
+
+          # Git configuration
+          ".gitconfig".text = ''
+                        [user]
+                          name = happymab
+                          email = happymab.dev@pm.me
+                        [checkout]
+            	            defaultRemote = origin
+                        [url "git@github.com:"]
+                          insteadOf = https://github.com/
+          '';
         };
       };
     };
