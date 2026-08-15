@@ -34,11 +34,8 @@
     system.autoUpgrade = {
       enable = true;
       allowReboot = false;
-      flake = inputs.self.outPath; # References the current flake
-      flags = [
-        "-L" # print build logs
-      ];
-      dates = "daily";
+      flake = "github:happymab/nix-config"; # Reference the flake on GitHub for updates
+      dates = "00:00 UTC";
       randomizedDelaySec = "30min";
     };    
 
