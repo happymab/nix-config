@@ -2,8 +2,18 @@
   flake.nixosModules.docker = { pkgs, ... }: {
     virtualisation.docker = {
 
-      # Disabling the system wide Docker daemon (rootful)
+      # IMPORTANT
+      # Add the user to the docker group to allow running docker commands 
+      # without sudo and for tool integration (e.g. devcontainers)
+      # Example: users.users.<username>.extraGroups = [ "docker" ];
+
+      # System wide Docker daemon (rootful)
       enable = true;
+
+      daemon.settings = {
+        "userland-proxy" = false; # Reduce attack surface
+        "exec-opts" = [ "native.cgroupdriver=systemd" ];
+      };
 
       # Explicitly specify the storage driver for docker (recommended)
       storageDriver = "btrfs";
