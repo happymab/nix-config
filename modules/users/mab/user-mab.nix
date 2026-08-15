@@ -17,7 +17,7 @@
 
       # Add user to groups
       extraGroups =
-        [ "networkmanager" "wheel" "video" "render" "libvirtd" "podman" ];
+        [ "networkmanager" "wheel" "video" "render" "libvirtd" "podman" "docker" ];
     };
   };
 }
