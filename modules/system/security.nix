@@ -12,6 +12,9 @@
     # Enable polkit for privilege escalation
     security.polkit.enable = true;
 
+    # Enable ssh agent
+    programs.ssh.agent.enable = true;
+
     # Install security-related packages
     environment.systemPackages = with pkgs; [
       gnupg
