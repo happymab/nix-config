@@ -13,7 +13,7 @@
     security.polkit.enable = true;
 
     # Enable ssh agent
-    programs.ssh.agent.enable = true;
+    programs.ssh.startAgent = true;
 
     # Install security-related packages
     environment.systemPackages = with pkgs; [
@@ -22,4 +22,3 @@
     ];
   };
 }
-
