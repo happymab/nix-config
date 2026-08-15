@@ -17,6 +17,7 @@
       wget
       curl
       htop
+      tree
 
       rsync
       rclone
