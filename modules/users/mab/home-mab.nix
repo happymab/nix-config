@@ -66,6 +66,15 @@
                           IdentitiesOnly yes
                           AddKeysToAgent yes
           '';
+
+          # Wallpapers
+
+        };
+
+        xdg.data.files = {
+          # Copy wallpapers
+          "wallpapers".source = "${self}/assets/wallpapers";
+
         };
       };
     };
