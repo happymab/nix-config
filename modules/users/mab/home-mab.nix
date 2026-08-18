@@ -69,7 +69,7 @@
 
           # KDE config for ssh keys
           ".config/environment.d/ssh_askpass.conf".text = ''
-                        SSH_ASKPASS=/usr/bin/ksshaskpass
+                        SSH_ASKPASS=/run/current-system/sw/bin/ksshaskpass
                         SSH_ASKPASS_REQUIRE=prefer   
           '';
 
