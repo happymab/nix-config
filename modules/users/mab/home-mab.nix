@@ -67,7 +67,11 @@
                           AddKeysToAgent yes
           '';
 
-          # Wallpapers
+          # KDE config for ssh keys
+          ".config/environment.d/ssh_askpass.conf".text = ''
+                        SSH_ASKPASS=/usr/bin/ksshaskpass
+                        SSH_ASKPASS_REQUIRE=prefer   
+          ''
 
         };
 
