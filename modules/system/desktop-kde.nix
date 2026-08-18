@@ -32,7 +32,7 @@
     environment.systemPackages = [
       pkgs.kdePackages.ksshaskpass
     ];
-    environment.sessionVariables = {
+    environment.Variables = {
       SSH_ASKPASS = lib.mkForce "/run/current-system/sw/bin/ksshaskpass";
       SSH_ASKPASS_REQUIRE = "prefer";
     };
