@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.desktopKde = { pkgs, ... }: {
+  flake.nixosModules.desktopKde = { pkgs, lib, ... }: {
     # Enable Wayland (X11 is disabled intentionally for modern KDE/Plasma 6)
     services.xserver = {
       enable = false;
@@ -32,7 +32,7 @@
     environment.systemPackages = [
       pkgs.kdePackages.ksshaskpass
     ];
-    environment.sessionVariables = {
+    environment.sessionVariables = lib.mkForce {
       SSH_ASKPASS = "/run/current-system/sw/bin/ksshaskpass";
       SSH_ASKPASS_REQUIRE = "prefer";
     };
