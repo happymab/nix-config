@@ -8,11 +8,9 @@
         # Add default registries
         registries.search = [
           "docker.io"
-          "quay.io"
-          "registry.fedoraproject.org"
         ];
       };
-      
+
       podman = {
         enable = true;
 
