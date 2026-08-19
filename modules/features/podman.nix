@@ -4,7 +4,7 @@
     virtualisation = {
       containers = {
         enable = true;
-        
+
         # Add default registries
         registries.search = [
           "docker.io"
@@ -12,6 +12,7 @@
           "registry.fedoraproject.org"
         ];
       };
+      
       podman = {
         enable = true;
 
