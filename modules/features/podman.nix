@@ -22,7 +22,7 @@
 
     # Install podman-compose
     environment.systemPackages = with pkgs; [
-      podman-compose
+      docker-compose
     ];
   };
 }
