@@ -33,8 +33,8 @@
       pkgs.kdePackages.ksshaskpass
     ];
     environment.variables = {
-      SSH_ASKPASS = lib.mkForce "/run/current-system/sw/bin/ksshaskpass";
-      SSH_ASKPASS_REQUIRE = "prefer";
+      SSH_ASKPASS = lib.mkDefault "/run/current-system/sw/bin/ksshaskpass";
+      SSH_ASKPASS_REQUIRE = lib.mkDefault "prefer";
     };
   };
 }
