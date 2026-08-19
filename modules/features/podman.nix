@@ -2,7 +2,16 @@
   flake.nixosModules.podman = { pkgs, ... }: {
 
     virtualisation = {
-      containers.enable = true;
+      containers = {
+        enable = true;
+        
+        # Add default registries
+        registries.search = [
+          "docker.io"
+          "quay.io"
+          "registry.fedoraproject.org"
+        ];
+      };
       podman = {
         enable = true;
 
@@ -10,12 +19,6 @@
         defaultNetwork.settings.dns_enabled = true;
       };
 
-      # Add default registries
-      registries.search = [
-        "docker.io"
-        "quay.io"
-        "registry.fedoraproject.org"
-      ];
     };
 
     # Install podman-compose
