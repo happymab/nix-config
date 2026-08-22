@@ -9,6 +9,11 @@
         registries.search = [
           "docker.io"
         ];
+
+        # Disable enforcement to tag image short-names as docker.io
+        containersConf.settings.engine = {
+          compat_api_enforce_docker_hub = false;
+        };
       };
 
       podman = {
