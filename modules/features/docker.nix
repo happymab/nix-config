@@ -3,7 +3,7 @@
     virtualisation.docker = {
 
       # IMPORTANT
-      # Add the user to the docker group to allow running docker commands 
+      # Add the user to the docker group to allow running docker commands
       # without sudo and for tool integration (e.g. devcontainers)
       # Example: users.users.<username>.extraGroups = [ "docker" ];
 
@@ -29,6 +29,7 @@
       # };
     };
 
+    # Install docker-compose
     environment.systemPackages = with pkgs; [
       docker-compose
     ];

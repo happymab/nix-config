@@ -37,7 +37,6 @@
       # ── Features ──────────────────────────────────────────────
       self.nixosModules.flatpak
       self.nixosModules.virtualization
-      self.nixosModules.docker
       self.nixosModules.podman
       self.nixosModules.distrobox
     ];
