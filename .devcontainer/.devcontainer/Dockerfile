@@ -36,7 +36,7 @@ RUN echo 'eval "$(starship init bash)"' >> /etc/bashrc
 # Copy container setup files
 RUN mkdir -p /usr/local/container-setup
 COPY ./res/* /usr/local/container-setup/
-RUN chmod +x /usr/local/container-setup/devcontainer-setup
+RUN chmod +x /usr/local/container-setup/dev-box-setup
 
 # Create devuser
 ARG USERNAME=devuser

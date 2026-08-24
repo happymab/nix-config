@@ -1,9 +1,9 @@
 {
-  "name": "Nix Devcontainer",
+  "name": "MyDevContainer",
   "dockerComposeFile": "compose.yaml",
   "service": "devcontainer",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "/usr/local/container-setup/devcontainer-setup",
+  "postCreateCommand": "/usr/local/container-setup/dev-box-setup",
   "customizations": {
     "vscode": {
       "settings": {
@@ -11,9 +11,6 @@
       },
       "extensions": [
         "jnoortheen.nix-ide",
-        "arrterian.nix-env-selector",
-        "bbenoist.Nix",
-        "brettm12345.nixfmt-vscode"
       ]
     }
   },

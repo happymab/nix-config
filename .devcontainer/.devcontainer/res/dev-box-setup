@@ -1,0 +1,13 @@
+#! /usr/bin/sh
+
+if [[ ! -e ~/.dev-box-setup-done ]]; then
+    echo "Setting up dev box..."
+
+    # Put any setup commands here that should only run once per dev box
+
+    # Mark the setup as done
+    touch ~/.dev-box-setup-done
+    echo "Dev box setup complete."
+else 
+    echo "Dev-box setup already done."
+fi
