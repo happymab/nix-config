@@ -9,7 +9,7 @@
       serviceConfig = {
         Type = "oneshot";
         User = "root";
-        ExecStart = "${pkgs.flatpak}/bin/flatpak update --non-interactive";
+        ExecStart = "${pkgs.flatpak}/bin/flatpak update --noninteractive";
       };
     };
 
