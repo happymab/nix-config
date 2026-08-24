@@ -27,11 +27,11 @@ RUN curl -L https://nixos.org/nix/install | sh -s -- --daemon && \
     /nix/var/nix/profiles/default/bin/nix-env -iA nixpkgs.nixfmt
 
 # Install starship
-RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
-RUN mkdir -p /etc/starship
+RUN curl -sS https://starship.rs/install.sh | sh -s -- -y && \
+    mkdir -p /etc/starship && \
+    echo 'eval "$(starship init bash)"' >> /etc/bashrc
 COPY ./res/starship.toml /etc/starship/
 ENV STARSHIP_CONFIG=/etc/starship/starship.toml
-RUN echo 'eval "$(starship init bash)"' >> /etc/bashrc
 
 # Copy container setup files
 RUN mkdir -p /usr/local/container-setup

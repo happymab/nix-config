@@ -11,9 +11,6 @@
       },
       "extensions": [
         "jnoortheen.nix-ide",
-        "arrterian.nix-env-selector",
-        "bbenoist.Nix",
-        "brettm12345.nixfmt-vscode"
       ]
     }
   },
