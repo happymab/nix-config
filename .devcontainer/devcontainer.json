@@ -10,7 +10,7 @@
         "terminal.integrated.defaultProfile.linux": "bash"
       },
       "extensions": [
-        "jnoortheen.nix-ide",
+        "jnoortheen.nix-ide"
       ]
     }
   },
