@@ -22,6 +22,14 @@
 
     };
 
+    # Periodically optimize the nix store
+    nix.optimise = {
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      randomizedDelaySec = "30min";
+    };
+
     # Automatic clean up of nix store
     nix.gc = {
       automatic = true;
