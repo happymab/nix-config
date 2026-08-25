@@ -25,6 +25,7 @@
     # Automatic clean up of nix store
     nix.gc = {
       automatic = true;
+      persistent = true;
       dates = "daily";
       randomizedDelaySec = "30min";
       options = "--delete-older-than 30d";
@@ -33,6 +34,7 @@
     # Automatic updates
     system.autoUpgrade = {
       enable = true;
+      persistent = true;
       allowReboot = false;
       flake = "github:happymab/nix-config"; # Reference the flake on GitHub for updates
       dates = "00:00 UTC";
