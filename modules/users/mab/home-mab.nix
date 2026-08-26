@@ -56,6 +56,8 @@
                         [user]
                           name = happymab
                           email = happymab.dev@pm.me
+                        [init]
+                          defaultBranch = main
                         [checkout]
             	            defaultRemote = origin
                         [url "git@github.com:"]
