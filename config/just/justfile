@@ -3,16 +3,15 @@ set shell := ["bash", "-uc"]
 
 # Default recipe: show available commands
 @default:
-    just --list
+    just --global-justfile --list
 
 ## ==========================================================
 ## NixOS Build Management
 ## ==========================================================
 
-# Rebuild the configuration with build option (default is nixos-rebuild boot)
-# Valid 
+# Rebuild NixOS configuration with build option (default is nixos-rebuild switch)
 [group('NixOS')]
-rebuild build-option='boot':
+rebuild build-option='switch':
     git add -A
     sudo nixos-rebuild {{build-option}} --flake .#
 
