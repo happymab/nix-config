@@ -48,6 +48,9 @@
           # Zsh configuration - create an empty .zshrc to avoid the initialization message
           ".zshrc".text = "";
 
+          # Global justfile
+          ".config/just/justfile".source = "${self}/config/just/justfile";
+
           # Git configuration
           ".gitconfig".text = ''
                         [user]
