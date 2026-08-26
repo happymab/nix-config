@@ -22,6 +22,6 @@ rollback:
 
 # Cleanup and optimize the Nix store
 [group('NixOS')]
-clean-up:
+cleanup:
     sudo nix-collect-garbage
     sudo nix-store --optimise
