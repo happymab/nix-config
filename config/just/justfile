@@ -54,3 +54,14 @@ logs startup='0':
 [group('Linux')]
 ulogs unit n='100':
     sudo journalctl -x -n {{n}} -u {{unit}}
+
+# Show current IP configuration
+[group('Network')]
+net:
+    @ip addr show
+    @ip route
+
+# Show listening ports
+[group('Network')]
+ports:
+    @ss -tulnp
