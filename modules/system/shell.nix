@@ -30,7 +30,7 @@
       shellAliases = {
         ll = "ls -l";
         la = "ls -la";
-        gj = "just --global-justfile";
+        j = "just --global-justfile";
       };
 
       histSize = 10000;

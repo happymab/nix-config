@@ -6,7 +6,7 @@ set shell := ["bash", "-uc"]
     just --global-justfile --list
 
 ## ==========================================================
-## NixOS Build Management
+## NixOS Management
 ## ==========================================================
 
 # Rebuild NixOS configuration with build option (default is nixos-rebuild switch)
@@ -20,8 +20,37 @@ rebuild build-option='switch':
 rollback:
     sudo nixos-rebuild switch --rollback
 
+# List generations
+[group('NixOS')]
+builds:
+    sudo nixos-rebuild list-generations
+
 # Cleanup and optimize the Nix store
 [group('NixOS')]
 cleanup:
     sudo nix-collect-garbage
     sudo nix-store --optimise
+
+## ==========================================================
+## Linux Recepies
+## ==========================================================
+
+# Shutdown the system
+[group('Linux')]
+off:
+    systemctl poweroff
+
+# Reboot the system
+[group('Linux')]
+reboot:
+    systemctl reboot
+
+# Show system log for specific startup (default current startup)
+[group('Linux')]
+logs startup='0':
+    sudo journalctl -xb {{startup}}
+
+# Show system log for specific unit, show n entries (default 100)
+[group('Linux')]
+ulogs unit n='100':
+    sudo journalctl -x -n {{n}} -u {{unit}}
