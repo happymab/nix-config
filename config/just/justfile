@@ -9,60 +9,20 @@ set shell := ["bash", "-uc"]
 ## NixOS Build Management
 ## ==========================================================
 
-# Build the configuration without switching (useful for testing)
-build:
-    sudo nixos-rebuild build --flake .#
-
-# Boot into the new configuration on the next reboot without switching now
-boot:
-    sudo nixos-rebuild boot --flake .#
-
-# Rebuild the system and switch to the new configuration immediately
-switch:
-    sudo nixos-rebuild switch --flake .#
+# Rebuild the configuration with build option (default is nixos-rebuild boot)
+# Valid 
+[group('NixOS')]
+rebuild build-option='boot':
+    git add -A
+    sudo nixos-rebuild {{build-option}} --flake .#
 
 # Rollback to the previous system generation
+[group('NixOS')]
 rollback:
     sudo nixos-rebuild switch --rollback
 
-## ==========================================================
-## MAINTENANCE & CLEANUP
-## ==========================================================
-
-# Update flake inputs (lock file) and commit changes if in git
-update:
-    nix flake update
-    git diff flake.lock
-
-# Update a specific input (e.g., just run: just update-input nixpkgs)
-update-input input:
-    nix flake lock --update-input {{input}}
-
-# Garbage collect old generations (keeps the last 7 days by default)
-gc days="7":
-    sudo nix profile wipe-history --older-than {{days}}d
-    sudo nix-collect-garbage --delete-older-than {{days}}d
-
-# Optimize the Nix store (deduplicate identical files)
-optimize:
+# Cleanup and optimize the Nix store
+[group('NixOS')]
+clean-up:
+    sudo nix-collect-garbage
     sudo nix-store --optimise
-
-## ==========================================================
-## UTILITIES & DIAGNOSTICS
-## ==========================================================
-
-# Check for outdated flake inputs
-metadata:
-    nix flake metadata
-
-# Show generations history
-history:
-    sudo nixos-rebuild list-generations
-
-# Clean up untracked git files/directories in the config repo (dry run)
-clean-dry:
-    git clean -nd
-
-# Format all Nix files in the repository using alejandra or nixpkgs-fmt
-fmt:
-    alejandra . || nixpkgs-fmt .
