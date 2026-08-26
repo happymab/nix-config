@@ -18,7 +18,8 @@
       curl
       htop
       tree
-
+      just
+      just-lsp
       rsync
       rclone
       restic
