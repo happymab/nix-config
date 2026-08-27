@@ -48,12 +48,12 @@ reboot:
 # Show system log for specific startup (default current startup)
 [group('Linux')]
 logs startup='0':
-    sudo journalctl -xb {{startup}}
+    journalctl -xb {{startup}}
 
 # Show system log for specific unit, show n entries (default 100)
 [group('Linux')]
 ulogs unit n='100':
-    sudo journalctl -x -n {{n}} -u {{unit}}
+    journalctl -x -n {{n}} -u {{unit}}
 
 # Show current IP configuration
 [group('Network')]
