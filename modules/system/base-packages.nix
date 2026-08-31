@@ -24,6 +24,7 @@
       rclone
       restic
       p7zip
+      ripgrep
     ];
 
     # Install default fonts
