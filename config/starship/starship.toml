@@ -170,6 +170,7 @@ format = '· [$symbol($version)]($style) '
 
 [nix_shell]
 symbol = " "
+heuristic = true
 format = '· [$symbol$state( \($name\))]($style) '
 
 [nodejs]
