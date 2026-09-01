@@ -30,7 +30,6 @@
 
       # ── Features ──────────────────────────────────────────────
       self.nixosModules.flatpak
-      self.nixosModules.niri
       self.nixosModules.podman
       self.nixosModules.distrobox
     ];
