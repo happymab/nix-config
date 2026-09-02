@@ -25,6 +25,7 @@
       restic
       p7zip
       ripgrep
+      ffmpeg-full
     ];
 
     # Install default fonts
