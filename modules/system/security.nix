@@ -13,7 +13,14 @@
     security.polkit.enable = true;
 
     # Enable ssh agent
-    programs.ssh.startAgent = true;
+    programs.ssh = {
+      startAgent = true;
+      enableAskPassword = true;
+    };
+
+    environment.variables = {
+      SSH_ASKPASS_REQUIRE = "prefer";
+    };
 
     # Install security-related packages
     environment.systemPackages = with pkgs; [
