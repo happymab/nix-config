@@ -18,10 +18,6 @@
       enableAskPassword = true;
     };
 
-    environment.variables = {
-      SSH_ASKPASS_REQUIRE = "prefer";
-    };
-
     # Install security-related packages
     environment.systemPackages = with pkgs; [
       gnupg
