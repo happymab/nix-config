@@ -41,13 +41,13 @@
     # Equivalent of hjem's `files` — these end up as symlinks in $HOME
     home.file = {
       # Starship prompt configuration
-      ".config/starship.toml".source = ${self}/config/starship/starship.toml;
+      ".config/starship.toml".source = "${self}/config/starship/starship.toml";
 
       # Zsh configuration - create an empty .zshrc to avoid the initialization message
       ".zshrc".text = "";
 
       # Global justfile
-      ".config/just/justfile".source = ${self}/config/just/justfile;
+      ".config/just/justfile".source = "${self}/config/just/justfile";
 
       # Git configuration
       ".gitconfig".text = ''
@@ -74,7 +74,7 @@
     # Equivalent of hjem's xdg.data.files
     xdg.dataFile = {
       # Copy wallpapers
-      "wallpapers".source = ${self}/assets/wallpapers;
+      "wallpapers".source = "${self}/assets/wallpapers";
     };
 
     # Required for home-manager to activate
