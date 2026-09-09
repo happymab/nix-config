@@ -69,7 +69,9 @@
 
     home.file = {
       # Zsh configuration - create an empty .zshrc to avoid the initialization message
-      ".zshrc".text = "";
+      ".zshrc".text = ''
+        eval "$(starship init zsh)"
+      '';
     };
 
     # Fish shell configuration
