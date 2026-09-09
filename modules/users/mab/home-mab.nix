@@ -4,7 +4,7 @@
   flake.homeModules.homeMab = { config, pkgs, ... }: {
 
     imports = [
-      self.homeModules.shell
+      self.homeModules.shellMab
       self.homeModules.mabBrave
     ];
 
