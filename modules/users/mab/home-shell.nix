@@ -50,11 +50,9 @@
         j = "just --global-justfile";
       };
 
-      # Anything you'd have put in .zshrc goes here instead
-      initExtra =
-        ""
-          # custom zsh code, loaded after oh-my-zsh
-          "";
+      # Anything that would be in .zshrc goes here
+      initExtra = ''
+      '';
 
       history.size = 10000;
       history.ignoreDups = true;
