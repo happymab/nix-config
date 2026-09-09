@@ -1,13 +1,13 @@
 { self, inputs, ... }: {
-  
-  flake.nixosModules.braveMab = { pkgs, lib, ... }: {
 
-    home-manager.users.mab = {
-      # Install brave browser for user mab
-      packages = [ pkgs.brave ];
+  flake.homeModules.braveMab = { pkgs, lib, ... }: {
 
-      # Add desktop entries for different profiles
-      xdg.dataFile = let
+    # Install brave browser for user mab
+    home.packages = [ pkgs.brave ];
+
+    # Add desktop entries for different profiles
+    xdg.dataFile =
+      let
         mkDesktopEntry = name: profileDir: iconName: className: {
           "applications/brave-${name}.desktop".text = ''
             [Desktop Entry]
@@ -23,7 +23,8 @@
             Categories=Network;WebBrowser;
           '';
         };
-      in {
+      in
+      {
         # Icons
         "icons/brave_blue.png".source = "${self}/assets/icons/brave_blue.png";
         "icons/brave_pink.png".source = "${self}/assets/icons/brave_pink.png";
@@ -41,6 +42,5 @@
       // mkDesktopEntry "Venture Wise" "VentureWise" "brave_yellow" "brave-venture-wise"
       // mkDesktopEntry "Crypto" "Crypto" "brave_orange" "brave-crypto"
       // mkDesktopEntry "Proton" "Proton" "brave_purple" "brave-proton";
-    };
   };
 }
