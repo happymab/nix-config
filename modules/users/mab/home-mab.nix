@@ -3,13 +3,9 @@
   # Home configuration flake using home-manager
   flake.homeModules.homeMab = { config, pkgs, ... }: {
 
-    # Allow unfree packages
-    # nixpkgs.config.allowUnfree = true;
-
     imports = [
-
-      # ── Features configurations ─────────────────────────────
-      self.homeModules.braveMab
+      self.homeModules.shell
+      self.homeModules.mabBrave
     ];
 
     # Set user/directory options
@@ -38,13 +34,8 @@
       cowsay
     ];
 
-    # Equivalent of hjem's `files` — these end up as symlinks in $HOME
+    # These files end up as symlinks in $HOME
     home.file = {
-      # Starship prompt configuration
-      ".config/starship.toml".source = "${self}/config/starship/starship.toml";
-
-      # Zsh configuration - create an empty .zshrc to avoid the initialization message
-      ".zshrc".text = "";
 
       # Global justfile
       ".config/just/justfile".source = "${self}/config/just/justfile";

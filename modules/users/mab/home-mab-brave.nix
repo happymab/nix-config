@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.braveMab = { pkgs, lib, ... }: {
+  flake.homeModules.mabBrave = { pkgs, lib, ... }: {
 
     # Install brave browser for user mab
     home.packages = [ pkgs.brave ];

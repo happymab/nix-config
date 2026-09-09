@@ -4,7 +4,7 @@
   flake.nixosModules.userMab = { pkgs, ... }: {
 
     imports = [
-      # ── Default home-manager module ─────────────────────────────────
+      # Default home-manager module
       inputs.home-manager.nixosModules.default
     ];
 
