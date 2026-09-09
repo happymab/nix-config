@@ -13,7 +13,7 @@
     };
 
     # Starship config file
-    xdg.configFile."starship.toml".source = "${self}/config/starship/starship.toml";
+    xdg.configFile."starship.toml".source = ${self}/config/starship/starship.toml;
 
     # Install bash
     programs.bash = {
