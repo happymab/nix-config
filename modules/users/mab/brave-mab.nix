@@ -1,12 +1,13 @@
 { self, inputs, ... }: {
+  
   flake.nixosModules.braveMab = { pkgs, lib, ... }: {
 
-    hjem.users.mab = {
+    home-manager.users.mab = {
       # Install brave browser for user mab
       packages = [ pkgs.brave ];
 
       # Add desktop entries for different profiles
-      xdg.data.files = let
+      xdg.dataFile = let
         mkDesktopEntry = name: profileDir: iconName: className: {
           "applications/brave-${name}.desktop".text = ''
             [Desktop Entry]
@@ -22,30 +23,24 @@
             Categories=Network;WebBrowser;
           '';
         };
-        # Icons
       in {
+        # Icons
         "icons/brave_blue.png".source = "${self}/assets/icons/brave_blue.png";
         "icons/brave_pink.png".source = "${self}/assets/icons/brave_pink.png";
         "icons/brave_green.png".source = "${self}/assets/icons/brave_green.png";
         "icons/brave_red.png".source = "${self}/assets/icons/brave_red.png";
-        "icons/brave_yellow.png".source =
-          "${self}/assets/icons/brave_yellow.png";
-        "icons/brave_orange.png".source =
-          "${self}/assets/icons/brave_orange.png";
-        "icons/brave_purple.png".source =
-          "${self}/assets/icons/brave_purple.png";
+        "icons/brave_yellow.png".source = "${self}/assets/icons/brave_yellow.png";
+        "icons/brave_orange.png".source = "${self}/assets/icons/brave_orange.png";
+        "icons/brave_purple.png".source = "${self}/assets/icons/brave_purple.png";
       }
       # Desktop entries (merged via // operator)
       // mkDesktopEntry "Standard" "Default" "brave_blue" "brave-standard"
-      // mkDesktopEntry "Development" "Development" "brave_pink"
-      "brave-development"
+      // mkDesktopEntry "Development" "Development" "brave_pink" "brave-development"
       // mkDesktopEntry "Investing" "Investing" "brave_green" "brave-investing"
       // mkDesktopEntry "Banking" "Banking" "brave_red" "brave-banking"
-      // mkDesktopEntry "Venture Wise" "VentureWise" "brave_yellow"
-      "brave-venture-wise"
+      // mkDesktopEntry "Venture Wise" "VentureWise" "brave_yellow" "brave-venture-wise"
       // mkDesktopEntry "Crypto" "Crypto" "brave_orange" "brave-crypto"
       // mkDesktopEntry "Proton" "Proton" "brave_purple" "brave-proton";
     };
-
   };
 }
