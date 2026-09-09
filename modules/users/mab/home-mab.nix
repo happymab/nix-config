@@ -2,7 +2,9 @@
 
   # Home configuration flake using home-manager
   flake.homeModules.homeMab = { config, pkgs, ... }: {
-    inherit pkgs;
+
+    # Allow unfree packages (required for some multimedia codecs, NVIDIA drivers, etc.)
+    nixpkgs.config.allowUnfree = true;
 
     imports = [
 
