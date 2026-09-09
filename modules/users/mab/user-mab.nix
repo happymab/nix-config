@@ -26,15 +26,11 @@
       ];
     };
 
-    programs.home-manager.enable = true;
-
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "backup";
-      users.mab = {
-        imports = [ self.homeModules.homeMab ];
-      };
+      users.mab = self.homeModules.homeMab;
     };
 
   };
