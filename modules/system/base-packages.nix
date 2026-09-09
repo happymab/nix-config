@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
   flake.nixosModules.basePackages = { pkgs, ... }: {
-    # Allow unfree packages (required for some multimedia codecs, NVIDIA drivers, etc.)
+    # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
     programs = {
