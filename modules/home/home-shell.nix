@@ -8,7 +8,6 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
-      configPath = "${config.xdg.configHome}/starship.toml";
     };
 
     # Starship config file
