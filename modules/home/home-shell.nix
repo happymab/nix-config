@@ -2,6 +2,13 @@
 
   flake.homeModules.shell = { pkgs, lib, ... }: {
 
+    home.packages = with pkgs; [
+      bash
+      zsh
+      fish
+      starship
+    ];
+
     # Starship — customizable prompt for any shell
     programs.starship = {
       enable = true;
