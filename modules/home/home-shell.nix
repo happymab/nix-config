@@ -9,11 +9,12 @@
       enableZshIntegration = true;
       enableFishIntegration = true;
       configPath = "${config.xdg.configHome}/starship.toml";
-;
     };
 
     # Starship config file
-    xdg.configFile."starship.toml".source = ${self}/config/starship/starship.toml;
+    xdg.configFile = {
+      "starship.toml".source = "${self}/config/starship/starship.toml";
+    };
 
     # Install bash
     programs.bash = {
@@ -24,7 +25,7 @@
         ll = "ls -l";
         la = "ls -la";
         j = "just --global-justfile";
-      };      
+      };
     };
 
     # Zsh — shell configuration
