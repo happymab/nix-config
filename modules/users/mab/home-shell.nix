@@ -1,19 +1,10 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.shellMab = { pkgs, lib, ... }: {
+  flake.homeModules.mabShell = { pkgs, lib, ... }: {
 
     # Starship — customizable prompt for any shell
-    programs.starship = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-      enableFishIntegration = true;
-    };
-
-    # Starship config file
-    xdg.configFile = {
-      "starship.toml".source = "${self}/config/starship/starship.toml";
-    };
+    programs.starship.enable = true;
+    xdg.configFile."starship.toml".source = "${self}/config/starship/starship.toml";
 
     # Install bash
     programs.bash = {
@@ -51,8 +42,7 @@
       };
 
       # Anything that would be in .zshrc goes here
-      initExtra = ''
-      '';
+      initExtra = "";
 
       history.size = 10000;
       history.ignoreDups = true;
