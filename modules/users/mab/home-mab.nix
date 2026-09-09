@@ -2,6 +2,7 @@
 
   # Home configuration flake using home-manager
   flake.homeModules.homeMab = { config, pkgs, ... }: {
+    inherit pkgs;
 
     imports = [
 
