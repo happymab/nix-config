@@ -3,8 +3,8 @@
   # Home configuration flake using home-manager
   flake.homeModules.homeMab = { config, pkgs, ... }: {
 
-    # Allow unfree packages (required for some multimedia codecs, NVIDIA drivers, etc.)
-    nixpkgs.config.allowUnfree = true;
+    # Allow unfree packages
+    # nixpkgs.config.allowUnfree = true;
 
     imports = [
 
@@ -12,7 +12,7 @@
       self.homeModules.braveMab
     ];
 
-    # Equivalent of hjem's user/directory options
+    # Set user/directory options
     home.username = "mab";
     home.homeDirectory = "/home/mab";
 
@@ -26,7 +26,7 @@
       protonmail-desktop
 
       # VSCode
-      vscode
+      # vscode
 
       # Development
       nixfmt
