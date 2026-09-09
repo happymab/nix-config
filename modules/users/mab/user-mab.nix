@@ -26,12 +26,13 @@
       ];
     };
 
-    # Enable home-manager package installation for user mab
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
-
-    # enable home-manager for user mab
-    home-manager.users.mab = self.homeModules.homeMab;
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      users.mab = {
+        imports = [ self.homeModules.homeMab ];
+      };
+    };
 
   };
 }

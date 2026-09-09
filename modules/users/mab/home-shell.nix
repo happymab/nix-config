@@ -2,19 +2,12 @@
 
   flake.homeModules.shell = { pkgs, lib, ... }: {
 
-#    home.packages = with pkgs; [
-#      bash
-#      zsh
-#      fish
-#      starship
-#    ];
-
     # Starship — customizable prompt for any shell
     programs.starship = {
       enable = true;
-#      enableBashIntegration = true;
-#      enableZshIntegration = true;
-#      enableFishIntegration = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     # Starship config file
@@ -57,6 +50,12 @@
         j = "just --global-justfile";
       };
 
+      # Anything you'd have put in .zshrc goes here instead
+      initExtra =
+        ""
+          # custom zsh code, loaded after oh-my-zsh
+          "";
+
       history.size = 10000;
       history.ignoreDups = true;
       history.path = "$HOME/.zsh_history";
@@ -65,13 +64,6 @@
         "pkill *"
         "cp *"
       ];
-    };
-
-    home.file = {
-      # Zsh configuration - create an empty .zshrc to avoid the initialization message
-      ".zshrc".text = ''
-        eval "$(starship init zsh)"
-      '';
     };
 
     # Fish shell configuration
