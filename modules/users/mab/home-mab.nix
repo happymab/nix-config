@@ -26,7 +26,7 @@
       protonmail-desktop
 
       # VSCode
-      # vscode
+      vscode
 
       # Development
       nixfmt
