@@ -26,6 +26,14 @@
       ];
     };
 
+    # home-manager wiring for user mab
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
+
+    # self/inputs must be forwarded into the home-manager module system,
+    # since your home modules destructure them
+    # home-manager.extraSpecialArgs = { inherit self inputs; };
+
     # enable home-manager for user mab
     home-manager.users.mab = self.homeModules.homeMab;
 
