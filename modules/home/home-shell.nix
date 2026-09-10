@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.mabShell = { pkgs, lib, ... }: {
+  flake.homeModules.shell = { pkgs, lib, ... }: {
 
     # Starship — customizable prompt for any shell
     programs.starship = {
