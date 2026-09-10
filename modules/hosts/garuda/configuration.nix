@@ -27,7 +27,6 @@
       self.nixosModules.bluetooth
       self.nixosModules.audio
       self.nixosModules.locale
-      self.nixosModules.shell
       self.nixosModules.basePackages
       self.nixosModules.desktopKde
 
