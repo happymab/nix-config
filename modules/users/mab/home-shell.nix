@@ -3,7 +3,10 @@
   flake.homeModules.mabShell = { pkgs, lib, ... }: {
 
     # Starship — customizable prompt for any shell
-    programs.starship.enable = true;
+    programs.starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     xdg.configFile."starship.toml".source = "${self}/config/starship/starship.toml";
 
     # Install bash
