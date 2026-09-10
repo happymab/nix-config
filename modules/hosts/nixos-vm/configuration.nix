@@ -21,7 +21,6 @@
       self.nixosModules.networking
       self.nixosModules.audio
       self.nixosModules.locale
-      # self.nixosModules.shell
       self.nixosModules.basePackages
       self.nixosModules.desktopKde
 

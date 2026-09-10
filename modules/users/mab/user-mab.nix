@@ -8,9 +8,6 @@
       inputs.home-manager.nixosModules.default
     ];
 
-    # Enables /etc/zshrc and NixOS integration hooks
-    programs.zsh.enable = true;
-
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {
       isNormalUser = true;

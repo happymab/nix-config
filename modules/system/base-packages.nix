@@ -4,6 +4,11 @@
     nixpkgs.config.allowUnfree = true;
 
     programs = {
+      # Install bash, zsh, and fish shells
+      bash.enable = true;
+      zsh.enable = true;
+      fish.enable = true;
+
       # Install firefox.
       firefox.enable = true;
     };

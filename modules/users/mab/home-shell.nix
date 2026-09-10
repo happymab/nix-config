@@ -5,7 +5,9 @@
     # Starship — customizable prompt for any shell
     programs.starship = {
       enable = true;
+      enableBashIntegration = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
     xdg.configFile."starship.toml".source = "${self}/config/starship/starship.toml";
 
@@ -28,15 +30,15 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      oh-my-zsh = {
-        enable = true;
-        plugins = [
-          "git"
-          "z"
-          "sudo"
-        ];
-        theme = "robbyrussell";
-      };
+#      oh-my-zsh = {
+#        enable = true;
+#        plugins = [
+#          "git"
+#          "z"
+#          "sudo"
+#        ];
+#        theme = "robbyrussell";
+#      };
 
       shellAliases = {
         ll = "ls -l";
