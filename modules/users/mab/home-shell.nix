@@ -30,16 +30,6 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-#      oh-my-zsh = {
-#        enable = true;
-#        plugins = [
-#          "git"
-#          "z"
-#          "sudo"
-#        ];
-#        theme = "robbyrussell";
-#      };
-
       shellAliases = {
         ll = "ls -l";
         la = "ls -la";
@@ -65,29 +55,6 @@
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
       '';
-      plugins = [
-        # Enable a plugins
-        {
-          name = "grc";
-          src = pkgs.fishPlugins.grc.src;
-        }
-        {
-          name = "done";
-          src = pkgs.fishPlugins.done.src;
-        }
-        {
-          name = "fzf-fish";
-          src = pkgs.fishPlugins.fzf-fish.src;
-        }
-        {
-          name = "forgit";
-          src = pkgs.fishPlugins.forgit.src;
-        }
-        {
-          name = "hydro";
-          src = pkgs.fishPlugins.hydro.src;
-        }
-      ];
     };
   };
 }
