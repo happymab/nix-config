@@ -45,9 +45,13 @@
       persistent = true;
       allowReboot = false;
       flake = "github:happymab/nix-config"; # Reference the flake on GitHub for updates
+      # Prevent the host from updating flake.lock itself
+      flags = [ "--no-update-lock-file" ];
+      # Use 'switch' to activate immediately, or 'boot' to wait for reboot
+      operation = "boot";
       dates = "00:00 UTC";
       randomizedDelaySec = "30min";
-    };    
+    };
 
   };
 }
