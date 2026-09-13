@@ -2,8 +2,8 @@ name: cron Update flake.lock
 
 on:
   schedule:
-    # Run every day at 23:00 UTC
-    - cron: "0 23 * * *"
+    # Run every Sunday at 07:00 UTC
+    - cron: "0 7 * * 0"
   workflow_dispatch:
 
 jobs:
