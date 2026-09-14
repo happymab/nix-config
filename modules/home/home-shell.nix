@@ -30,6 +30,16 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
+      # Oh-My-Zsh:
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "git"
+          "sudo"
+          "z"
+        ];
+      };
+
       shellAliases = {
         ll = "ls -l";
         la = "ls -la";
