@@ -7,8 +7,10 @@
 
       settings = {
         General = {
-          Experimental = false;
-          KernelExperimental = false;
+          # Enable newest features (may help with new devices)
+          Experimental = true;
+          KernelExperimental = true;
+          # For faster connections, but may increase power consumption
           FastConnectable = false;
         };
       };
