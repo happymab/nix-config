@@ -8,7 +8,8 @@
       settings = {
         General = {
           Experimental = true;
-          FastConnectable = true;
+          KernelExperimental = true;
+          FastConnectable = false;
         };
       };
     };
