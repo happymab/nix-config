@@ -7,8 +7,8 @@
 
       settings = {
         General = {
-          Experimental = true;
-          KernelExperimental = true;
+          Experimental = false;
+          KernelExperimental = false;
           FastConnectable = false;
         };
       };
