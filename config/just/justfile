@@ -23,7 +23,7 @@ rollback:
 # List generations
 [group('NixOS')]
 builds:
-    sudo nixos-rebuild list-generations
+    nixos-rebuild list-generations
 
 # Cleanup and optimize the Nix store
 [group('NixOS')]
