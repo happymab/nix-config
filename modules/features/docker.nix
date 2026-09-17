@@ -10,6 +10,12 @@
       # System wide Docker daemon (rootful)
       enable = true;
 
+      # Enable auto-pruning of unused containers and images
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
+
       daemon.settings = {
         "userland-proxy" = false; # Reduce attack surface
         "exec-opts" = [ "native.cgroupdriver=systemd" ];
