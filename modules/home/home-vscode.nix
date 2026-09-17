@@ -38,6 +38,23 @@
         "editor.tabSize" = 4;
         "workbench.iconTheme" = "material-icon-theme";
         "git.confirmSync" = false;
+        "zoo-code.debug" = false;
+        "zoo-code.allowedCommands" = [
+          "git log"
+          "git diff"
+          "git show"
+        ];
+        "zoo-code.deniedCommands" = [ ];
+        "containers.containerClient" = "com.microsoft.visualstudio.containers.podman";
+        "containers.orchestratorClient" = "com.microsoft.visualstudio.orchestrators.podmancompose";
+        "dev.containers.dockerComposePath" = "podman-compose";
+        "dev.containers.dockerPath" = "podman";
+        "dev.containers.dockerSocketPath" = "/var/run/podman.sock";
+        "remote.autoForwardPortsSource" = "hybrid";
+        "[dockercompose]" = {
+          "editor.defaultFormatter" = "ms-azuretools.vscode-containers";
+        };
+        "redhat.telemetry.enabled" = false;
 
         "[nix]" = {
           "editor.tabSize" = 2;
