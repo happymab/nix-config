@@ -79,7 +79,7 @@
         containers."qdrant" = {
           image = "docker.io/qdrant/qdrant:latest";
           ports = [ "6333:6333" ];
-          volumes = [ "${config.home.homeDirectory}/qdrant-storage:/qdrant/storage:Z" ];
+          volumes = [ "qdrant-storage:/qdrant/storage:Z" ];
         };
       };
     };
