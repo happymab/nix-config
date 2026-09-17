@@ -26,6 +26,12 @@
 
     # AMD NPU drivers and local lemonade AI server
     nix-amd-ai.url = "github:noamsto/nix-amd-ai";
+
+    # VSCode extensions
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

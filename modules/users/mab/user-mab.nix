@@ -8,6 +8,11 @@
       inputs.home-manager.nixosModules.default
     ];
 
+    # Apply the nix-vscode-extensions overlay to pkgs
+    nixpkgs.overlays = [
+      inputs.nix-vscode-extensions.overlays.default
+    ];
+
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {
       isNormalUser = true;
@@ -30,8 +35,14 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "backup";
+
+      # Pass allowUnfree to home-manager
+      extraSpecialArgs = {
+        inherit inputs;
+        inherit (pkgs.config) allowUnfree allowUnfreePredicate;
+      };
+
       users.mab = self.homeModules.homeMab;
     };
-
   };
 }

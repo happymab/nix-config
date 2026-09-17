@@ -6,6 +6,7 @@
     imports = [
       self.homeModules.shell
       self.homeModules.mabBrave
+      self.homeModules.vscodeExtensions
     ];
 
     # Set user/directory options
@@ -20,9 +21,6 @@
       proton-pass
       proton-authenticator
       protonmail-desktop
-
-      # VSCode
-      vscode
 
       # Development
       nixfmt

@@ -226,6 +226,26 @@
         "type": "github"
       }
     },
+    "nix-vscode-extensions": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789532447,
+        "narHash": "sha256-4+A+2fDVxHC83CAh6gJAX6A0whCcaO4wdOxwjXvCvd8=",
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions",
+        "rev": "71d01d8255807d1d0c2ed2b92875aa0fdfad8654",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1788614874,
@@ -351,6 +371,7 @@
         "import-tree": "import-tree",
         "lanzaboote": "lanzaboote",
         "nix-amd-ai": "nix-amd-ai",
+        "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
         "wrapper-modules": "wrapper-modules"
