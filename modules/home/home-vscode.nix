@@ -2,6 +2,7 @@
 
   flake.homeModules.vscodeExtensions = { pkgs, lib, ... }: {
 
+    # ── VSCode ────────────────────────────────────────────────
     programs.vscode = {
       enable = true;
 
@@ -63,6 +64,16 @@
 
       # Optional: Disable built-in extensions
       # mutableExtensionsDir = false;
+    };
+
+    # ── Container with Qdrant DB for Code Indexing ────────────
+    services.podman = {
+      enable = true;
+      containers."qdrant" = {
+        image = "docker.io/qdrant/qdrant:latest";
+        ports = [ "6333:6333" ];
+        volumes = [ "${config.home.homeDirectory}/qdrant-storage:/qdrant/storage:Z" ];
+      };
     };
   };
 }
