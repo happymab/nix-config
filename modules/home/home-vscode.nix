@@ -37,6 +37,7 @@
         "editor.formatOnSave" = true;
         "editor.tabSize" = 4;
         "workbench.iconTheme" = "material-icon-theme";
+        "git.confirmSync" = false;
 
         "[nix]" = {
           "editor.tabSize" = 2;
