@@ -58,14 +58,20 @@
           "dev.containers.dockerPath" = "podman";
           "dev.containers.dockerSocketPath" = "/var/run/podman.sock";
           "remote.autoForwardPortsSource" = "hybrid";
+          "redhat.telemetry.enabled" = false;
+
           "[dockercompose]" = {
             "editor.defaultFormatter" = "ms-azuretools.vscode-containers";
           };
-          "redhat.telemetry.enabled" = false;
 
           "[nix]" = {
             "editor.tabSize" = 2;
           };
+          
+          "[jsonc]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode"
+          };
+
         };
 
         # Optional: Disable built-in extensions
