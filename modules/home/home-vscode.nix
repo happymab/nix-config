@@ -67,9 +67,9 @@
           "[nix]" = {
             "editor.tabSize" = 2;
           };
-          
+
           "[jsonc]" = {
-            "editor.defaultFormatter" = "esbenp.prettier-vscode"
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
 
         };
