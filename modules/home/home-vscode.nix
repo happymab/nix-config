@@ -45,6 +45,7 @@
           "editor.formatOnSave" = true;
           "editor.tabSize" = 4;
           "workbench.iconTheme" = "material-icon-theme";
+          "workbench.colorTheme" = "Dark+";
           "git.confirmSync" = false;
           "zoo-code.debug" = false;
           "zoo-code.allowedCommands" = [
