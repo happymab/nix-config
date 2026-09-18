@@ -27,8 +27,6 @@
           jnoortheen.nix-ide
 
           # Theme / UI
-          github.github-vscode-theme
-          dracula-theme.theme-dracula
           pkief.material-icon-theme
 
           # Tools
