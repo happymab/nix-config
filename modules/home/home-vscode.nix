@@ -72,6 +72,9 @@
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
 
+          "[json]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
         };
 
         # Optional: Disable built-in extensions
