@@ -50,7 +50,7 @@
       # Use 'switch' to activate immediately, or 'boot' to wait for reboot
       operation = "boot";
       # Schedule to run every Sunday at 8 AM UTC
-      dates = "0 8 * * 0 UTC";
+      onCalendar = "Sun *-*-* 08:00:00 UTC";
       randomizedDelaySec = "30min";
     };
 
