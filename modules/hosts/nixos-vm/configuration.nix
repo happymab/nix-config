@@ -1,50 +1,58 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.nixos-vmConfiguration = { pkgs, lib, disko, ... }: {
+  flake.nixosModules.nixos-vmConfiguration =
+    {
+      pkgs,
+      lib,
+      disko,
+      ...
+    }:
+    {
 
-    imports = [
-      # ── Hardware ──────────────────────────────────────────────
-      self.nixosModules.hostNixos-vm
+      imports = [
+        # ── Hardware ──────────────────────────────────────────────
+        self.nixosModules.hostNixos-vm
 
-      # ── Disko ─────────────────────────────────────────────────
-      self.nixosModules.diskoBtrfsLuks
+        # ── Disko ─────────────────────────────────────────────────
+        self.nixosModules.diskoBtrfsLuks
 
-      # ── Boot manager ──────────────────────────────────────────
-      self.nixosModules.secureboot
-      self.nixosModules.silentBoot
+        # ── Boot manager ──────────────────────────────────────────
+        self.nixosModules.secureboot
+        self.nixosModules.silentBoot
 
-      # ── System modules ────────────────────────────────────────
-      self.nixosModules.security
-      self.nixosModules.btrfsFilesystem
-      self.nixosModules.zramSwap
-      self.nixosModules.nixConfig
-      self.nixosModules.networking
-      self.nixosModules.audio
-      self.nixosModules.locale
-      self.nixosModules.basePackages
-      self.nixosModules.desktopKde
+        # ── System modules ────────────────────────────────────────
+        self.nixosModules.security
+        self.nixosModules.btrfsFilesystem
+        self.nixosModules.zramSwap
+        self.nixosModules.nixConfig
+        self.nixosModules.networking
+        self.nixosModules.audio
+        self.nixosModules.locale
+        self.nixosModules.basePackages
+        self.nixosModules.desktopKde
 
-      # ── User and Home configuration ───────────────────────────
-      self.nixosModules.userMab
+        # ── User and Home configuration ───────────────────────────
+        self.nixosModules.userMab
 
-      # ── Features ──────────────────────────────────────────────
-      self.nixosModules.flatpak
-      self.nixosModules.podman
-      self.nixosModules.distrobox
-    ];
+        # ── Features ──────────────────────────────────────────────
+        self.nixosModules.flatpak
+        self.nixosModules.podman
+        self.nixosModules.distrobox
+        self.nixosModules.openWebUi
+      ];
 
-    # Disko drive definition
-    disko.devices.disk.main.device = "/dev/vda";
+      # Disko drive definition
+      disko.devices.disk.main.device = "/dev/vda";
 
-    # Define the hostname
-    networking.hostName = "nixos-vm";
+      # Define the hostname
+      networking.hostName = "nixos-vm";
 
-    # This option defines the first version of NixOS you installed on this machine
-    # Used to maintain compatibility with application data created on older versions
-    #
-    # DO NOT CHANGE THIS AFTER INITIAL INSTALL unless you've carefully migrated data
-    system.stateVersion = "26.05"; # Read the comment!
+      # This option defines the first version of NixOS you installed on this machine
+      # Used to maintain compatibility with application data created on older versions
+      #
+      # DO NOT CHANGE THIS AFTER INITIAL INSTALL unless you've carefully migrated data
+      system.stateVersion = "26.05"; # Read the comment!
 
-  };
+    };
 
 }
