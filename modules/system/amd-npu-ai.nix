@@ -10,7 +10,13 @@
       enableROCm = true; # ROCm GPU backends (llamacpp + sd-cpp)
       enableVulkan = true; # Vulkan GPU backends (llamacpp + whispercpp)
       enableImageGen = true; # default true; set false to drop sd-cpp from closure
-      lemonade.user = "lemonade";
+      lemonade = {
+        user = "lemonade";
+        settings = {
+          max_loaded_models = -1; # keep a small NPU model and a big GPU model resident together
+          auto_evict = true; # then let lemond reclaim on idle / VRAM pressure
+        };
+      };
     };
 
     # Create a dedicated user and group
