@@ -59,6 +59,7 @@
           "dev.containers.dockerSocketPath" = "/var/run/podman.sock";
           "remote.autoForwardPortsSource" = "hybrid";
           "redhat.telemetry.enabled" = false;
+          "cSpell.diagnosticLevel" = "Hint";
 
           "[dockercompose]" = {
             "editor.defaultFormatter" = "ms-azuretools.vscode-containers";
