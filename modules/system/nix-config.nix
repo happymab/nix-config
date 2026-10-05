@@ -50,7 +50,7 @@
       # Use 'switch' to activate immediately, or 'boot' to wait for reboot
       operation = "boot";
       # Schedule to run every Sunday at 8 AM UTC
-      dates = "Sun 08:00";
+      dates = "Sun 08:00 UTC";
       randomizedDelaySec = "30min";
     };
 

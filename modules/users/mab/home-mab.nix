@@ -62,20 +62,34 @@
 
     # ── SSH Agent Service ───────────────────────────────────────
     systemd.user.services.ssh-agent-setup = {
-      Unit.Description = "Add GitHub SSH key to ssh-agent";
-      Unit.After = [ "network-online.target" ];
+      Unit = {
+        Description = "Add GitHub SSH key to ssh-agent";
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
 
       Service = {
         Type = "oneshot";
-        ExecStart = ''
-          ${pkgs.openssh}/bin/ssh-add %h/.ssh/github_ed25519 2>/dev/null || true
+        ExecStart = pkgs.writeShellScript "ssh-agent-setup" ''
+          export SSH_ASKPASS="${pkgs.ksshaskpass}/bin/ksshaskpass"
+          export SSH_ASKPASS_REQUIRE=force
+          export DISPLAY=":0"
+
+          # Wait up to 30s for the kwallet daemon and wallet to be available
+          for i in $(seq 1 30); do
+            if ${pkgs.kwallet}/bin/kwallet-query -l kdewallet >/dev/null 2>&1; then
+              break
+            fi
+            sleep 1
+          done
+
+          exec ${pkgs.openssh}/bin/ssh-add %h/.ssh/github_ed25519
         '';
       };
 
-      Install.WantedBy = [ "graphical-session-pre.target" ];
+      Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    # Equivalent of hjem's xdg.data.files
     xdg.dataFile = {
       # Copy wallpapers
       "wallpapers".source = "${self}/assets/wallpapers";
