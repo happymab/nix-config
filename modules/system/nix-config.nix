@@ -49,8 +49,8 @@
       flags = [ "--no-update-lock-file" ];
       # Use 'switch' to activate immediately, or 'boot' to wait for reboot
       operation = "boot";
-      # Schedule to run every Sunday at 8 AM UTC
-      dates = "Sun 08:00 UTC";
+      # Schedule to run every Sunday at 10 AM UTC
+      dates = "Sun 10:00 UTC";
       randomizedDelaySec = "30min";
     };
 
