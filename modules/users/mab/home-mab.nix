@@ -60,6 +60,21 @@
       '';
     };
 
+    # ── SSH Agent Service ───────────────────────────────────────
+    systemd.user.services.ssh-agent-setup = {
+      Unit.Description = "Add GitHub SSH key to ssh-agent";
+      Unit.After = [ "network-online.target" ];
+
+      Service = {
+        Type = "oneshot";
+        ExecStart = ''
+          ${pkgs.openssh}/bin/ssh-add %h/.ssh/github_ed25519 2>/dev/null || true
+        '';
+      };
+
+      Install.WantedBy = [ "graphical-session-pre.target" ];
+    };
+
     # Equivalent of hjem's xdg.data.files
     xdg.dataFile = {
       # Copy wallpapers
