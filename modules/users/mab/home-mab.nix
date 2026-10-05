@@ -83,7 +83,7 @@
             sleep 1
           done
 
-          exec ${pkgs.kdePackages.openssh}/bin/ssh-add %h/.ssh/github_ed25519
+          exec ${pkgs.openssh}/bin/ssh-add %h/.ssh/github_ed25519
         '';
       };
 
