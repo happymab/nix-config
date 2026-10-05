@@ -77,13 +77,13 @@
 
           # Wait up to 30s for the kwallet daemon and wallet to be available
           for i in $(seq 1 30); do
-            if ${pkgs.kdePackages.kwallet}/bin/kwallet-query -l kdewallet >/dev/null 2>&1; then
+            if qdbus --list-names 2>/dev/null | grep -q 'org\.kde\.kwalletd6$'; then
               break
             fi
             sleep 1
           done
 
-          exec ${pkgs.openssh}/bin/ssh-add %h/.ssh/github_ed25519
+          exec ${pkgs.openssh}/bin/ssh-add $HOME/.ssh/github_ed25519
         '';
       };
 
