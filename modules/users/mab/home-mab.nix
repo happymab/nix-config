@@ -71,7 +71,7 @@
       Service = {
         Type = "oneshot";
         ExecStart = pkgs.writeShellScript "ssh-agent-setup" ''
-          export SSH_ASKPASS="${pkgs.ksshaskpass}/bin/ksshaskpass"
+          export SSH_ASKPASS="${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass"
           export SSH_ASKPASS_REQUIRE=force
           export DISPLAY=":0"
 
