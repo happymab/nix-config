@@ -7,6 +7,7 @@
       self.homeModules.shell
       self.homeModules.mabBrave
       self.homeModules.vscodeExtensions
+      self.homeModules.zed
     ];
 
     # Set user/directory options
