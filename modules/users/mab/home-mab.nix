@@ -7,7 +7,7 @@
       self.homeModules.shell
       self.homeModules.mabBrave
       self.homeModules.vscodeExtensions
-      self.homeModules.zed
+      # self.homeModules.zed
     ];
 
     # Set user/directory options
@@ -25,6 +25,9 @@
 
       # Development
       nixfmt
+
+      # Zed Editor
+      zed-editor
 
       # Utilities
       restic-browser
