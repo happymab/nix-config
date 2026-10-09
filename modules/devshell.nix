@@ -1,10 +1,15 @@
 {
+  # devshell configuration
+  # project specific configuration for development of this nix-config repo
+  #
+
   perSystem = { pkgs, ... }: {
     devShells.default = pkgs.mkShell {
       packages = with pkgs; [
         # Nix language server — fixes the error you hit earlier,
         # scoped to this repo instead of your global home.packages
         nil
+        nixd
 
         # Formatter + linters for this repo
         nixfmt-rfc-style # adjust to your preferred formatter
