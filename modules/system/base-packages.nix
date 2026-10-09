@@ -16,7 +16,7 @@
     environment.shells = with pkgs; [ bash zsh fish ];
 
     # List packages installed in system profile
-    environment.systemPackages = with pkgs; [ 
+    environment.systemPackages = with pkgs; [
       git
       vim
       wget
@@ -32,6 +32,12 @@
       ripgrep
       ffmpeg-full
     ];
+
+    # Enable direnv
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;  # caches nix evals — important, shells become instant
+    };
 
     # Install default fonts
     fonts.enableDefaultPackages = true;
