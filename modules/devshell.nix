@@ -8,7 +8,7 @@
       packages = with pkgs; [
         # Nix language server
         # scoped to this repo instead of your global home.packages
-        # nil
+        nil
         nixd
 
         # Formatter + linters for this repo
