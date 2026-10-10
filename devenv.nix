@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 
 {
-  # === Environment Variables ===
+  # --- Environment Variables ---
   env = {
     NIX_CONFIG = ''
       experimental-features = nix-command flakes
@@ -10,7 +10,7 @@
     HOME_MANAGER_BACKUP_DIR = "~/backup";
   };
 
-  # === Core Packages ===
+  # --- Core Packages ---
   packages = with pkgs; [
     # Nix Tooling
     nix
