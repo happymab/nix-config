@@ -36,10 +36,19 @@
       cowsay
     ];
 
-    # Automatic activation of devenv
-    programs.bash.initExtra = "eval \"$(devenv hook bash)\"";
-    programs.zsh.initContent = "eval \"$(devenv hook zsh)\"";
-    programs.fish.interactiveShellInit = "devenv hook fish | source";
+    # Declarative development environments
+    programs.devenv = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+    programs.direnv = {
+      enable = true;
+      enableBashIntegration = false;
+      enableZshIntegration = false;
+      enableFishIntegration = false;
+    };
 
     # These files end up as symlinks in $HOME
     home.file = {
