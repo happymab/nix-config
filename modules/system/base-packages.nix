@@ -31,6 +31,9 @@
       p7zip
       ripgrep
       ffmpeg-full
+      gnused
+      gnutar
+      gzip
     ];
 
     # Enable direnv
