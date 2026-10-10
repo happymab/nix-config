@@ -19,19 +19,13 @@
     statix                # Linting
     nixpkgs-fmt           # Alternative formatter
 
-    # Development Tools
-    home-manager          # For testing HM configs locally
-    nixos-rebuild         # For rebuilding OS (if needed)
+    # Language servers
+    nil                   # Nix language server
+    nixd                  # Alternative/experimental Nix LSP
 
     # Utilities
     alejandra             # Another formatter (optional)
     jq                    # Parse JSON from nix commands
-  ];
-
-  # === Language Servers (for Zed/VSCodium/etc.) ===
-  packages = with pkgs; [
-    nil                     # Nix language server
-    nixd                    # Alternative/experimental Nix LSP
   ];
 
   # === Git Hooks (Pre-commit Checks) ===
