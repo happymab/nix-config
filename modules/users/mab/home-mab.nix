@@ -45,9 +45,9 @@
     };
     programs.direnv = {
       enable = true;
-      enableBashIntegration = false;
-      enableZshIntegration = false;
-      enableFishIntegration = false;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     # These files end up as symlinks in $HOME
