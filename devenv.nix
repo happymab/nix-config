@@ -14,7 +14,7 @@
   packages = with pkgs; [
     # Nix Tooling
     nix
-    nixfmt-classic        # Or nixfmt-rfc-style for RFC 87 style
+    nixfmt-rfc-style
     deadnix               # Dead code removal
     statix                # Linting
     nixpkgs-fmt           # Alternative formatter
