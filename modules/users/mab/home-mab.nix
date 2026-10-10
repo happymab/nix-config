@@ -37,9 +37,9 @@
     ];
 
     # Automatic activation of devenv
-    programs.bash.shellInit = "eval \"$(devenv hook bash)\"";
-    programs.zsh.shellInit = "eval \"$(devenv hook zsh)\"";
-    programs.fish.shellInit = "devenv hook fish | source";
+    programs.bash.initExtra = "eval \"$(devenv hook bash)\"";
+    programs.zsh.initContent = "eval \"$(devenv hook zsh)\"";
+    programs.fish.interactiveShellInit = "devenv hook fish | source";
 
     # These files end up as symlinks in $HOME
     home.file = {
