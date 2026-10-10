@@ -24,10 +24,10 @@
       protonmail-desktop
 
       # Development
-      nixfmt
-
-      # Zed Editor
-      zed-editor
+      devenv  # Declarative development environments
+      nixfmt  # Nix formatter
+      nil     # Nix language server
+      nixd    # Nix language server
 
       # Utilities
       restic-browser
