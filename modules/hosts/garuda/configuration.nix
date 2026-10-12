@@ -46,6 +46,7 @@
         self.nixosModules.podman
         self.nixosModules.distrobox
         self.nixosModules.openWebUi
+        self.nixosModules.helium
       ];
 
       # Disko drive definition
