@@ -24,10 +24,10 @@
       protonmail-desktop
 
       # Development
-      devenv  # Declarative development environments
-      nixfmt  # Nix formatter
-      nil     # Nix language server
-      nixd    # Nix language server
+      devenv # Declarative development environments
+      nixfmt # Nix formatter
+      nil # Nix language server
+      nixd # Nix language server
 
       # Utilities
       restic-browser
@@ -48,6 +48,11 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
+    };
+
+    # Helium Browser
+    programs.helium = {
+      enable = true;
     };
 
     # These files end up as symlinks in $HOME
