@@ -6,9 +6,9 @@
     imports = [
       self.homeModules.shell
       self.homeModules.mabBrave
+      self.homeModules.mabHelium
       self.homeModules.vscodeExtensions
       self.homeModules.zed
-      inputs.helium-flake.homeModules.default
     ];
 
     # Set user/directory options
@@ -49,11 +49,6 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
-    };
-
-    # Helium Browser
-    programs.helium = {
-      enable = true;
     };
 
     # These files end up as symlinks in $HOME
