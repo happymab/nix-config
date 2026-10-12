@@ -8,6 +8,7 @@
       self.homeModules.mabBrave
       self.homeModules.vscodeExtensions
       self.homeModules.zed
+      inputs.helium-flake.homeModules.default
     ];
 
     # Set user/directory options
