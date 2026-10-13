@@ -6,6 +6,7 @@
     imports = [
       self.homeModules.shell
       self.homeModules.mabBrave
+      self.homeModules.mabBraveOrigin
       self.homeModules.vscodeExtensions
       self.homeModules.zed
     ];
