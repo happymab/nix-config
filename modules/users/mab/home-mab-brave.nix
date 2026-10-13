@@ -3,7 +3,7 @@
   flake.homeModules.mabBrave = { pkgs, lib, ... }: {
 
     # Install brave browser for user mab
-    home.packages = [ pkgs.brave ];
+    home.packages = [ pkgs.brave-origin ];
 
     # Add desktop entries for different profiles
     xdg.dataFile =
