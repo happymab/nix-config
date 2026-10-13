@@ -11,10 +11,10 @@
         mkDesktopEntry = name: profileDir: iconName: className: {
           "applications/brave-origin-${name}.desktop".text = ''
             [Desktop Entry]
-            Comment=Brave Origin - ${name} Profile
+            Comment=Brave Origin - ${name}
             Exec=brave-origin --profile-directory="${profileDir}" --class="${className}" %U
             GenericName=Web Browser
-            Name=Brave Origin - ${name} Profile
+            Name=Brave Origin - ${name}
             Icon=${iconName}
             NoDisplay=false
             StartupNotify=true
