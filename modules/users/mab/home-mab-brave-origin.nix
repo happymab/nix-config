@@ -35,12 +35,12 @@
         "icons/brave-origin_purple.png".source = "${self}/assets/icons/brave-origin_purple.png";
       }
       # Desktop entries (merged via // operator)
-      // mkDesktopEntry "Standard" "Default" "brave-origin_blue" "brave-origin-standard"
-      // mkDesktopEntry "Development" "Development" "brave-origin_pink" "brave-origin-development"
-      // mkDesktopEntry "Investing" "Investing" "brave-origin_green" "brave-origin-investing"
-      // mkDesktopEntry "Banking" "Banking" "brave-origin_red" "brave-origin-banking"
-      // mkDesktopEntry "Venture Wise" "VentureWise" "brave-origin_yellow" "brave-origin-venture-wise"
-      // mkDesktopEntry "Crypto" "Crypto" "brave-origin_orange" "brave-origin-crypto"
-      // mkDesktopEntry "Proton" "Proton" "brave-origin_purple" "brave-origin-proton";
+      // mkDesktopEntry "Standard" "Default" "brave-origin_blue" "brave-standard"
+      // mkDesktopEntry "Development" "Development" "brave-origin_pink" "brave-development"
+      // mkDesktopEntry "Investing" "Investing" "brave-origin_green" "brave-investing"
+      // mkDesktopEntry "Banking" "Banking" "brave-origin_red" "brave-banking"
+      // mkDesktopEntry "Venture Wise" "VentureWise" "brave-origin_yellow" "brave-venture-wise"
+      // mkDesktopEntry "Crypto" "Crypto" "brave-origin_orange" "brave-crypto"
+      // mkDesktopEntry "Proton" "Proton" "brave-origin_purple" "brave-proton";
   };
 }
