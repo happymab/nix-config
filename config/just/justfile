@@ -25,6 +25,11 @@ rollback:
 builds:
     nixos-rebuild list-generations
 
+# Remove generations
+[group('NixOS')]
+rm-builds +g=('+30d'):
+    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations {{g}}
+
 # Cleanup and optimize the Nix store
 [group('NixOS')]
 cleanup:
