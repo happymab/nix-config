@@ -5,10 +5,13 @@
       containers = {
         enable = true;
 
-        # Add default registries
-        registries.search = [
-          "docker.io"
-        ];
+        settings = {
+          # Add default registries
+          registry = [
+            { location = "docker.io"; }
+            { location = "quay.io"; }
+          ];
+        };
 
         # Disable enforcement to tag image short-names as docker.io
         containersConf.settings.engine = {
