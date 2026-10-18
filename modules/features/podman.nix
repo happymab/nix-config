@@ -5,7 +5,7 @@
       containers = {
         enable = true;
 
-        settings = {
+        registries.settings = {
           # Add default registries
           registry = [
             { location = "docker.io"; }
