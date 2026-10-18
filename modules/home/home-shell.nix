@@ -47,7 +47,7 @@
       };
 
       # Anything that would be in .zshrc goes here
-      initExtra = "";
+      initContent = "";
 
       history.size = 10000;
       history.ignoreDups = true;
