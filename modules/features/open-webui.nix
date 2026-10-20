@@ -7,6 +7,9 @@
       # Optional: Set the port web UI
       port = 8080;
 
+      # Temporary pin to stable channel, unstable doesn't build
+      package = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.open-webui;
+
       environment = {
         # Disable telemetry and analytics
         ANONYMIZED_TELEMETRY = "False";
