@@ -7,6 +7,9 @@
       ...
     }:
     {
+      imports = [
+        self.nixosModules.stablePkgs
+      ];
 
       services.open-webui = {
         enable = true;
