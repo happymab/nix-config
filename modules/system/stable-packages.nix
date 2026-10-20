@@ -1,4 +1,3 @@
-# modules/stable-pkgs.nix
 { self, inputs, ... }: {
   flake.lib.stablePkgsFor =
     let
@@ -10,6 +9,10 @@
         };
         aarch64-linux = import inputs.nixpkgs-stable {
           system = "aarch64-linux";
+          config.allowUnfree = true;
+        };
+        aarch64-darwin = import inputs.nixpkgs-stable {
+          system = "aarch64-darwin";
           config.allowUnfree = true;
         };
       };
