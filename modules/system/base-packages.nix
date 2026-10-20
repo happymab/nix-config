@@ -2,7 +2,7 @@
   flake.nixosModules.basePackages = { pkgs, ... }: {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-    inputs.nixpkgs-stable.config.allowUnfree = true;
+    inputs.nixpkgs-stable.nixpkgs.config.allowUnfree = true;
 
     programs = {
       # Install bash, zsh, and fish shells
