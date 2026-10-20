@@ -2,6 +2,7 @@
   flake.nixosModules.basePackages = { pkgs, ... }: {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+    inputs.nixpkgs-stable.config.allowUnfree = true;
 
     programs = {
       # Install bash, zsh, and fish shells
@@ -13,7 +14,11 @@
       firefox.enable = true;
     };
 
-    environment.shells = with pkgs; [ bash zsh fish ];
+    environment.shells = with pkgs; [
+      bash
+      zsh
+      fish
+    ];
 
     # List packages installed in system profile
     environment.systemPackages = with pkgs; [
@@ -39,7 +44,7 @@
     # Enable direnv
     programs.direnv = {
       enable = true;
-      nix-direnv.enable = true;  # caches nix evals — important, shells become instant
+      nix-direnv.enable = true; # caches nix evals — important, shells become instant
     };
 
     # Install default fonts
@@ -68,7 +73,7 @@
     ];
 
     fonts.fontconfig.defaultFonts = {
-      monospace = ["JetBrainsMono Nerd Font"];
+      monospace = [ "JetBrainsMono Nerd Font" ];
     };
 
   };
