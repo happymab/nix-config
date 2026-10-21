@@ -13,6 +13,9 @@
         # ── Hardware ──────────────────────────────────────────────
         self.nixosModules.hostNixos-vm
 
+        # ── Common host config ────────────────────────────────────
+        self.nixosModules.commonHostConfig
+
         # ── Disko ─────────────────────────────────────────────────
         self.nixosModules.diskoBtrfsLuks
 
