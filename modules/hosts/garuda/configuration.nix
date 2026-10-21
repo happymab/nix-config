@@ -13,6 +13,9 @@
         # ── Hardware ──────────────────────────────────────────────
         self.nixosModules.hostGaruda
 
+        # ── Common host config ────────────────────────────────────
+        self.nixosModules.commonHostConfig
+
         # ── Disko ─────────────────────────────────────────────────
         self.nixosModules.diskoBtrfsLuks
 

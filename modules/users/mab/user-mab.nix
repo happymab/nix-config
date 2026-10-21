@@ -3,16 +3,6 @@
   # User configuration flake
   flake.nixosModules.userMab = { pkgs, ... }: {
 
-    imports = [
-      # Default home-manager module
-      inputs.home-manager.nixosModules.default
-    ];
-
-    # Apply the nix-vscode-extensions overlay to pkgs
-    nixpkgs.overlays = [
-      inputs.nix-vscode-extensions.overlays.default
-    ];
-
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {
       isNormalUser = true;
