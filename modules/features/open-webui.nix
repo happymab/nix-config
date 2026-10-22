@@ -14,8 +14,16 @@
         # Optional: Set the port web UI
         port = 8080;
 
-        # Temporary pin to stable channel, unstable doesn't build
-        package = pkgs.open-webui;
+        # Temporary fix to build the package
+        package = pkgs.open-webui.overrideAttrs (
+          final: prev: {
+            makeWrapperArgs = [
+              "--set"
+              "FRONTEND_BUILD_DIR"
+              "${final.frontend}/share/open-webui"
+            ];
+          }
+        );
 
         environment = {
           # Disable telemetry and analytics
