@@ -15,7 +15,7 @@
         port = 8080;
 
         # Temporary pin to stable channel, unstable doesn't build
-        package = stablePkgs.open-webui;
+        package = pkgs.open-webui;
 
         environment = {
           # Disable telemetry and analytics
