@@ -41,7 +41,6 @@
         self.nixosModules.flatpak
         self.nixosModules.podman
         self.nixosModules.distrobox
-        self.nixosModules.openWebUi
       ];
 
       # Disko drive definition
