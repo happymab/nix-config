@@ -16,13 +16,10 @@
         ];
       };
 
-      # 8 generations is the limit for measured boot
+      # 4 generations is the limit for measured boot
       configurationLimit = lib.mkForce 4;
 
     };
-
-    # Required for measured boot
-    # boot.initrd.systemd.enable = true;
 
   };
 }
