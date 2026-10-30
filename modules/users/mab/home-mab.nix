@@ -59,6 +59,8 @@
         enableFishIntegration = true;
       };
 
+      fonts.fontconfig.enable = true;
+
       # These files end up as symlinks in $HOME
       home.file = {
 
@@ -118,6 +120,9 @@
       };
 
       xdg.dataFile = {
+        # Install custom fonts
+        "fonts".source = "${self}/assets/fonts";
+
         # Copy wallpapers
         "wallpapers".source = "${self}/assets/wallpapers";
       };
