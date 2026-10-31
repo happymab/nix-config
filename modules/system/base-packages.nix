@@ -61,6 +61,7 @@
       cm_unicode
       corefonts
       unifont
+      font-awesome
 
       # Nerd Fonts
       nerd-fonts.jetbrains-mono
