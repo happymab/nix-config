@@ -16,16 +16,13 @@
           max_loaded_models = -1; # keep a small NPU model and a big GPU model resident together
           auto_evict = true; # then let lemond reclaim on idle / VRAM pressure
           thenoise = {
-            backend = "rocm";
-            rocm_bin = "builtin";
+            backend = "vulkan";
+            # backend = "rocm"; # ROCm backend can't currently load models without error
+            # rocm_bin = "builtin";
           };
         };
       };
     };
-
-    # Force ROCm to recognize GPU
-    systemd.services.lemond.environment.HSA_OVERRIDE_GFX_VERSION = "11.0.0";
-    environment.sessionVariables.HSA_OVERRIDE_GFX_VERSION = "11.0.0";
 
     # Create a dedicated user and group
     users.users.lemonade = {
