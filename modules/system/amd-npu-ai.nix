@@ -15,6 +15,10 @@
         settings = {
           max_loaded_models = -1; # keep a small NPU model and a big GPU model resident together
           auto_evict = true; # then let lemond reclaim on idle / VRAM pressure
+          thenoise = {
+            backend = "rocm";
+            rocm_bin = "builtin";
+          };
         };
       };
     };
