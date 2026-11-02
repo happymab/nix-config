@@ -17,6 +17,7 @@
         self.homeModules.mabBraveOrigin
         self.homeModules.vscodeExtensions
         self.homeModules.zed
+        self.homeModules.artCraft
       ];
 
       # Set user/directory options
@@ -43,6 +44,13 @@
 
         # Miscellaneous
         cowsay
+      ];
+
+      # ArtCraft Apps
+      programs.artcraft.apps = [
+        "photocraft"
+        "vectorcraft"
+        "pdfcraft"
       ];
 
       # Declarative development environments
