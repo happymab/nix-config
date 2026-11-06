@@ -17,6 +17,7 @@
         self.homeModules.mabBraveOrigin
         self.homeModules.vscodeExtensions
         self.homeModules.zed
+        self.homeModules.noctalia
       ];
 
       # Set user/directory options
@@ -42,6 +43,7 @@
         restic-browser
 
         # Miscellaneous
+        kitty
         cowsay
       ];
 
