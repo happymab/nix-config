@@ -16,7 +16,7 @@
 
       home.packages = [
         pkgs.kitty
-      ]
+      ];
 
       # ── Umbriel ───────────────────────────────────────────────
       programs.umbriel = {
