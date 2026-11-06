@@ -34,6 +34,8 @@
         self.nixosModules.basePackages
         self.nixosModules.desktopKde
 
+        self.nixosModules.noctalia
+
         # ── User and Home configuration ───────────────────────────
         self.nixosModules.userMab
 
