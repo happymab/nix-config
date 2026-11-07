@@ -24,7 +24,7 @@
     ];
 
     security.polkit.enable = true; # polkit
-    services.gnome.gnome-keyring.enable = true; # secret service
+    # services.gnome.gnome-keyring.enable = true; # secret service
     security.pam.services.swaylock = { };
   };
 }
