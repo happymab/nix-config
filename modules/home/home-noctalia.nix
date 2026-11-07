@@ -39,7 +39,7 @@
           #   mode = "dark";
           #   source = "builtin";
           #   builtin = "Catppuccin";
-          };
+          # };
 
           # wallpaper = {
           #   enabled = true;
