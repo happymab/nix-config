@@ -14,7 +14,7 @@
     # Enable the KDE Plasma Desktop Environment
     services.displayManager.sddm = {
       enable = true;
-      wayland.enable = true; # SDDM can serve Wayland sessions
+      wayland.enable = lib.mkDefault true; # SDDM can serve Wayland sessions
     };
 
     services.desktopManager.plasma6.enable = lib.mkDefault true;
