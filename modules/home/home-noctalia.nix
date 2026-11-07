@@ -14,10 +14,6 @@
         inputs.noctalia.homeModules.default
       ];
 
-      home.packages = [
-        pkgs.kitty
-      ];
-
       # ── Umbriel ───────────────────────────────────────────────
       programs.umbriel = {
         enable = true;
