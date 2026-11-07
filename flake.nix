@@ -45,15 +45,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # noctalia = {
-    #   url = "github:noctalia-dev/noctalia";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    #
-    # umbriel = {
-    #   url = "github:noctalia-dev/umbriel";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # Scrollable-tiling Wayland compositor + NixOS/home-manager modules.
+    # Deliberately does NOT follow our nixpkgs, so niri-flake's prebuilt
+    # packages stay byte-identical to what niri.cachix.org has cached.
+    niri.url = "github:sodiboo/niri-flake";
+
+    # Noctalia desktop shell (v5 line). Pinned to the `cachix` branch: upstream
+    # force-pushes there only after a commit's package is built and pushed to
+    # noctalia.cachix.org, so `packages.default` is guaranteed to be a cache hit
+    # (no ~hour-long C++ source build). It tracks `main` (v5), just slightly
+    # behind. Crucially we do NOT make it follow our nixpkgs — that would
+    # rebuild it against a different nixpkgs and miss the cache.
+    noctalia.url = "github:noctalia-dev/noctalia-shell/cachix";
 
   };
 
