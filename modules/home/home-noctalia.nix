@@ -10,24 +10,24 @@
     {
 
       imports = [
-        inputs.umbriel.homeModules.default
+        # inputs.umbriel.homeModules.default
         inputs.noctalia.homeModules.default
       ];
 
       # ── Umbriel ───────────────────────────────────────────────
-      programs.umbriel = {
-        enable = true;
-        settings = {
-          general.autostart = [ "noctalia" ];
-          layout.gap = 5;
-          input.keyboard.layout = "us";
-          keybinds = {
-            "Mod+Return" = "spawn kitty";
-            "Mod+Q" = "window-close";
-            "Mod" = "spawn noctalia msg panel-toggle launcher";
-          };
-        };
-      };
+      # programs.umbriel = {
+      #   enable = true;
+      #   settings = {
+      #     general.autostart = [ "noctalia" ];
+      #     layout.gap = 5;
+      #     input.keyboard.layout = "us";
+      #     keybinds = {
+      #       "Mod+Return" = "spawn kitty";
+      #       "Mod+Q" = "window-close";
+      #       "Mod" = "spawn noctalia msg panel-toggle launcher";
+      #     };
+      #   };
+      # };
 
       # ── Noctalia ──────────────────────────────────────────────
       programs.noctalia = {
@@ -35,10 +35,10 @@
 
         settings = {
           # This may also be a string or path to a .toml file.
-          theme = {
-            mode = "dark";
-            source = "builtin";
-            builtin = "Catppuccin";
+          # theme = {
+          #   mode = "dark";
+          #   source = "builtin";
+          #   builtin = "Catppuccin";
           };
 
           # wallpaper = {
