@@ -11,7 +11,7 @@
 
       imports = [
         # inputs.umbriel.homeModules.default
-        inputs.noctalia.homeModules.default
+        # inputs.noctalia.homeModules.default
       ];
 
       # ── Umbriel ───────────────────────────────────────────────
