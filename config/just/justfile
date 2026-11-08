@@ -9,6 +9,11 @@ set shell := ["bash", "-uc"]
 ## NixOS Management
 ## ==========================================================
 
+# Update NixOS flake
+[group('NixOS')]
+update:
+    nix flake update
+
 # Rebuild NixOS configuration with build option (default is nixos-rebuild switch)
 [group('NixOS')]
 rebuild build-option='switch':
