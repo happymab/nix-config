@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794081524,
-        "narHash": "sha256-I8PNQPmsb2KqrrKiT9udN+5g2+iTK5CqcntTUeHHtrI=",
+        "lastModified": 1794225860,
+        "narHash": "sha256-FzIicc3c+JTSXbsxOL82revDJW5x3fVo4exWfUjlGWE=",
         "owner": "Devitek",
         "repo": "artcraft-nixos",
-        "rev": "c4bfabda6f232904635dd5f0d0963aa38c54ead1",
+        "rev": "821b7fec3fddd904879c0ffa1d544f8d6ce30a7b",
         "type": "github"
       },
       "original": {
