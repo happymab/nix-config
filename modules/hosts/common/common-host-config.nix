@@ -15,6 +15,9 @@
 
         # ── Packages from stable channel ──────────────────────────
         self.nixosModules.stablePkgs
+
+        # ── Packages from master branch ───────────────────────────
+        self.nixosModules.masterPkgs
       ];
 
       # ==== Common overlays =======================================

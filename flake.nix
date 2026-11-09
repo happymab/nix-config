@@ -1,7 +1,11 @@
 {
   inputs = {
+    # unstable channel as default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # stable channel as additional input
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    # master branch for urgent package updates that haven't reached unstalble yet
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
