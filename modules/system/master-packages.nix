@@ -20,10 +20,10 @@
     system: bySystem.${system};
 
   flake.nixosModules.masterPkgs = { pkgs, ... }: {
-    _module.args.masterPkgs = self.lib.masterPkgsFor pkgs.stdenv.hostPlatform.system;
+    _module.args.masterPkgs = self.lib.masterPkgsFor inputs.pkgs.stdenv.hostPlatform.system;
   };
 
   flake.homeManagerModules.masterPkgs = { pkgs, ... }: {
-    _module.args.masterPkgs = self.lib.masterPkgsFor pkgs.stdenv.hostPlatform.system;
+    _module.args.masterPkgs = self.lib.masterPkgsFor inputs.pkgs.stdenv.hostPlatform.system;
   };
 }
