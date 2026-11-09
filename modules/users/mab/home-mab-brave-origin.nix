@@ -7,14 +7,16 @@
       masterPkgs,
       ...
     }:
+    # brave-origin in unstable is currently broken, temporaily replaced by master branch
+    let
+      masterPkgs = inputs.nixpkgs-master.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in
     {
-
       # Install brave browser for user mab
       home.packages = [
         # brave-origin in unstable is currently broken, temporaily replaced by master branch
         # pkgs.brave-origin
         masterPkgs.brave-origin
-
       ];
 
       # Add desktop entries for different profiles

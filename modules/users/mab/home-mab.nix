@@ -11,7 +11,6 @@
 
       imports = [
         self.homeManagerModules.stablePkgs
-        self.homeManagerModules.masterPkgs
         self.homeModules.shell
         self.homeModules.mabBrave
         self.homeModules.mabBraveOrigin
