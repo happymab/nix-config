@@ -38,6 +38,7 @@
       gnused
       gnutar
       gzip
+      nh
     ];
 
     # Enable direnv

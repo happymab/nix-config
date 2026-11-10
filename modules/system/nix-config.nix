@@ -22,22 +22,32 @@
 
     };
 
-    # Periodically optimize the nix store
-    nix.optimise = {
-      automatic = true;
-      persistent = true;
-      dates = "weekly";
-      randomizedDelaySec = "30min";
+    # Periodically remove old builds, clean and optimize the nix store
+    programs.nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        dates = "daily";
+        extraArgs = "--keep-since 20d --keep 8 --optimise";
+      };
     };
 
-    # Automatic clean up of nix store
-    nix.gc = {
-      automatic = true;
-      persistent = true;
-      dates = "daily";
-      randomizedDelaySec = "30min";
-      options = "--delete-older-than 30d";
-    };
+    #    # Periodically optimize the nix store
+    #    nix.optimise = {
+    #      automatic = true;
+    #      persistent = true;
+    #      dates = "weekly";
+    #      randomizedDelaySec = "30min";
+    #    };
+    #
+    #    # Automatic clean up of nix store
+    #    nix.gc = {
+    #      automatic = true;
+    #      persistent = true;
+    #      dates = "daily";
+    #      randomizedDelaySec = "30min";
+    #      options = "--delete-older-than 30d";
+    #    };
 
     # Automatic updates
     system.autoUpgrade = {
