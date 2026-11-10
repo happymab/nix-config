@@ -18,7 +18,7 @@ update:
 [group('NixOS')]
 rebuild build-option='switch':
     git add -A
-    sudo nixos-rebuild {{build-option}} --flake .#
+    sudo nixos-rebuild {{ build-option }} --flake .#
 
 # Rollback to the previous system generation
 [group('NixOS')]
@@ -28,12 +28,12 @@ rollback:
 # List generations
 [group('NixOS')]
 builds:
-    nixos-rebuild list-generations
+    nh os info
 
 # Remove generations
 [group('NixOS')]
 rm-builds +g=('+30d'):
-    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations {{g}}
+    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations {{ g }}
 
 # Cleanup and optimize the Nix store
 [group('NixOS')]
@@ -58,12 +58,12 @@ reboot:
 # Show system log for specific startup (default current startup)
 [group('Linux')]
 logs startup='0':
-    journalctl -xb {{startup}}
+    journalctl -xb {{ startup }}
 
 # Show system log for specific unit, show n entries (default 100)
 [group('Linux')]
 ulogs unit n='100':
-    journalctl -x -n {{n}} -u {{unit}}
+    journalctl -x -n {{ n }} -u {{ unit }}
 
 # Show current IP configuration
 [group('Network')]
