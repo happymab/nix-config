@@ -21,7 +21,7 @@
           "zram1" = {
             zram-size = "ram / 2"; # max. 50% of RAM
             compression-algorithm = "zstd";
-            fs-type = "ext2"; # use ext2 file system, light and fast
+            fs-type = "ext4"; # use ext4 file system, ext2 is broken (nixpkgs#422415)
             mount-point = "/tmp";
             options = "X-mount.mode=1777,discard";
           };
