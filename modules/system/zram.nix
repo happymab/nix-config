@@ -6,18 +6,22 @@
       services.zram-generator = {
         enable = true;
 
+        # Zram swap
         settings = {
           "zram0" = {
-            zram-size = "ram / 2";
+            zram-size = "ram / 2"; # max. 50% of RAM
             compression-algorithm = "zstd";
-            swap-priority = 10;
+            swap-priority = 10; # NixOS default priority for swap
             fs-type = "swap";
           };
 
+          # Temp folder mounted as Zram
+          # increased security, reduced SSD wear
+          # equivalent to boot.tmp.useZram.enabled = true
           "zram1" = {
-            zram-size = "ram / 2";
+            zram-size = "ram / 2"; # max. 50% of RAM
             compression-algorithm = "zstd";
-            fs-type = "ext4";
+            fs-type = "ext2"; # use ext2 file system, light and fast
             mount-point = "/tmp";
             options = "X-mount.mode=1777,discard";
           };
