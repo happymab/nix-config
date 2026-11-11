@@ -15,11 +15,10 @@
         };
 
         # /tmp device — equivalent to boot.tmp.useZram:
-        # fs-type ext2 for efficiency
         "zram1" = {
           zram-size = "ram / 2";
           compression-algorithm = "zstd";
-          fs-type = "ext2";
+          fs-type = "ext4";
           mount-point = "/tmp";
           options = "X-mount.mode=1777,discard";
         };
