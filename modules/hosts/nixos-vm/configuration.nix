@@ -27,7 +27,7 @@
         self.nixosModules.vmKernel
         self.nixosModules.security
         self.nixosModules.btrfsFilesystem
-        self.nixosModules.zramSwap
+        self.nixosModules.zram
         self.nixosModules.nixConfig
         self.nixosModules.networking
         self.nixosModules.audio

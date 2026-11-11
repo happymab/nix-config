@@ -26,7 +26,7 @@
         # ── System modules ────────────────────────────────────────
         self.nixosModules.security
         self.nixosModules.btrfsFilesystem
-        self.nixosModules.zramSwap
+        self.nixosModules.zram
         self.nixosModules.radeonGpu
         self.nixosModules.amdNpuAi
         self.nixosModules.amdPower
