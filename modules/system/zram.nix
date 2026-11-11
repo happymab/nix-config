@@ -1,28 +1,36 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.zram = { pkgs, ... }: {
-    services.zram-generator = {
-      enable = true;
+  flake.nixosModules.zram =
+    { pkgs, lib, ... }:
+    {
+      services.zram-generator = {
+        enable = true;
 
-      settings = {
-        # Swap device — equivalent to zramSwap:
-        # memoryPercent = "ram / 2" -> 50%, algorithm zstd, priority 10.
-        "zram0" = {
-          zram-size = "ram / 2";
-          compression-algorithm = "zstd";
-          swap-priority = 10;
-          fs-type = "swap";
-        };
+        settings = {
+          "zram0" = {
+            zram-size = "ram / 2";
+            compression-algorithm = "zstd";
+            swap-priority = 10;
+            fs-type = "swap";
+          };
 
-        # /tmp device — equivalent to boot.tmp.useZram:
-        "zram1" = {
-          zram-size = "ram / 2";
-          compression-algorithm = "zstd";
-          fs-type = "ext4";
-          mount-point = "/tmp";
-          options = "X-mount.mode=1777,discard";
+          "zram1" = {
+            zram-size = "ram / 2";
+            compression-algorithm = "zstd";
+            fs-type = "ext4";
+            mount-point = "/tmp";
+            options = "X-mount.mode=1777,discard";
+          };
         };
       };
+
+      # Required for zram for /tmp
+      boot.supportedFilesystems = [ "ext4" ];
+
+      # Give the setup unit access to the mkfs binaries + mount tooling.
+      systemd.services."systemd-zram-setup@".path = [
+        pkgs.util-linux
+        pkgs.e2fsprogs
+      ];
     };
-  };
 }
