@@ -6,6 +6,12 @@
         enable = true;
       };
 
+      # TODO: move to common boot module
+      # Use tmpfs for tmp to improve security and reduce SSD wear
+      tmp = {
+        cleanOnBoot = true;
+        useTmpfs = true;
+      };
       # Enable "Silent boot"
       consoleLogLevel = 3;
       kernelParams = [
