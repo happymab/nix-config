@@ -18,17 +18,17 @@ update:
 [group('NixOS')]
 rebuild build-option='switch':
     git add -A
-    sudo nh os {{ build-option }} .
+    nh os {{ build-option }} .
 
 # Rollback to the previous system generation
 [group('NixOS')]
 rollback:
-    sudo nh os rollback
+    nh os rollback
 
 # Rollback to the specified system generation
 [group('NixOS')]
 rollback-to generation:
-    sudo nh os rollback --to {{ generation }}
+    nh os rollback --to {{ generation }}
 
 # List generations
 [group('NixOS')]
