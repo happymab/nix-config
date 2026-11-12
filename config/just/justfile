@@ -25,7 +25,7 @@ rebuild build-option='switch':
 rollback:
     sudo nh os rollback
 
-# Rollback to the previous system generation
+# Rollback to the specified system generation
 [group('NixOS')]
 rollback-to generation:
     sudo nh os rollback --to {{ generation }}
