@@ -28,7 +28,7 @@ rollback:
 # Rollback to the previous system generation
 [group('NixOS')]
     rollback-to generation:
-    sudo nh os rollback --to {{ generation }}
+    sudo nh os rollback -t {{ generation }}
 
 # List generations
 [group('NixOS')]
