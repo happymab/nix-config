@@ -9,7 +9,7 @@
     {
       # Install brave-origin browser for user mab
       home.packages = [
-        pkgs.brave-origin-origin
+        pkgs.brave-origin
       ];
 
       # Add desktop entries for different profiles
