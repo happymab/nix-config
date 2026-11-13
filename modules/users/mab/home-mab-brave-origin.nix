@@ -72,10 +72,10 @@
             {
               "applications/brave-origin-${name}.desktop".text = ''
                 [Desktop Entry]
-                Comment=Brave - ${name} Profile
+                Comment=Brave Origin - ${name} Profile
                 Exec=brave-origin --profile-directory="${profileDir}" --class="${class}" %U
                 GenericName=Web Browser
-                Name=Brave - ${name} Profile
+                Name=Brave Origin - ${name} Profile
                 Icon=${icon}
                 NoDisplay=false
                 StartupNotify=true
