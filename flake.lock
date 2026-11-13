@@ -310,22 +310,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1794465052,
-        "narHash": "sha256-O2p+2KznSap64tdo9K2jkzlvzh3A9I29Qf2hy4WXT+I=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "302e5923fdcef17344b9f5674678c1efc61bf8ba",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1794165970,
@@ -408,7 +392,6 @@
         "nix-amd-ai": "nix-amd-ai",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable",
         "wrapper-modules": "wrapper-modules"
       }

@@ -4,7 +4,6 @@
     {
       pkgs,
       lib,
-      masterPkgs,
       ...
     }:
     {
@@ -16,39 +15,85 @@
       # Add desktop entries for different profiles
       xdg.dataFile =
         let
-          mkDesktopEntry = name: profileDir: iconName: className: {
-            "applications/brave-${name}.desktop".text = ''
-              [Desktop Entry]
-              Comment=Brave - ${name} Profile
-              Exec=brave --profile-directory="${profileDir}" --class="${className}" %U
-              GenericName=Web Browser
-              Name=Brave - ${name} Profile
-              Icon=${iconName}
-              NoDisplay=false
-              StartupNotify=true
-              Terminal=false
-              Type=Application
-              Categories=Network;WebBrowser;
-            '';
+          # Profile table — add a profile by adding one set here
+          profiles = [
+            {
+              name = "Standard";
+              profileDir = "Default";
+              icon = "brave_blue";
+              class = "brave-standard";
+            }
+            {
+              name = "Development";
+              profileDir = "Development";
+              icon = "brave_pink";
+              class = "brave-development";
+            }
+            {
+              name = "Investing";
+              profileDir = "Investing";
+              icon = "brave_green";
+              class = "brave-investing";
+            }
+            {
+              name = "Banking";
+              profileDir = "Banking";
+              icon = "brave_red";
+              class = "brave-banking";
+            }
+            {
+              name = "Venture Wise";
+              profileDir = "VentureWise";
+              icon = "brave_yellow";
+              class = "brave-venture-wise";
+            }
+            {
+              name = "Crypto";
+              profileDir = "Crypto";
+              icon = "brave_orange";
+              class = "brave-crypto";
+            }
+            {
+              name = "Proton";
+              profileDir = "Proton";
+              icon = "brave_purple";
+              class = "brave-proton";
+            }
+          ];
+
+          # Function to create a desktop entry from a profile set
+          mkDesktopEntry =
+            {
+              name,
+              profileDir,
+              icon,
+              class,
+            }:
+            {
+              "applications/brave-${name}.desktop".text = ''
+                [Desktop Entry]
+                Comment=Brave - ${name} Profile
+                Exec=brave --profile-directory="${profileDir}" --class="${class}" %U
+                GenericName=Web Browser
+                Name=Brave - ${name} Profile
+                Icon=${icon}
+                NoDisplay=false
+                StartupNotify=true
+                Terminal=false
+                Type=Application
+                Categories=Network;WebBrowser;
+              '';
+            };
+
+          # Copy an icon per profile
+          mkIcon = icon: {
+            "icons/${icon}.png".source = "${self}/assets/icons/${icon}.png";
           };
         in
-        {
-          # Icons
-          "icons/brave_blue.png".source = "${self}/assets/icons/brave_blue.png";
-          "icons/brave_pink.png".source = "${self}/assets/icons/brave_pink.png";
-          "icons/brave_green.png".source = "${self}/assets/icons/brave_green.png";
-          "icons/brave_red.png".source = "${self}/assets/icons/brave_red.png";
-          "icons/brave_yellow.png".source = "${self}/assets/icons/brave_yellow.png";
-          "icons/brave_orange.png".source = "${self}/assets/icons/brave_orange.png";
-          "icons/brave_purple.png".source = "${self}/assets/icons/brave_purple.png";
-        }
-        # Desktop entries (merged via // operator)
-        // mkDesktopEntry "Standard" "Default" "brave_blue" "brave-standard"
-        // mkDesktopEntry "Development" "Development" "brave_pink" "brave-development"
-        // mkDesktopEntry "Investing" "Investing" "brave_green" "brave-investing"
-        // mkDesktopEntry "Banking" "Banking" "brave_red" "brave-banking"
-        // mkDesktopEntry "Venture Wise" "VentureWise" "brave_yellow" "brave-venture-wise"
-        // mkDesktopEntry "Crypto" "Crypto" "brave_orange" "brave-crypto"
-        // mkDesktopEntry "Proton" "Proton" "brave_purple" "brave-proton";
+        # Derive all icons from the profile table (assumes every icon file
+        # under assets/icons/ is referenced by exactly one profile)
+        lib.mergeAttrsList (map mkIcon (lib.unique (map (p: p.icon) profiles)))
+        # Desktop entries — one per profile
+        // lib.mergeAttrsList (map mkDesktopEntry profiles);
     };
 }

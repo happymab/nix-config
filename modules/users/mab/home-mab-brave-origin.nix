@@ -4,52 +4,96 @@
     {
       pkgs,
       lib,
-      masterPkgs,
       ...
     }:
     {
-      # Install brave browser for user mab
+      # Install brave-origin browser for user mab
       home.packages = [
-        # brave-origin in unstable is currently broken, temporaily replaced by master branch
-        pkgs.brave-origin
+        pkgs.brave-origin-origin
       ];
 
       # Add desktop entries for different profiles
       xdg.dataFile =
         let
-          mkDesktopEntry = name: profileDir: iconName: className: {
-            "applications/brave-origin-${name}.desktop".text = ''
-              [Desktop Entry]
-              Comment=Brave Origin - ${name}
-              Exec=brave-origin --profile-directory="${profileDir}" --class="${className}" %U
-              GenericName=Web Browser
-              Name=Brave Origin - ${name}
-              Icon=${iconName}
-              NoDisplay=false
-              StartupNotify=true
-              Terminal=false
-              Type=Application
-              Categories=Network;WebBrowser;
-            '';
+          # Profile table — add a profile by adding one set here
+          profiles = [
+            {
+              name = "Standard";
+              profileDir = "Default";
+              icon = "brave-origin_blue";
+              class = "brave-o-standard";
+            }
+            {
+              name = "Development";
+              profileDir = "Development";
+              icon = "brave-origin_pink";
+              class = "brave-o-development";
+            }
+            {
+              name = "Investing";
+              profileDir = "Investing";
+              icon = "brave-origin_green";
+              class = "brave-o-investing";
+            }
+            {
+              name = "Banking";
+              profileDir = "Banking";
+              icon = "brave-origin_red";
+              class = "brave-o-banking";
+            }
+            {
+              name = "Venture Wise";
+              profileDir = "VentureWise";
+              icon = "brave-origin_yellow";
+              class = "brave-o-venture-wise";
+            }
+            {
+              name = "Crypto";
+              profileDir = "Crypto";
+              icon = "brave-origin_orange";
+              class = "brave-o-crypto";
+            }
+            {
+              name = "Proton";
+              profileDir = "Proton";
+              icon = "brave-origin_purple";
+              class = "brave-o-proton";
+            }
+          ];
+
+          # Function to create a desktop entry from a profile set
+          mkDesktopEntry =
+            {
+              name,
+              profileDir,
+              icon,
+              class,
+            }:
+            {
+              "applications/brave-origin-${name}.desktop".text = ''
+                [Desktop Entry]
+                Comment=Brave - ${name} Profile
+                Exec=brave-origin --profile-directory="${profileDir}" --class="${class}" %U
+                GenericName=Web Browser
+                Name=Brave - ${name} Profile
+                Icon=${icon}
+                NoDisplay=false
+                StartupNotify=true
+                Terminal=false
+                Type=Application
+                Categories=Network;WebBrowser;
+              '';
+            };
+
+          # Copy an icon per profile
+          mkIcon = icon: {
+            "icons/${icon}.png".source = "${self}/assets/icons/${icon}.png";
           };
         in
-        {
-          # Icons
-          "icons/brave-origin_blue.png".source = "${self}/assets/icons/brave-origin_blue.png";
-          "icons/brave-origin_pink.png".source = "${self}/assets/icons/brave-origin_pink.png";
-          "icons/brave-origin_green.png".source = "${self}/assets/icons/brave-origin_green.png";
-          "icons/brave-origin_red.png".source = "${self}/assets/icons/brave-origin_red.png";
-          "icons/brave-origin_yellow.png".source = "${self}/assets/icons/brave-origin_yellow.png";
-          "icons/brave-origin_orange.png".source = "${self}/assets/icons/brave-origin_orange.png";
-          "icons/brave-origin_purple.png".source = "${self}/assets/icons/brave-origin_purple.png";
-        }
-        # Desktop entries (merged via // operator)
-        // mkDesktopEntry "Standard" "Default" "brave-origin_blue" "origin-standard"
-        // mkDesktopEntry "Development" "Development" "brave-origin_pink" "origin-development"
-        // mkDesktopEntry "Investing" "Investing" "brave-origin_green" "origin-investing"
-        // mkDesktopEntry "Banking" "Banking" "brave-origin_red" "origin-banking"
-        // mkDesktopEntry "VentureWise" "VentureWise" "brave-origin_yellow" "origin-venture-wise"
-        // mkDesktopEntry "Crypto" "Crypto" "brave-origin_orange" "origin-crypto"
-        // mkDesktopEntry "Proton" "Proton" "brave-origin_purple" "origin-proton";
+        # Derive all icons from the profile table (assumes every icon file
+        # under assets/icons/ is referenced by exactly one profile)
+        lib.mergeAttrsList (map mkIcon (lib.unique (map (p: p.icon) profiles)))
+        # Desktop entries — one per profile
+        // lib.mergeAttrsList (map mkDesktopEntry profiles);
     };
 }
