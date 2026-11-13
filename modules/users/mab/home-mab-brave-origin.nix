@@ -21,43 +21,43 @@
               name = "Standard";
               profileDir = "Default";
               icon = "brave-origin_blue";
-              class = "brave-o-standard";
+              class = "bo-standard";
             }
             {
               name = "Development";
               profileDir = "Development";
               icon = "brave-origin_pink";
-              class = "brave-o-development";
+              class = "bo-development";
             }
             {
               name = "Investing";
               profileDir = "Investing";
               icon = "brave-origin_green";
-              class = "brave-o-investing";
+              class = "bo-investing";
             }
             {
               name = "Banking";
               profileDir = "Banking";
               icon = "brave-origin_red";
-              class = "brave-o-banking";
+              class = "bo-banking";
             }
             {
               name = "Venture Wise";
               profileDir = "VentureWise";
               icon = "brave-origin_yellow";
-              class = "brave-o-venture-wise";
+              class = "bo-venturewise";
             }
             {
               name = "Crypto";
               profileDir = "Crypto";
               icon = "brave-origin_orange";
-              class = "brave-o-crypto";
+              class = "bo-crypto";
             }
             {
               name = "Proton";
               profileDir = "Proton";
               icon = "brave-origin_purple";
-              class = "brave-o-proton";
+              class = "bo-proton";
             }
           ];
 
