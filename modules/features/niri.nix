@@ -3,11 +3,21 @@
   flake.nixosModules.niri =
     { pkgs, ... }:
     {
-      imports = [ inputs.niri.nixosModules.niri ];
-
       programs.niri.enable = true;
 
-      # optional: pin to unstable from the flake instead of niri-stable
-      # programs.niri.package = inputs.niri.packages.x86_64-linux.niri-unstable;
+      # Required settings
+      hardware.graphics.enable = true;
+      security.polkit.enable = true; # polkit
+      # services.gnome.gnome-keyring.enable = true; # secret service
+      security.pam.services.swaylock = { };
+
+      programs.waybar.enable = true; # top bar
+      environment.systemPackages = with pkgs; [
+        alacritty
+        fuzzel
+        swaylock
+        mako
+        swayidle
+      ];
     };
 }
