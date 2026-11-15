@@ -15,9 +15,13 @@
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true; # SDDM can serve Wayland sessions
+
     };
 
     services.desktopManager.plasma6.enable = true;
+
+    # force default session
+    services.displayManager.defaultSession = lib.mkForce "plasma";
 
     # KDE-specific optimizations
     services.xserver.displayManager.sessionCommands = ''
