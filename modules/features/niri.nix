@@ -6,7 +6,10 @@
       programs.niri.enable = true;
 
       # Required settings
-      hardware.graphics.enable = true;
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
       security.polkit.enable = true; # polkit
       services.gnome.gnome-keyring.enable = false; # secret service
       security.pam.services.swaylock = { };
@@ -18,6 +21,7 @@
         swaylock
         mako
         swayidle
+        noctalia
       ];
     };
 }
