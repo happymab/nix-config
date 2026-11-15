@@ -33,7 +33,7 @@
         self.nixosModules.audio
         self.nixosModules.locale
         self.nixosModules.basePackages
-        self.nixosModules.desktopKde
+        # self.nixosModules.desktopKde
 
         self.nixosModules.niri
 
