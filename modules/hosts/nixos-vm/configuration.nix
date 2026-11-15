@@ -35,7 +35,7 @@
         self.nixosModules.basePackages
         self.nixosModules.desktopKde
 
-        # self.nixosModules.niri
+        self.nixosModules.niri
 
         # ── User and Home configuration ───────────────────────────
         self.nixosModules.userMab

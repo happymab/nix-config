@@ -1,39 +1,13 @@
 { self, inputs, ... }: {
-  flake.nixosModules.niri = { pkgs, lib, ... }: {
-    programs.niri = {
-      enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
-    };
-  };
 
-  perSystem =
+  flake.nixosModules.niri =
+    { pkgs, ... }:
     {
-      pkgs,
-      lib,
-      self',
-      ...
-    }:
-    {
-      packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
-        inherit pkgs;
-        settings = {
+      imports = [ inputs.niri.nixosModules.niri ];
 
-          spawn-at-startup = [
-            (lib.getExe self'.packages.myNoctalia)
-          ];
+      programs.niri.enable = true;
 
-          xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
-
-          input.keyboard.xkb.layout = "us,ua";
-
-          layout.gaps = 5;
-
-          binds = {
-            "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
-            "Mod+Q".close-window = { };
-            "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
-          };
-        };
-      };
+      # optional: pin to unstable from the flake instead of niri-stable
+      # programs.niri.package = inputs.niri.packages.x86_64-linux.niri-unstable;
     };
 }
