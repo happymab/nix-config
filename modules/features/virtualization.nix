@@ -30,17 +30,17 @@
     # (This goes in your host definition, not here — the dendritic
     # pattern keeps user definitions in the host module)
     # users.users.yourusername.extraGroups = [ "libvirtd" ];
-  };
 
-  # For plain `nh os build-vm`
-  virtualisation.vmVariant = {
-    virtualisation.cores = 3;
-    virtualisation.memorySize = 8192; # MiB
-  };
+    # For plain `nh os build-vm`
+    virtualisation.vmVariant = {
+      virtualisation.cores = 3;
+      virtualisation.memorySize = 8192; # MiB
+    };
 
-  # For `nh os build-vm --with-bootloader`
-  virtualisation.vmVariantWithBootLoader = {
-    virtualisation.cores = 4;
-    virtualisation.memorySize = 8192;
+    # For `nh os build-vm --with-bootloader`
+    virtualisation.vmVariantWithBootLoader = {
+      virtualisation.cores = 4;
+      virtualisation.memorySize = 8192;
+    };
   };
 }
