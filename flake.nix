@@ -9,7 +9,7 @@
 
     import-tree.url = "github:vic/import-tree";
 
-    inputs.niri = {
+    niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
