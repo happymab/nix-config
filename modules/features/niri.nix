@@ -14,7 +14,8 @@
       services.gnome.gnome-keyring.enable = false; # secret service
       security.pam.services.swaylock = { };
 
-      programs.waybar.enable = true; # top bar
+      # programs.waybar.enable = true; # top bar
+
       environment.systemPackages = with pkgs; [
         alacritty
         fuzzel
