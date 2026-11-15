@@ -11,7 +11,7 @@
         enable32Bit = true;
       };
       security.polkit.enable = true; # polkit
-      # services.gnome.gnome-keyring.enable = true; # secret service
+      services.gnome.gnome-keyring.enable = false; # secret service
       security.pam.services.swaylock = { };
 
       # programs.waybar.enable = true; # top bar
