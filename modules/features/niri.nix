@@ -17,6 +17,7 @@
       # programs.waybar.enable = true; # top bar
 
       environment.systemPackages = with pkgs; [
+        xwayland-satellite # xwayland support
         alacritty
         fuzzel
         swaylock

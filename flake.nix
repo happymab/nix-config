@@ -9,11 +9,6 @@
 
     import-tree.url = "github:vic/import-tree";
 
-    # niri = {
-    #   url = "github:sodiboo/niri-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,9 +39,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ArtCraft Apps
-    artcraft = {
-      url = "github:Devitek/artcraft-nixos";
+    # Umbriel Wayland Compositor
+    inputs.umbriel = {
+      url = "github:noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
