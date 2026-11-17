@@ -190,11 +190,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1794859535,
-        "narHash": "sha256-5JCcon6GRnVTfA2WP2FoUHHsKH5MhjjWVuF084Im88w=",
+        "lastModified": 1794894527,
+        "narHash": "sha256-vrPMC7h++QHQt1YDxHnmFXFcPAM4vk46rUJGaTMGNhA=",
         "owner": "noamsto",
         "repo": "nix-amd-ai",
-        "rev": "44cd953433d51d63b6dcc97c9d614a2251c977ea",
+        "rev": "6b467a5b91506ae68aac481e9ab2d64e449fe19e",
         "type": "github"
       },
       "original": {
