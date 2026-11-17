@@ -18,7 +18,7 @@
             action = "spawn noctalia msg panel-toggle launcher";
             repeat = false;
           };
-          "Mod+Return" = {
+          "Mod+T" = {
             action = "spawn kitty";
             repeat = false;
           };
@@ -26,7 +26,7 @@
             action = "spawn brave-origin";
             repeat = false;
           };
-          "Mod+F1" = "cheatsheet-toggle";
+          "Mod+H" = "cheatsheet-toggle";
 
           # --- Windows -----------------------------------------------------------
           "Mod+Q" = "window-close";
@@ -35,27 +35,25 @@
             repeat = false;
           };
           "Mod+F" = "window-toggle-fullscreen";
-          "Mod+I" = "overview-toggle";
+          "Mod+O" = "overview-toggle";
 
-          # Focus (vim keys + arrows)
-          "Mod+H" = "window-focus-left";
-          "Mod+L" = "window-focus-right";
-          "Mod+K" = "window-focus-up";
-          "Mod+J" = "window-focus-down";
+          # Focus (arrows)
           "Mod+Left" = "window-focus-left";
           "Mod+Right" = "window-focus-right";
           "Mod+Up" = "window-focus-up";
           "Mod+Down" = "window-focus-down";
-
-          # Columns (scrolling layout)
-          "Mod+WheelUp" = "window-focus-left";
-          "Mod+WheelDown" = "window-focus-right";
-          "Mod+Shift+WheelUp" = "column-move-left";
-          "Mod+Shift+WheelDown" = "column-move-right";
           "Mod+Home" = "column-focus-first";
           "Mod+End" = "column-focus-last";
+          "Mod+WheelUp" = "window-focus-left";
+          "Mod+WheelDown" = "window-focus-right";
+
+          # Columns (scrolling layout)
           "Mod+R" = "window-cycle-primary-extent";
           "Mod+Shift+R" = "window-cycle-primary-extent-back";
+          "Mod+Shift+Left" = "column-move-left";
+          "Mod+Shift+Right" = "column-move-right";
+          "Mod+Shift+WheelUp" = "column-move-left";
+          "Mod+Shift+WheelDown" = "column-move-right";
 
           # --- Workspaces & outputs ----------------------------------------------
           "Mod+1" = "workspace-switch 1";
