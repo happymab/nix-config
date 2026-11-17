@@ -48,7 +48,7 @@
 
     # Umbriel Wayland Compositor
     umbriel = {
-      url = "github:noctalia-dev/umbriel";
+      url = "github:noctalia-dev/umbriel/cachix"; # Tracking Cachix branch to avoid commits that are not available cached
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
