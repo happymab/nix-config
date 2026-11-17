@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "artcraft": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1794519742,
-        "narHash": "sha256-YI41WSTM0UHbY1HqvUO2ZQ0hmwJn/XsibH4ZkBCsiW0=",
-        "owner": "Devitek",
-        "repo": "artcraft-nixos",
-        "rev": "7d7369245e30f5f0b997609773e0e4e7e4710b17",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Devitek",
-        "repo": "artcraft-nixos",
-        "type": "github"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1789760033,
@@ -366,7 +346,6 @@
     },
     "root": {
       "inputs": {
-        "artcraft": "artcraft",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "helium-flake": "helium-flake",
@@ -376,7 +355,8 @@
         "nix-amd-ai": "nix-amd-ai",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable",
+        "umbriel": "umbriel"
       }
     },
     "rust-overlay": {
@@ -397,6 +377,48 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "umbriel": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
+      },
+      "locked": {
+        "lastModified": 1794879520,
+        "narHash": "sha256-M9mSX6we8uBybY/Wwzt+KxphU/wMDcNcCcCaZOJ/A+8=",
+        "owner": "noctalia-dev",
+        "repo": "umbriel",
+        "rev": "d1329334efd85adbb8990ee8af0fd805f34951a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "umbriel",
+        "type": "github"
+      }
+    },
+    "xdg-desktop-portal-umbriel": {
+      "inputs": {
+        "nixpkgs": [
+          "umbriel",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794879164,
+        "narHash": "sha256-uRK4DkYYWNWXEB5JcG8YEkVyWS6YjknmJ7zfM8pwmnY=",
+        "owner": "noctalia-dev",
+        "repo": "xdg-desktop-portal-umbriel",
+        "rev": "baa83d0d8ce77187712fa4bf6912b8df75b0c724",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "xdg-desktop-portal-umbriel",
         "type": "github"
       }
     }

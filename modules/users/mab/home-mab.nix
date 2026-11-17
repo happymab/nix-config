@@ -16,6 +16,7 @@
         self.homeModules.mabBraveOrigin
         self.homeModules.vscodeExtensions
         self.homeModules.zed
+        self.homeModules.umbriel
       ];
 
       # Set user/directory options
