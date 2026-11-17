@@ -49,7 +49,7 @@
     # Umbriel Wayland Compositor
     umbriel = {
       url = "github:noctalia-dev/umbriel";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
