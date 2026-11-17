@@ -36,7 +36,7 @@
         self.nixosModules.desktopKde
 
         self.nixosModules.niri
-        # self.nixosModules.umbriel
+        self.nixosModules.umbriel
 
         # ── User and Home configuration ───────────────────────────
         self.nixosModules.userMab

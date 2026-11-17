@@ -39,10 +39,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Niri flake contains nix packages, NixOS and home-manager modules for niri.
+    # This flake is a fork of the well known sodiboo flake
+    # niri = {
+    #   url = "github:epireyn/niri-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     # Umbriel Wayland Compositor
     umbriel = {
       url = "github:noctalia-dev/umbriel";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
