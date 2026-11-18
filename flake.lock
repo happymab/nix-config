@@ -182,6 +182,26 @@
         "type": "github"
       }
     },
+    "luciole": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794981535,
+        "narHash": "sha256-+rTih4gof6ooZb/Szvxw5YuBhAIIAJGxAXXeXIAWUhk=",
+        "owner": "noctalia-dev",
+        "repo": "luciole",
+        "rev": "83856751534bd13d06632f37b95892b20928deec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "luciole",
+        "type": "github"
+      }
+    },
     "nix-amd-ai": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -352,6 +372,7 @@
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "lanzaboote": "lanzaboote",
+        "luciole": "luciole",
         "nix-amd-ai": "nix-amd-ai",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
