@@ -51,6 +51,12 @@
       url = "github:noctalia-dev/umbriel/cachix"; # Tracking Cachix branch to avoid commits that are not available cached
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Luciole File Manager
+    luciole = {
+      url = "github:noctalia-dev/luciole";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

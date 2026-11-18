@@ -5,11 +5,14 @@
     {
       imports = [ inputs.umbriel.nixosModules.default ];
 
+      nixpkgs.overlays = [ inputs.luciole.overlays.default ];
+
       programs.umbriel.enable = true;
 
       environment.systemPackages = with pkgs; [
         kitty
         noctalia
+        luciole # File Manager
         kdePackages.kcolorscheme # Theming of KDE applications
         adw-gtk3 # Theming of GTK applications
       ];
