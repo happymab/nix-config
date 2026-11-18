@@ -40,7 +40,6 @@
         self.nixosModules.basePackages
         self.nixosModules.desktopKde
 
-        self.nixosModules.niri
         self.nixosModules.umbriel
 
         # ── User and Home configuration ───────────────────────────
