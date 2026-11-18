@@ -10,6 +10,8 @@
       environment.systemPackages = with pkgs; [
         kitty
         noctalia
+        kdePackages.kcolorscheme # Theming of KDE applications
+        adw-gtk3 # Theming of GTK applications
       ];
 
       nix.settings = {
