@@ -19,7 +19,16 @@
     };
 
     # Enable PAM service with SDDM
-    security.pam.services.sddm.kwallet.enable = true;
+    security.pam.services = {
+      login.kwallet = {
+        enable = true;
+        package = pkgs.kdePackages.kwallet-pam;
+        sddm.kwallet = {
+          enable = true;
+          package = pkgs.kdePackages.kwallet-pam;
+        };
+      };
+    };
 
     services.desktopManager.plasma6.enable = true;
 
