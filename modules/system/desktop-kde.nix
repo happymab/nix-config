@@ -34,8 +34,6 @@
 
     # Packages for kwallet integration
     environment.systemPackages = with pkgs.kdePackages; [
-      kwallet
-      kwalletmanager
       ksshaskpass # Unlock ssh keys
       kwallet-pam # PAM manager
     ];
@@ -45,7 +43,5 @@
       SSH_ASKPASS_REQUIRE = lib.mkDefault "prefer";
     };
 
-    # Register kwalletd6 on the session D-Bus
-    services.dbus.packages = with pkgs.kdePackages; [ kwallet ];
   };
 }
