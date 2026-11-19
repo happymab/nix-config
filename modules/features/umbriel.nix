@@ -53,12 +53,5 @@
         };
         Install.WantedBy = [ "umbriel-session.target" ];
       };
-
-      home.activation.kwalletDefaults = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        kw=${lib.getExe' pkgs.kdePackages.kconfig "kwriteconfig6"}
-        run $kw --file kwalletrc --group Wallet --key "First Use" --type bool false
-        run $kw --file kwalletrc --group Wallet --key "Close When Idle" --type bool false
-        run $kw --file kwalletrc --group "org.freedesktop.secrets" --key apiEnabled --type bool true
-      '';
     };
 }
