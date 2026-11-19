@@ -9,11 +9,17 @@
 
     };
 
-    # home-manager
-    xdg.dataFile."dbus-1/services/org.freedesktop.secrets.service".text = ''
+    # xdg.dataFile."dbus-1/services/org.freedesktop.secrets.service".text = ''
+    #   [D-BUS Service]
+    #   Name=org.freedesktop.secrets
+    #   Exec=${pkgs.kdePackages.kwallet}/bin/ksecretd
+    # '';
+
+    # D-Bus activation to start kwalletd6
+    xdg.configFile."dbus-1/services/org.freedesktop.secrets.service".text = ''
       [D-BUS Service]
       Name=org.freedesktop.secrets
-      Exec=${pkgs.kdePackages.kwallet}/bin/ksecretd
+      Exec=${pkgs.kdePackages.kwallet}/bin/kwalletd6
     '';
 
   };

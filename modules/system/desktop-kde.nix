@@ -11,13 +11,13 @@
       variant = "";
     };
 
-    # Enable the KDE Plasma Desktop Environment
+    # Enable KDE SDD login service
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true; # SDDM can serve Wayland sessions
-
     };
 
+    # Enable KDE Plasma
     services.desktopManager.plasma6.enable = true;
 
     # force default session
@@ -32,13 +32,20 @@
     programs.kdeconnect.enable = true;
     programs.partition-manager.enable = true;
 
-    # Unmlock ssh keys
-    environment.systemPackages = [
-      pkgs.kdePackages.ksshaskpass
+    # Packages for kwallet integration
+    environment.systemPackages = with pkgs.kdePackages; [
+      kwallet
+      kwalletmanager
+      ksshaskpass # Unlock ssh keys
+      kwallet-pam # PAM manager
     ];
+
     environment.variables = {
       SSH_ASKPASS = lib.mkForce "/run/current-system/sw/bin/ksshaskpass";
       SSH_ASKPASS_REQUIRE = lib.mkDefault "prefer";
     };
+
+    # Register kwalletd6 on the session D-Bus
+    services.dbus.packages = with pkgs.kdePackages; [ kwallet ];
   };
 }
