@@ -27,13 +27,6 @@
         adw-gtk3 # Theming of GTK applications
       ];
 
-      # Enable KWallet PAM module
-      security.pam.services.login.kwallet = {
-        enable = true; # sddm's stack includes `login`
-        package = pkgs.kdePackages.kwallet-pam;
-        # forceRun = true;                    # only needed if you also login on a TTY and run start-umbriel
-      };
-
       # Add sercice to unlock KWallet in Umbriel session
       systemd.user.services.kwallet-pam-init = {
         Unit = {
