@@ -46,5 +46,12 @@
         };
         Install.WantedBy = [ "umbriel-session.target" ];
       };
+
+      # Enable KWallet PAM module
+      security.pam.services.login.kwallet = {
+        enable = true; # sddm's stack includes `login`
+        # forceRun = true;                    # only needed if you also login on a TTY and run start-umbriel
+      };
+
     };
 }

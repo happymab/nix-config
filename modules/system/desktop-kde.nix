@@ -42,12 +42,5 @@
       SSH_ASKPASS_REQUIRE = lib.mkDefault "prefer";
     };
 
-    # Enable KWallet PAM module
-    security.pam.services.login.kwallet = {
-      enable = true; # sddm's stack includes `login`
-      package = pkgs.kdePackages.kwallet-pam;
-      # forceRun = true;                    # only needed if you also login on a TTY and run start-umbriel
-    };
-
   };
 }
