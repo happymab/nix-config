@@ -3,12 +3,11 @@
     # Enable Wayland (X11 is disabled intentionally for modern KDE/Plasma 6)
     services.xserver = {
       enable = false;
-    };
-
-    # Configure keymap for display manager (Wayland session still uses this)
-    services.xserver.xkb = {
-      layout = "us";
-      variant = "";
+      # Configure keymap for display manager (Wayland session still uses this)
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
 
     # Enable KDE SDD login service
@@ -21,7 +20,7 @@
     services.desktopManager.plasma6.enable = true;
 
     # force default session
-    services.displayManager.defaultSession = lib.mkForce "plasma";
+    # services.displayManager.defaultSession = lib.mkForce "plasma";
 
     # KDE-specific optimizations
     services.xserver.displayManager.sessionCommands = ''
