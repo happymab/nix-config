@@ -34,7 +34,6 @@
     # Packages for kwallet integration
     environment.systemPackages = with pkgs.kdePackages; [
       ksshaskpass # Unlock ssh keys
-      kwallet-pam # PAM manager
     ];
 
     environment.variables = {
