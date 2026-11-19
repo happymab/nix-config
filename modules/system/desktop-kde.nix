@@ -19,9 +19,6 @@
     # Enable KDE Plasma
     services.desktopManager.plasma6.enable = true;
 
-    # force default session
-    # services.displayManager.defaultSession = lib.mkForce "plasma";
-
     # KDE-specific optimizations
     services.xserver.displayManager.sessionCommands = ''
       # Additional session commands if needed
@@ -40,6 +37,12 @@
     environment.variables = {
       SSH_ASKPASS = lib.mkForce "/run/current-system/sw/bin/ksshaskpass";
       SSH_ASKPASS_REQUIRE = lib.mkDefault "prefer";
+    };
+
+    # Enable KWallet PAM module (for other sessions like Umbriel)
+    security.pam.services.login.kwallet = {
+      enable = true; # sddm's stack includes `login`
+      # forceRun = true;                    # only needed if you also login on a TTY and run start-umbriel
     };
 
   };
