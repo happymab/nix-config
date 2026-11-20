@@ -32,6 +32,7 @@
     environment.systemPackages = with pkgs.kdePackages; [
       ksshaskpass # Unlock ssh keys
       kwallet-pam # PAM manager
+      kdialog # Show dialog boxes
     ];
 
     environment.variables = {
