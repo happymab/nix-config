@@ -25,6 +25,8 @@
         luciole # File Manager
         kdePackages.kcolorscheme # Theming of KDE applications
         adw-gtk3 # Theming of GTK applications
+        glib.bin # gdbus, gsettings — glib's bin output
+        sshfs # optional, phone file browsing
       ];
 
     };
