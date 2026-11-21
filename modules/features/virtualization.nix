@@ -1,13 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ self, inputs, ... }: {
+  flake.nixosModules.virtualization = { pkgs, config, ... }: {
 
-{
-  flake.nixosModules.virtualization = { pkgs, ... }: {
-    # ── Libvirt ──────────────────────────────────────────────────
+    # Libvirt
     virtualisation.libvirtd = {
       enable = true;
 
@@ -15,10 +9,9 @@
       qemu.swtpm.enable = true;
     };
 
-    # Use virtio for better performance
     virtualisation.libvirtd.onShutdown = "shutdown";
 
-    # ── Packages ─────────────────────────────────────────────────
+    # Packages
     environment.systemPackages = with pkgs; [
       virt-manager # GUI for managing VMs
       virt-viewer # VM console viewer
@@ -30,6 +23,8 @@
     # (This goes in your host definition, not here — the dendritic
     # pattern keeps user definitions in the host module)
     # users.users.yourusername.extraGroups = [ "libvirtd" ];
+
+    let userName = config.
 
     # For plain `nh os build-vm`
     virtualisation.vmVariant = {

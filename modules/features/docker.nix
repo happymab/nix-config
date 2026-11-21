@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
   flake.nixosModules.docker = { pkgs, ... }: {
-    virtualisation.docker = {
 
+    virtualisation.docker = {
       # IMPORTANT
       # Add the user to the docker group to allow running docker commands
       # without sudo and for tool integration (e.g. devcontainers)
@@ -39,5 +39,6 @@
     environment.systemPackages = with pkgs; [
       docker-compose
     ];
+
   };
 }

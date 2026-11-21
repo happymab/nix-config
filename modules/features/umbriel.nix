@@ -1,33 +1,33 @@
 { self, inputs, ... }: {
+  flake.nixosModules.umbriel = { pkgs, lib, ... }: {
 
-  flake.nixosModules.umbriel =
-    { pkgs, lib, ... }:
-    {
-      # Use official Umbriel flake
-      imports = [ inputs.umbriel.nixosModules.default ];
-      nixpkgs.overlays = [ inputs.luciole.overlays.default ];
+    # Use official Umbriel flake
+    imports = [ inputs.umbriel.nixosModules.default ];
 
-      # Configure cache for Umbriel flake
-      nix.settings = {
-        extra-substituters = [ "https://umbriel.cachix.org" ];
-        extra-trusted-public-keys = [
-          "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw="
-        ];
-      };
+    # Add luciole to nixpkgs
+    nixpkgs.overlays = [ inputs.luciole.overlays.default ];
 
-      # Enable Umbriel
-      programs.umbriel.enable = true;
-
-      # Install packages
-      environment.systemPackages = with pkgs; [
-        kitty
-        noctalia
-        luciole # File Manager
-        kdePackages.kcolorscheme # Theming of KDE applications
-        adw-gtk3 # Theming of GTK applications
-        glib.bin # gdbus, gsettings — glib's bin output
-        sshfs # optional, phone file browsing
+    # Configure cache for Umbriel flake
+    nix.settings = {
+      extra-substituters = [ "https://umbriel.cachix.org" ];
+      extra-trusted-public-keys = [
+        "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw="
       ];
-
     };
+
+    # Enable Umbriel
+    programs.umbriel.enable = true;
+
+    # Install packages
+    environment.systemPackages = with pkgs; [
+      kitty
+      noctalia
+      luciole # File Manager
+      kdePackages.kcolorscheme # Theming of KDE applications
+      adw-gtk3 # Theming of GTK applications
+      glib.bin # gdbus, gsettings — glib's bin output
+      sshfs # optional, phone file browsing
+    ];
+
+  };
 }
