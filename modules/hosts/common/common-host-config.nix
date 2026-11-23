@@ -11,7 +11,7 @@
       # ==== Common imports ========================================
       imports = [
         # ── Default home-manager module ───────────────────────────
-        inputs.home-manager.modules.nixos.default
+        inputs.home-manager.nixosModules.default
 
         # ── Packages from stable channel ──────────────────────────
         self.modules.nixos.stablePkgs
