@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
   flake.modules.nixos.secureboot = { pkgs, lib, ... }: {
     imports = [
-      inputs.lanzaboote.modules.nixos.lanzaboote
+      inputs.lanzaboote.nixosModules.lanzaboote
     ];
 
     # Lanzaboote replaces the systemd-boot module.
