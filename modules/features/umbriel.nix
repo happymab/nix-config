@@ -1,5 +1,5 @@
-{ self, inputs, ... }: {
-  flake.modules.nixos.umbriel = { pkgs, lib, ... }: {
+{ inputs, ... }: {
+  flake.modules.nixos.umbriel = { pkgs, ... }: {
 
     # Use official Umbriel flake
     imports = [ inputs.umbriel.nixosModules.default ];
