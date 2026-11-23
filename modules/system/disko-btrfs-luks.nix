@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
   flake.modules.nixos.diskoBtrfsLuks = { lib, ... }: {
-    imports = [ inputs.disko.modules.nixos.default ];
+    imports = [ inputs.disko.nixosModules.default ];
 
     disko.devices = {
       disk.main = {
