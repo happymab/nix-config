@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.virtualization = { pkgs, config, ... }: {
+  flake.modules.nixos.virtualization = { pkgs, config, ... }: {
 
     # Libvirt
     virtualisation.libvirtd = {

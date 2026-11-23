@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
-  flake.nixosModules.amdNpuAi = { pkgs, lib, ... }: {
-    imports = [ inputs.nix-amd-ai.nixosModules.default ];
+  flake.modules.nixos.amdNpuAi = { pkgs, lib, ... }: {
+    imports = [ inputs.nix-amd-ai.modules.nixos.default ];
 
     hardware.amd-npu = {
       enable = true;

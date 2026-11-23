@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.desktopKde = { pkgs, lib, ... }: {
+  flake.modules.nixos.desktopKde = { pkgs, lib, ... }: {
     # Enable Wayland (X11 is disabled intentionally for modern KDE/Plasma 6)
     services.xserver = {
       enable = false;

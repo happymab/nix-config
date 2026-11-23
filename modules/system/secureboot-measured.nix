@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
-  flake.nixosModules.securebootMeasured = { pkgs, lib, ... }: {
+  flake.modules.nixos.securebootMeasured = { pkgs, lib, ... }: {
     imports = [
-      self.nixosModules.secureboot
+      self.modules.nixos.secureboot
     ];
 
     boot.lanzaboote = {

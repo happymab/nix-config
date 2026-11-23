@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.niri = { pkgs, ... }: {
+  flake.modules.nixos.niri = { pkgs, ... }: {
 
     programs.niri.enable = true;
 

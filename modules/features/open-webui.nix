@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.openWebUi = { pkgs, stablePkgs, ... }: {
+  flake.modules.nixos.openWebUi = { pkgs, stablePkgs, ... }: {
 
     services.open-webui = {
       enable = true;

@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.commonHostConfig =
+  flake.modules.nixos.commonHostConfig =
     {
       pkgs,
       stablePkgs,

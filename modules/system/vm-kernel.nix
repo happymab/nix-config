@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.vmKernel = { pkgs, ... }: {
+  flake.modules.nixos.vmKernel = { pkgs, ... }: {
 
     # ── Kernel ──────────────────────────────────────────────────
     boot.kernelPackages = pkgs.linuxPackages_latest;

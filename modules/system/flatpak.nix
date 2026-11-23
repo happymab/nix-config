@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.flatpak = { pkgs, ... }: {
+  flake.modules.nixos.flatpak = { pkgs, ... }: {
     # Enable flatpak support globally
     services.flatpak.enable = true;
 

@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.baseDesktop =
+  flake.modules.nixos.baseDesktop =
     {
       pkgs,
       lib,

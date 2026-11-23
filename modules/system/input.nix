@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
-  flake.nixosModules.input = { pkgs, ... }: {
+  flake.modules.nixos.input = { pkgs, ... }: {
 
-    # Enable touchpad support (enabled by default 
+    # Enable touchpad support (enabled by default
     # and not required in most desktopManagers).
     services.libinput.enable = true;
   };

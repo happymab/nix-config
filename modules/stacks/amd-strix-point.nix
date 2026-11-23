@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.amdStrixPoint =
+  flake.modules.nixos.amdStrixPoint =
     {
       pkgs,
       lib,

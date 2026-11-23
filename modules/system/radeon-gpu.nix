@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  flake.nixosModules.radeonGpu = { pkgs, ... }: {
+  flake.modules.nixos.radeonGpu = { pkgs, ... }: {
     # ── Load amdgpu early for clean display init ────────────────
     boot.initrd.availableKernelModules = [ "amdgpu" ];
 
@@ -19,7 +24,7 @@
       # enable32Bit = true;    # 32-bit GL for Steam/Proton
 
       extraPackages = with pkgs; [
-        rocmPackages.clr.icd           # OpenCL support
+        rocmPackages.clr.icd # OpenCL support
       ];
 
       # extraPackages32 = with pkgs.driversi686Linux; [
@@ -35,10 +40,10 @@
 
     # ── Utility packages ─────────────────────────────────────────
     environment.systemPackages = with pkgs; [
-      vulkan-tools       # vulkaninfo, vkcube
-      clinfo             # Verify OpenCL setup
-      radeontop          # Monitor GPU usage
-      lact               # AMDGPU control panel (fan curves, clocks)
+      vulkan-tools # vulkaninfo, vkcube
+      clinfo # Verify OpenCL setup
+      radeontop # Monitor GPU usage
+      lact # AMDGPU control panel (fan curves, clocks)
     ];
   };
 }

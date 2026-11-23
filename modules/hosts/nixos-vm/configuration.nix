@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.nixos-vmConfiguration =
+  flake.modules.nixos.nixos-vmConfiguration =
     {
       pkgs,
       lib,
@@ -11,40 +11,40 @@
 
       imports = [
         # ── Hardware ──────────────────────────────────────────────
-        self.nixosModules.hostNixos-vm
+        self.modules.nixos.hostNixos-vm
 
         # ── Common host config ────────────────────────────────────
-        self.nixosModules.commonHostConfig
+        self.modules.nixos.commonHostConfig
 
         # ── Disko ─────────────────────────────────────────────────
-        self.nixosModules.diskoBtrfsLuks
+        self.modules.nixos.diskoBtrfsLuks
 
         # ── Boot manager ──────────────────────────────────────────
-        self.nixosModules.secureboot
-        self.nixosModules.silentBoot
+        self.modules.nixos.secureboot
+        self.modules.nixos.silentBoot
 
         # ── System modules ────────────────────────────────────────
-        self.nixosModules.vmKernel
-        self.nixosModules.security
-        self.nixosModules.btrfsFilesystem
-        self.nixosModules.zram
-        self.nixosModules.nixConfig
-        self.nixosModules.networking
-        self.nixosModules.audio
-        self.nixosModules.locale
-        self.nixosModules.basePackages
-        self.nixosModules.desktopKde
+        self.modules.nixos.vmKernel
+        self.modules.nixos.security
+        self.modules.nixos.btrfsFilesystem
+        self.modules.nixos.zram
+        self.modules.nixos.nixConfig
+        self.modules.nixos.networking
+        self.modules.nixos.audio
+        self.modules.nixos.locale
+        self.modules.nixos.basePackages
+        self.modules.nixos.desktopKde
 
-        self.nixosModules.niri
-        self.nixosModules.umbriel
+        self.modules.nixos.niri
+        self.modules.nixos.umbriel
 
         # ── User and Home configuration ───────────────────────────
-        self.nixosModules.userMab
+        self.modules.nixos.userMab
 
         # ── Features ──────────────────────────────────────────────
-        self.nixosModules.flatpak
-        self.nixosModules.podman
-        self.nixosModules.distrobox
+        self.modules.nixos.flatpak
+        self.modules.nixos.podman
+        self.modules.nixos.distrobox
       ];
 
       # Disko drive definition

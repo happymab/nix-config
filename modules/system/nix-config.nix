@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.nixConfig = { pkgs, ... }: {
+  flake.modules.nixos.nixConfig = { pkgs, ... }: {
     nix.settings = {
 
       # Enable the Flakes feature and the accompanying new nix command-line tool

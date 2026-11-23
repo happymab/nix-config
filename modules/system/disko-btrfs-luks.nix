@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
-  flake.nixosModules.diskoBtrfsLuks = { lib, ...}: {
-    imports = [ inputs.disko.nixosModules.default ];
+  flake.modules.nixos.diskoBtrfsLuks = { lib, ... }: {
+    imports = [ inputs.disko.modules.nixos.default ];
 
     disko.devices = {
       disk.main = {
@@ -34,25 +34,25 @@
                     "/root" = {
                       mountpoint = "/";
                       mountOptions = [
-                      "compress=zstd:3" # Good ratio/speed balance
-                      "noatime" # Don't write access timestamps
-                      "discard=async" # Background TRIM (modern SSDs)
+                        "compress=zstd:3" # Good ratio/speed balance
+                        "noatime" # Don't write access timestamps
+                        "discard=async" # Background TRIM (modern SSDs)
                       ];
                     };
                     "/home" = {
                       mountpoint = "/home";
                       mountOptions = [
-                      "compress=zstd:3"
-                      "noatime"
-                      "discard=async"
+                        "compress=zstd:3"
+                        "noatime"
+                        "discard=async"
                       ];
                     };
                     "/nix" = {
                       mountpoint = "/nix";
                       mountOptions = [
-                      "compress=zstd:3"
-                      "noatime"
-                      "discard=async"
+                        "compress=zstd:3"
+                        "noatime"
+                        "discard=async"
                       ];
                     };
                   };
@@ -62,6 +62,6 @@
           };
         };
       };
-    };    
+    };
   };
-}   
+}

@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.garudaConfiguration =
+  flake.modules.nixos.garudaConfiguration =
     {
       pkgs,
       lib,
@@ -11,43 +11,43 @@
 
       imports = [
         # ── Hardware ──────────────────────────────────────────────
-        self.nixosModules.hostGaruda
+        self.modules.nixos.hostGaruda
 
         # ── Common host config ────────────────────────────────────
-        self.nixosModules.commonHostConfig
+        self.modules.nixos.commonHostConfig
 
         # ── Disko ─────────────────────────────────────────────────
-        self.nixosModules.diskoBtrfsLuks
+        self.modules.nixos.diskoBtrfsLuks
 
         # ── Boot manager ──────────────────────────────────────────
-        self.nixosModules.securebootMeasured
-        self.nixosModules.silentBoot
+        self.modules.nixos.securebootMeasured
+        self.modules.nixos.silentBoot
 
         # ── System modules ────────────────────────────────────────
-        self.nixosModules.security
-        self.nixosModules.btrfsFilesystem
-        self.nixosModules.zram
-        self.nixosModules.radeonGpu
-        self.nixosModules.amdNpuAi
-        self.nixosModules.amdPower
-        self.nixosModules.firmware
-        self.nixosModules.amdKernel
-        self.nixosModules.nixConfig
-        self.nixosModules.networking
-        self.nixosModules.bluetooth
-        self.nixosModules.audio
-        self.nixosModules.locale
-        self.nixosModules.basePackages
-        self.nixosModules.desktopKde
+        self.modules.nixos.security
+        self.modules.nixos.btrfsFilesystem
+        self.modules.nixos.zram
+        self.modules.nixos.radeonGpu
+        self.modules.nixos.amdNpuAi
+        self.modules.nixos.amdPower
+        self.modules.nixos.firmware
+        self.modules.nixos.amdKernel
+        self.modules.nixos.nixConfig
+        self.modules.nixos.networking
+        self.modules.nixos.bluetooth
+        self.modules.nixos.audio
+        self.modules.nixos.locale
+        self.modules.nixos.basePackages
+        self.modules.nixos.desktopKde
 
-        self.nixosModules.umbriel
+        self.modules.nixos.umbriel
 
         # ── User and Home configuration ───────────────────────────
-        self.nixosModules.userMab
+        self.modules.nixos.userMab
 
         # ── Features ──────────────────────────────────────────────
-        self.nixosModules.flatpak
-        self.nixosModules.virtualization
+        self.modules.nixos.flatpak
+        self.modules.nixos.virtualization
         self.modules.nixos.podman
         self.modules.nixos.distrobox
       ];

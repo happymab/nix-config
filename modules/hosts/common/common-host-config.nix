@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.commonHostConfig =
+  flake.modules.nixos.commonHostConfig =
     {
       pkgs,
       stablePkgs,
@@ -11,10 +11,10 @@
       # ==== Common imports ========================================
       imports = [
         # ── Default home-manager module ───────────────────────────
-        inputs.home-manager.nixosModules.default
+        inputs.home-manager.modules.nixos.default
 
         # ── Packages from stable channel ──────────────────────────
-        self.nixosModules.stablePkgs
+        self.modules.nixos.stablePkgs
 
       ];
 

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 {
-  flake.nixosModules.firmware = { ... }: {
+  flake.modules.nixos.firmware = { ... }: {
     # ── Firmware update daemon (LVFS) ────────────────────────────
     services.fwupd.enable = true;
 

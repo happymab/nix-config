@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.hostNixos-vm =
+  flake.modules.nixos.hostNixos-vm =
     {
       config,
       lib,

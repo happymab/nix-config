@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.zram =
+  flake.modules.nixos.zram =
     { pkgs, lib, ... }:
     {
       services.zram-generator = {

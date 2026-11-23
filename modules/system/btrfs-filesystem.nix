@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.btrfsFilesystem =
+  flake.modules.nixos.btrfsFilesystem =
     {
       config,
       lib,

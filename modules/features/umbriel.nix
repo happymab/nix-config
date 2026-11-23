@@ -1,8 +1,8 @@
 { self, inputs, ... }: {
-  flake.nixosModules.umbriel = { pkgs, lib, ... }: {
+  flake.modules.nixos.umbriel = { pkgs, lib, ... }: {
 
     # Use official Umbriel flake
-    imports = [ inputs.umbriel.nixosModules.default ];
+    imports = [ inputs.umbriel.modules.nixos.default ];
 
     # Add luciole to nixpkgs
     nixpkgs.overlays = [ inputs.luciole.overlays.default ];

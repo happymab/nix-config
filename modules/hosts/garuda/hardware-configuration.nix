@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.hostGaruda =
+  flake.modules.nixos.hostGaruda =
     {
       config,
       lib,

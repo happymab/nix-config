@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.amdPower = { pkgs, ... }: {
+  flake.modules.nixos.amdPower = { pkgs, ... }: {
 
     # ── Power Profiles Daemon (AMD-optimized for Strix Point) ───
     services.power-profiles-daemon.enable = true;

@@ -19,7 +19,7 @@
     in
     system: bySystem.${system};
 
-  flake.nixosModules.stablePkgs = { pkgs, ... }: {
+  flake.modules.nixos.stablePkgs = { pkgs, ... }: {
     _module.args.stablePkgs = self.lib.stablePkgsFor pkgs.stdenv.hostPlatform.system;
   };
 
