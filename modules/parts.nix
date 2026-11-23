@@ -1,6 +1,9 @@
 { inputs, ... }: {
 
   imports = [
+    inputs.flake-parts.flakeModules.modules
+    inputs.flake-parts.flakeModules.easyOverlay
+
     # adds home-manager options to flake-parts
     inputs.home-manager.flakeModules.home-manager
   ];
