@@ -48,8 +48,8 @@
         # ── Features ──────────────────────────────────────────────
         self.nixosModules.flatpak
         self.nixosModules.virtualization
-        self.nixosModules.podman
-        self.nixosModules.distrobox
+        self.modules.nixos.podman
+        self.modules.nixos.distrobox
       ];
 
       # Disko drive definition
