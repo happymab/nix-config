@@ -40,7 +40,7 @@
     # The Radeon 880M may need HSA_OVERRIDE for some ROCm operations.
     # Uncomment if you encounter "unsupported GPU" errors
     # (shouldn't be required with newer versions):
-    systemd.services.lemond.environment.HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+    # systemd.services.lemond.environment.HSA_OVERRIDE_GFX_VERSION = "11.0.0";
 
     # Add binary cache (works only for trusted users)
     nix.settings = {

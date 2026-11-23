@@ -11,7 +11,7 @@
     # Recursively import Nix modules from a directory
     import-tree.url = "github:vic/import-tree";
 
-    # Official Home Manager
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

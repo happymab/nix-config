@@ -24,8 +24,6 @@
     # pattern keeps user definitions in the host module)
     # users.users.yourusername.extraGroups = [ "libvirtd" ];
 
-    let userName = config.
-
     # For plain `nh os build-vm`
     virtualisation.vmVariant = {
       virtualisation.cores = 3;

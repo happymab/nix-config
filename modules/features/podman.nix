@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosModules.podman = { pkgs, ... }: {
+  flake.modules.nixos.podman = { pkgs, ... }: {
 
     virtualisation = {
       containers = {
