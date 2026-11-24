@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.umbriel = { pkgs, lib, ... }: {
+  flake.modules.homeManager.umbriel = { pkgs, lib, ... }: {
 
     imports = [ inputs.umbriel.homeModules.default ];
 

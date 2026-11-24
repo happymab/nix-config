@@ -32,7 +32,7 @@
         inherit (pkgs.config) allowUnfree allowUnfreePredicate;
       };
 
-      users.mab = self.homeModules.homeMab;
+      users.mab = self.modules.homeManager.homeMab;
     };
 
   };

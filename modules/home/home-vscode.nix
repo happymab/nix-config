@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.vscodeExtensions =
+  flake.modules.homeManager.vscodeExtensions =
     {
       pkgs,
       lib,

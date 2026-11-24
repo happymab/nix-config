@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
 
   # Home configuration flake using home-manager
-  flake.homeModules.homeMab =
+  flake.modules.homeManager.homeMab =
     {
       config,
       pkgs,
@@ -11,11 +11,11 @@
 
       imports = [
         self.homeManagerModules.stablePkgs
-        self.homeModules.shell
-        self.homeModules.mabBraveOrigin
-        self.homeModules.vscodeExtensions
-        self.homeModules.zed
-        self.homeModules.umbriel
+        self.modules.homeManager.shell
+        self.modules.homeManager.mabBraveOrigin
+        self.modules.homeManager.vscodeExtensions
+        self.modules.homeManager.zed
+        self.modules.homeManager.umbriel
       ];
 
       # Set user/directory options

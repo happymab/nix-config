@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.mabHelium = { pkgs, lib, ... }: {
+  flake.modules.homeManager.mabHelium = { pkgs, lib, ... }: {
 
     imports = [
       inputs.helium-flake.homeModules.default
