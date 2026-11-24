@@ -1,6 +1,6 @@
-{ self, inputs, ... }: {
+{ self, ... }: {
 
-  flake.modules.homeManager.shell = { pkgs, lib, ... }: {
+  flake.modules.homeManager.shell = { ... }: {
 
     # Starship — customizable prompt for any shell
     programs.starship = {
@@ -66,5 +66,6 @@
         set fish_greeting # Disable greeting
       '';
     };
+
   };
 }

@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ self, ... }: {
   flake.modules.nixos.distrobox = { pkgs, ... }: {
 
     imports = [
