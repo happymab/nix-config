@@ -16,6 +16,9 @@
         # ── Common host config ────────────────────────────────────
         self.modules.nixos.commonHostConfig
 
+        # ── Base config ────────────────────────────────────
+        self.modules.nixos.baseDesktop
+
         # ── Disko ─────────────────────────────────────────────────
         self.modules.nixos.diskoBtrfsLuks
 

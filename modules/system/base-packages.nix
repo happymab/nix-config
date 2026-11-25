@@ -4,20 +4,9 @@
     nixpkgs.config.allowUnfree = true;
 
     programs = {
-      # Install bash, zsh, and fish shells
-      bash.enable = true;
-      zsh.enable = true;
-      fish.enable = true;
-
       # Install firefox.
       firefox.enable = true;
     };
-
-    environment.shells = with pkgs; [
-      bash
-      zsh
-      fish
-    ];
 
     # List packages installed in system profile
     environment.systemPackages = with pkgs; [

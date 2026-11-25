@@ -35,5 +35,6 @@
       virtualisation.cores = 4;
       virtualisation.memorySize = 8192;
     };
+
   };
 }

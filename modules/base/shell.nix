@@ -1,0 +1,94 @@
+{ self, ... }: {
+  flake.modules.nixos.shell = { pkgs, ... }: {
+
+    # Import Home-Manager module for shell configuration (defined below)
+    home-manager.sharedModules = [
+      self.modules.homeManager.shell
+    ];
+
+    programs = {
+      # Install bash, zsh, and fish shells
+      bash.enable = true;
+      zsh.enable = true;
+      fish.enable = true;
+    };
+
+    environment.shells = with pkgs; [
+      bash
+      zsh
+      fish
+    ];
+
+  };
+
+  # ========== Home-Manager module for shell configuration ==========
+  flake.modules.homeManager.shell = { ... }: {
+
+    # Starship — customizable prompt for any shell
+    programs.starship = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+    xdg.configFile."starship.toml".source = "${self}/config/starship/starship.toml";
+
+    # Install bash
+    programs.bash = {
+      enable = true;
+      enableCompletion = true;
+
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -la";
+        j = "just --global-justfile";
+      };
+    };
+
+    # Zsh — shell configuration
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+
+      # Oh-My-Zsh:
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "git"
+          "sudo"
+          "z"
+        ];
+      };
+
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -la";
+        j = "just --global-justfile";
+      };
+
+      # Anything that would be in .zshrc goes here
+      initContent = "";
+
+      history.size = 10000;
+      history.ignoreDups = true;
+      history.path = "$HOME/.zsh_history";
+      history.ignorePatterns = [
+        "rm *"
+        "pkill *"
+        "cp *"
+      ];
+    };
+
+    # Fish shell configuration
+    programs.fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
+    };
+
+  };
+
+}

@@ -1,12 +1,12 @@
-{ self, inputs, ... }: {
+{ self, ... }: {
 
   flake.modules.nixos.baseDesktop =
+    { ... }:
     {
-      pkgs,
-      lib,
-      ...
-    }:
-    {
+
+      imports = with self.modules.nixos; [
+        shell
+      ];
 
     };
 
