@@ -1,11 +1,10 @@
 { self, ... }: {
 
-  flake.modules.nixos.baseDesktop = { ... }: {
+  flake.modules.nixos.umbrielDesktop = { ... }: {
 
     imports = with self.modules.nixos; [
-      shell
+      kdeDesktop
       umbriel
-      distrobox
     ];
 
   };

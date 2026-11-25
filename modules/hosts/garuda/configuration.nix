@@ -17,7 +17,8 @@
         self.modules.nixos.commonHostConfig
 
         # ── Base config ────────────────────────────────────
-        self.modules.nixos.baseDesktop
+        self.modules.nixos.umbrielDesktop
+
         self.modules.nixos.development
 
         # ── Disko ─────────────────────────────────────────────────
