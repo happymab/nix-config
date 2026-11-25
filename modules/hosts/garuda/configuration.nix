@@ -13,9 +13,6 @@
         # ── Hardware ──────────────────────────────────────────────
         self.modules.nixos.hostGaruda
 
-        # ── Common host config ────────────────────────────────────
-        self.modules.nixos.commonHostConfig
-
         # ── Base config ────────────────────────────────────
         self.modules.nixos.umbrielDesktop
         self.modules.nixos.amdStrixPoint
