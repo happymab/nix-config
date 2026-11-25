@@ -9,7 +9,7 @@
 
     # Import Home-Manager module for vscode (defined below)
     home-manager.sharedModules = [
-      self.modules.homeManager.vscodeExtensions
+      self.modules.homeManager.vscode
     ];
 
   };
