@@ -27,32 +27,12 @@
         proton-authenticator
         protonmail-desktop
 
-        # Development
-        devenv # Declarative development environments
-        nixfmt # Nix formatter
-        nil # Nix language server
-        nixd # Nix language server
-
         # Utilities
         restic-browser
 
         # Miscellaneous
         cowsay
       ];
-
-      # Declarative development environments
-      programs.devenv = {
-        enable = true;
-        enableBashIntegration = true;
-        enableZshIntegration = true;
-        enableFishIntegration = true;
-      };
-      programs.direnv = {
-        enable = true;
-        enableBashIntegration = true;
-        enableZshIntegration = true;
-        enableFishIntegration = true;
-      };
 
       fonts.fontconfig.enable = true;
 

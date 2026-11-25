@@ -19,7 +19,6 @@
         # ── Base config ────────────────────────────────────
         self.modules.nixos.umbrielDesktop
         self.modules.nixos.amdStrixPoint
-
         self.modules.nixos.development
 
         # ── Disko ─────────────────────────────────────────────────

@@ -1,9 +1,10 @@
-{ self, inputs, ... }: {
-  flake.modules.nixos.audio = { pkgs, ... }: {
-    # Enable sound with PipeWire (PulseAudio disabled)
-    services.pulseaudio.enable = false;
+{
+  flake.modules.nixos.audio = { ... }: {
+
     security.rtkit.enable = true;
 
+    # Enable sound with PipeWire (PulseAudio disabled)
+    services.pulseaudio.enable = false;
     services.pipewire = {
       enable = true;
       alsa.enable = true;
@@ -19,5 +20,6 @@
       # Optional: WirePlumber for enhanced session management
       wireplumber.enable = true;
     };
+
   };
 }
