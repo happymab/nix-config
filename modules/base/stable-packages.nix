@@ -23,7 +23,7 @@
     _module.args.stablePkgs = self.lib.stablePkgsFor pkgs.stdenv.hostPlatform.system;
   };
 
-  flake.homeManagerModules.stablePkgs = { pkgs, ... }: {
+  flake.modules.homeManager.stablePkgs = { pkgs, ... }: {
     _module.args.stablePkgs = self.lib.stablePkgsFor pkgs.stdenv.hostPlatform.system;
   };
 }

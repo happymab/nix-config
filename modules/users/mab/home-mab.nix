@@ -10,7 +10,7 @@
     {
 
       imports = [
-        self.homeManagerModules.stablePkgs
+        self.modules.homeManager.stablePkgs
         self.modules.homeManager.mabBraveOrigin
       ];
 
