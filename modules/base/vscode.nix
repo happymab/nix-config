@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.modules.nixos.vscode = { ... }: {
+  flake.modules.nixos.vscode = { pkgs, ... }: {
 
     # Apply overlay for vscode-extensions
     nixpkgs.overlays = [
