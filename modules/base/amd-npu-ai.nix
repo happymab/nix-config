@@ -1,4 +1,5 @@
 { self, inputs, ... }: {
+
   flake.modules.nixos.amdNpuAi = { pkgs, lib, ... }: {
     imports = [ inputs.nix-amd-ai.nixosModules.default ];
 

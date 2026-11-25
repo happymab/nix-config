@@ -18,6 +18,7 @@
 
         # ── Base config ────────────────────────────────────
         self.modules.nixos.umbrielDesktop
+        self.modules.nixos.amdStrixPoint
 
         self.modules.nixos.development
 
@@ -32,11 +33,7 @@
         self.modules.nixos.security
         self.modules.nixos.btrfsFilesystem
         self.modules.nixos.zram
-        self.modules.nixos.radeonGpu
-        self.modules.nixos.amdNpuAi
-        self.modules.nixos.amdPower
         self.modules.nixos.firmware
-        self.modules.nixos.amdKernel
         self.modules.nixos.nixConfig
         self.modules.nixos.networking
         self.modules.nixos.bluetooth
