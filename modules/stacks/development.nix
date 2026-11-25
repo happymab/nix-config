@@ -11,9 +11,9 @@
     ];
 
     # Import separate Home-Manager modules
-    # home-manager.sharedModules = [
-    #   self.modules.homeManager.zed
-    # ];
+    home-manager.sharedModules = [
+      self.modules.homeManager.zed
+    ];
 
   };
 }
