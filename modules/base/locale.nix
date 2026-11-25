@@ -1,5 +1,6 @@
-{ self, inputs, ... }: {
-  flake.modules.nixos.locale = { pkgs, ... }: {
+{
+  flake.modules.nixos.locale = { ... }: {
+
     # Set your time zone
     time.timeZone = "Asia/Bangkok";
 

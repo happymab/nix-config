@@ -1,5 +1,4 @@
-{ self, inputs, ... }: {
-
+{
   flake.modules.nixos.vmKernel = { pkgs, ... }: {
 
     # ── Kernel ──────────────────────────────────────────────────

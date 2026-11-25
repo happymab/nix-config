@@ -1,5 +1,6 @@
-{ self, inputs, ... }: {
+{
   flake.modules.nixos.flatpak = { pkgs, ... }: {
+
     # Enable flatpak support globally
     services.flatpak.enable = true;
 
@@ -32,5 +33,6 @@
         flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
       '';
     };
+
   };
 }
