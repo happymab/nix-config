@@ -1,5 +1,6 @@
-{ self, inputs, ... }: {
+{
   flake.modules.nixos.basePackages = { pkgs, ... }: {
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -29,12 +30,6 @@
       gzip
       nh
     ];
-
-    # Enable direnv
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true; # caches nix evals — important, shells become instant
-    };
 
     # Install default fonts
     fonts.enableDefaultPackages = true;

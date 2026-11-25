@@ -1,8 +1,7 @@
-{ self, inputs, ... }: {
+{
+  flake.modules.nixos.nixConfig = { ... }: {
 
-  flake.modules.nixos.nixConfig = { pkgs, ... }: {
     nix.settings = {
-
       # Enable the Flakes feature and the accompanying new nix command-line tool
       experimental-features = [
         "nix-command"
@@ -19,7 +18,6 @@
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
-
     };
 
     # Periodically remove old builds, clean and optimize the nix store

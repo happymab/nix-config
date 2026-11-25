@@ -1,5 +1,6 @@
-{ self, inputs, ... }: {
+{
   flake.modules.nixos.security = { pkgs, ... }: {
+
     # Enable sudo with password prompt for users in the wheel group
     security = {
       # Enable polkit for privilege escalation
@@ -28,5 +29,6 @@
       gnupg
       ssh-tools
     ];
+
   };
 }
