@@ -5,7 +5,7 @@
     # Import nixos modules
     imports = with self.modules.nixos; [
       devTools
-      vscode
+      # vscode
       podman
       virtualization
     ];
