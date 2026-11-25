@@ -1,6 +1,7 @@
-{ self, inputs, ... }: {
-  flake.modules.nixos.desktopKde = { pkgs, lib, ... }: {
-    # Enable Wayland (X11 is disabled intentionally for modern KDE/Plasma 6)
+{
+  flake.modules.nixos.kde = { pkgs, lib, ... }: {
+
+    # Enable Wayland, disable X11
     services.xserver = {
       enable = false;
       # Configure keymap for display manager (Wayland session still uses this)
@@ -19,11 +20,6 @@
     # Enable KDE Plasma
     services.desktopManager.plasma6.enable = true;
 
-    # KDE-specific optimizations
-    services.xserver.displayManager.sessionCommands = ''
-      # Additional session commands if needed
-    '';
-
     # Enable KDE-specific services and features
     programs.kdeconnect.enable = true;
     programs.partition-manager.enable = true;
@@ -40,7 +36,7 @@
       SSH_ASKPASS_REQUIRE = lib.mkDefault "prefer";
     };
 
-    # Enable KWallet PAM module (for other sessions like Umbriel)
+    # Enable KWallet PAM module (for other sessions like Niri or Umbriel)
     security.pam.services.login.kwallet = {
       enable = true; # sddm's stack includes `login`
       # forceRun = true;                    # only needed if you also login on a TTY and run start-umbriel

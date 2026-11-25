@@ -102,8 +102,5 @@
         "wallpapers".source = "${self}/assets/wallpapers";
       };
 
-      # Required for home-manager to activate
-      home.stateVersion = "26.05"; # match this to the HM/NixOS version you started with
-
     };
 }

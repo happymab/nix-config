@@ -3,7 +3,7 @@
   flake.modules.nixos.umbrielDesktop = { ... }: {
 
     imports = with self.modules.nixos; [
-      kdeDesktop
+      kde
       umbriel
     ];
 

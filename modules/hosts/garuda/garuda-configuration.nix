@@ -8,7 +8,7 @@
 
     imports = [
       # ── Hardware ──────────────────────────────────────────────
-      self.modules.nixos.hostGaruda
+      self.modules.nixos.garudaHwConfiguration
 
       # ── Base config ────────────────────────────────────
       self.modules.nixos.umbrielDesktop
@@ -22,16 +22,9 @@
       self.modules.nixos.securebootMeasured
       self.modules.nixos.silentBoot
 
-      # ── System modules ────────────────────────────────────────
-      self.modules.nixos.locale
-      self.modules.nixos.basePackages
-      self.modules.nixos.desktopKde
-
       # ── User and Home configuration ───────────────────────────
       self.modules.nixos.userMab
 
-      # ── Features ──────────────────────────────────────────────
-      self.modules.nixos.flatpak
     ];
 
     # Disko drive definition
