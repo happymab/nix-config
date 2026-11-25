@@ -5,15 +5,15 @@
     # Import nixos modules
     imports = with self.modules.nixos; [
       devTools
-      # vscode
+      vscode
       podman
       virtualization
     ];
 
     # Import separate Home-Manager modules
-    home-manager.sharedModules = with self.modules.homeManager; [
-      zed
-    ];
+    # home-manager.sharedModules = [
+    #   self.modules.homeManager.zed
+    # ];
 
   };
 }
