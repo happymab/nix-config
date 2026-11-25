@@ -9,12 +9,19 @@
     }:
     {
 
+      # Import Home-Manager module for garuda (defined below)
+      home-manager.sharedModules = [
+        self.modules.homeManager.nixos-vmConfiguration
+      ];
+
       imports = [
         # ── Hardware ──────────────────────────────────────────────
-        self.modules.nixos.hostNixos-vm
+        self.modules.nixos.nixos-vmHwConfiguration
 
-        # ── Common host config ────────────────────────────────────
-        self.modules.nixos.commonHostConfig
+        # ── Base config ────────────────────────────────────
+        self.modules.nixos.umbrielDesktop
+        self.modules.nixos.development
+        self.modules.nixos.vmKernel
 
         # ── Disko ─────────────────────────────────────────────────
         self.modules.nixos.diskoBtrfsLuks
@@ -23,28 +30,9 @@
         self.modules.nixos.secureboot
         self.modules.nixos.silentBoot
 
-        # ── System modules ────────────────────────────────────────
-        self.modules.nixos.vmKernel
-        self.modules.nixos.security
-        self.modules.nixos.btrfsFilesystem
-        self.modules.nixos.zram
-        self.modules.nixos.nixConfig
-        self.modules.nixos.networking
-        self.modules.nixos.audio
-        self.modules.nixos.locale
-        self.modules.nixos.basePackages
-        self.modules.nixos.desktopKde
-
-        self.modules.nixos.niri
-        self.modules.nixos.umbriel
-
         # ── User and Home configuration ───────────────────────────
         self.modules.nixos.userMab
 
-        # ── Features ──────────────────────────────────────────────
-        self.modules.nixos.flatpak
-        self.modules.nixos.podman
-        self.modules.nixos.distrobox
       ];
 
       # Disko drive definition
@@ -61,4 +49,10 @@
 
     };
 
+  flake.modules.homeManager.nixos-vmConfiguration = { ... }: {
+
+    # Required for home-manager to activate
+    home.stateVersion = "26.05"; # match this to the HM/NixOS version you started with
+
+  };
 }

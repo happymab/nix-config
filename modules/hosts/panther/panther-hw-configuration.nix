@@ -1,30 +1,31 @@
-{ self, inputs, ... }: {
-
-  flake.modules.nixos.hostNixos-vm =
+{
+  flake.modules.nixos.pantherHwConfiguration =
     {
       config,
       lib,
-      pkgs,
       modulesPath,
       ...
     }:
-
     {
+
       imports = [
-        (modulesPath + "/profiles/qemu-guest.nix")
+        (modulesPath + "/installer/scan/not-detected.nix")
       ];
 
       boot.initrd.availableKernelModules = [
-        "ahci"
+        "nvme"
         "xhci_pci"
-        "virtio_pci"
-        "virtio_scsi"
-        "sr_mod"
-        "virtio_blk"
+        "thunderbolt"
+        "uas"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
       ];
       boot.initrd.kernelModules = [ ];
       boot.kernelModules = [ "kvm-amd" ];
       boot.extraModulePackages = [ ];
+
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     };
