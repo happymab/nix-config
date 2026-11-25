@@ -1,19 +1,10 @@
-{ self, inputs, ... }: {
-  flake.modules.nixos.amdPower = { pkgs, ... }: {
+{
+  flake.modules.nixos.amdPower = { ... }: {
 
-    # ── Power Profiles Daemon (AMD-optimized for Strix Point) ───
     services.power-profiles-daemon.enable = true;
-
-    # ── Disable conflicting managers ─────────────────────────────
-    services.auto-cpufreq.enable = false;
+    services.thermald.enable = false; # Intel tool; no-op on Ryzen
     services.tlp.enable = false;
+    services.auto-cpufreq.enable = false;
 
-    # ── Thermal management (still required) ──────────────────────
-    services.thermald.enable = true;
-
-    # ── Packages ─────────────────────────────────────────────────
-    environment.systemPackages = with pkgs; [
-      powertop # Diagnosis
-    ];
   };
 }

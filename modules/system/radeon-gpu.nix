@@ -1,22 +1,7 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-
-{
   flake.modules.nixos.radeonGpu = { pkgs, ... }: {
     # ── Load amdgpu early for clean display init ────────────────
     boot.initrd.availableKernelModules = [ "amdgpu" ];
-
-    # ── Explicit video driver (works with both X and Wayland) ────
-    services.xserver.videoDrivers = [ "amdgpu" ];
-
-    # ── Unlock PowerPlay for manual GPU tuning ──────────────────
-    # boot.kernelParams = [
-    #   "amdgpu.ppfeaturemask=0xffffffff"
-    # ];
 
     # ── Graphics / Mesa ──────────────────────────────────────────
     hardware.graphics = {
@@ -26,24 +11,16 @@
       extraPackages = with pkgs; [
         rocmPackages.clr.icd # OpenCL support
       ];
-
-      # extraPackages32 = with pkgs.driversi686Linux; [
-      #   amdvlk
-      # ];
-    };
-
-    # ── Environment variables ────────────────────────────────────
-    environment.sessionVariables = {
-      # Prefer RADV by default (better gaming compat), fall back to AMDVLK
-      AMD_VULKAN_ICD = "RADV";
     };
 
     # ── Utility packages ─────────────────────────────────────────
     environment.systemPackages = with pkgs; [
       vulkan-tools # vulkaninfo, vkcube
       clinfo # Verify OpenCL setup
-      radeontop # Monitor GPU usage
-      lact # AMDGPU control panel (fan curves, clocks)
+      amdgpu_top # Monitor GPU usage
     ];
+
+    services.lact.enable = true; # replaces the bare `lact` package# AMDGPU control panel (fan curves, clocks)
+
   };
 }
