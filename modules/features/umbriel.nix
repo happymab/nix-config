@@ -36,6 +36,7 @@
 
   };
 
+  # ========== Home-Manager module for Umbriel ==========
   flake.modules.homeManager.umbriel = { pkgs, ... }: {
 
     imports = [ inputs.umbriel.homeModules.default ];
