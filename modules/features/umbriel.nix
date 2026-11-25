@@ -1,8 +1,13 @@
-{ inputs, ... }: {
+{ self, inputs, ... }: {
   flake.modules.nixos.umbriel = { pkgs, ... }: {
 
     # Use official Umbriel flake
     imports = [ inputs.umbriel.nixosModules.default ];
+
+    # Import Home-Manager module for Umbriel (defined below)
+    home-manager.sharedModules = [
+      self.modules.homeManager.umbriel
+    ];
 
     # Add luciole to nixpkgs
     nixpkgs.overlays = [ inputs.luciole.overlays.default ];
