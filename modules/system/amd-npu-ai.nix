@@ -10,6 +10,7 @@
       enableROCm = true; # ROCm GPU backends (llamacpp + sd-cpp)
       enableVulkan = true; # Vulkan GPU backends (llamacpp + whispercpp)
       enableImageGen = true; # default true; set false to drop sd-cpp from closure
+      gpuMemory.ttmSizeGiB = 24; # suitable for 32 GB RAM
       lemonade = {
         user = "lemonade";
         settings = {
