@@ -11,10 +11,7 @@
 
       imports = [
         self.homeManagerModules.stablePkgs
-        self.modules.homeManager.shell
         self.modules.homeManager.mabBraveOrigin
-        self.modules.homeManager.vscodeExtensions
-        self.modules.homeManager.zed
       ];
 
       # Set user/directory options

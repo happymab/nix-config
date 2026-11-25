@@ -43,7 +43,6 @@
 
     programs.umbriel = {
       enable = true;
-
     };
 
     xdg.dataFile."dbus-1/services/org.freedesktop.secrets.service".text = ''

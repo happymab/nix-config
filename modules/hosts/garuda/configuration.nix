@@ -18,6 +18,7 @@
 
         # ── Base config ────────────────────────────────────
         self.modules.nixos.baseDesktop
+        self.modules.nixos.development
 
         # ── Disko ─────────────────────────────────────────────────
         self.modules.nixos.diskoBtrfsLuks
@@ -43,16 +44,11 @@
         self.modules.nixos.basePackages
         self.modules.nixos.desktopKde
 
-        self.modules.nixos.umbriel
-
         # ── User and Home configuration ───────────────────────────
         self.modules.nixos.userMab
 
         # ── Features ──────────────────────────────────────────────
         self.modules.nixos.flatpak
-        self.modules.nixos.virtualization
-        self.modules.nixos.podman
-        self.modules.nixos.distrobox
       ];
 
       # Disko drive definition

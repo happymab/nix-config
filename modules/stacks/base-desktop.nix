@@ -1,13 +1,12 @@
 { self, ... }: {
 
-  flake.modules.nixos.baseDesktop =
-    { ... }:
-    {
+  flake.modules.nixos.baseDesktop = { ... }: {
 
-      imports = with self.modules.nixos; [
-        shell
-      ];
+    imports = with self.modules.nixos; [
+      shell
+      umbriel
+      distrobox
+    ];
 
-    };
-
+  };
 }

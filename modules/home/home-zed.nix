@@ -1,21 +1,14 @@
-{ self, inputs, ... }: {
+{
 
-  flake.modules.homeManager.zed =
-    {
-      pkgs,
-      lib,
-      config,
-      ...
-    }:
-    {
+  flake.modules.homeManager.zed = { ... }: {
 
-      # ── Zed Editor ────────────────────────────────────────────
-      programs.zed-editor = {
-        enable = true;
-        extensions = [ ];
-        userSettings = {
-          load_direnv = "shell_hook";
-        };
+    programs.zed-editor = {
+      enable = true;
+      extensions = [ ];
+      userSettings = {
+        load_direnv = "shell_hook";
       };
     };
+
+  };
 }
