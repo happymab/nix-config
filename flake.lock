@@ -110,19 +110,11 @@
         ]
       },
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1795021042,
-        "narHash": "sha256-XlujG//pSVsAnqOtL5OsogghW2pASLXmmB169fuKc8o=",
-        "owner": "oxcl",
-        "repo": "nix-flake-helium-browser",
-        "rev": "6b7088a2caec0218ceddee38097800afb9f37b04",
-=======
         "lastModified": 1795362976,
         "narHash": "sha256-Cjl2lIBHdYQ4g+bgBzvqG+nf38PrtHjXLizX1h1BwII=",
         "owner": "oxcl",
         "repo": "nix-flake-helium-browser",
         "rev": "327481322b1caec55b8facf4fd8f5a78eb619263",
->>>>>>> refact/modules
         "type": "github"
       },
       "original": {
