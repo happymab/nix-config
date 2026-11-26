@@ -12,7 +12,7 @@
       self.modules.nixos.nixos-vmHwConfiguration
 
       # ── Base config ────────────────────────────────────
-      self.modules.nixos.umbrielDesktop
+      self.modules.nixos.umbrielVm
       self.modules.nixos.development
       self.modules.nixos.vmKernel
 
