@@ -1,5 +1,6 @@
-{ self, inputs, ... }: {
+{ inputs, ... }: {
   flake.modules.nixos.diskoBtrfsLuks = { lib, ... }: {
+
     imports = [ inputs.disko.nixosModules.default ];
 
     disko.devices = {
@@ -63,5 +64,6 @@
         };
       };
     };
+
   };
 }

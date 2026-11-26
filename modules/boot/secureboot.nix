@@ -1,5 +1,6 @@
-{ self, inputs, ... }: {
+{ inputs, ... }: {
   flake.modules.nixos.secureboot = { pkgs, lib, ... }: {
+
     imports = [
       inputs.lanzaboote.nixosModules.lanzaboote
     ];
@@ -30,5 +31,6 @@
     environment.systemPackages = [
       pkgs.sbctl
     ];
+
   };
 }

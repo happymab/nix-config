@@ -1,5 +1,5 @@
-{ self, inputs, ... }: {
-  flake.modules.nixos.systemdBoot = { pkgs, lib, ... }: {
+{
+  flake.modules.nixos.systemdBoot = { ... }: {
 
     boot = {
 

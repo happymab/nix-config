@@ -1,5 +1,6 @@
-{ self, inputs, ... }: {
-  flake.modules.nixos.silentBoot = { pkgs, lib, ... }: {
+{
+  flake.modules.nixos.silentBoot = { lib, ... }: {
+
     # ── Plymouth for Silent Boot ──────────────────────────────────
     boot = {
       plymouth = {
@@ -20,5 +21,6 @@
       # loader.timeout = 0;
       loader.timeout = lib.mkDefault 2;
     };
+
   };
 }
