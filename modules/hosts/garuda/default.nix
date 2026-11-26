@@ -2,7 +2,7 @@
 
   flake.nixosConfigurations.garuda = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      self.nixosModules.garudaConfiguration
+      self.modules.nixos.garudaConfiguration
     ];
   };
 

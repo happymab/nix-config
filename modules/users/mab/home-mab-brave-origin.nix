@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.homeModules.mabBraveOrigin =
+  flake.modules.homeManager.mabBraveOrigin =
     {
       pkgs,
       lib,

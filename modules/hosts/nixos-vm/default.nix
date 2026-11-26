@@ -2,7 +2,7 @@
 
   flake.nixosConfigurations.nixos-vm = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      self.nixosModules.nixos-vmConfiguration
+      self.modules.nixos.nixos-vmConfiguration
     ];
   };
 

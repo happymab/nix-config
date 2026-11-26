@@ -1,0 +1,29 @@
+{ self, inputs, ... }: {
+  flake.lib.stablePkgsFor =
+    let
+      # Each system is imported once, then cached in bySystem
+      bySystem = {
+        x86_64-linux = import inputs.nixpkgs-stable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+        aarch64-linux = import inputs.nixpkgs-stable {
+          system = "aarch64-linux";
+          config.allowUnfree = true;
+        };
+        aarch64-darwin = import inputs.nixpkgs-stable {
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        };
+      };
+    in
+    system: bySystem.${system};
+
+  flake.modules.nixos.stablePkgs = { pkgs, ... }: {
+    _module.args.stablePkgs = self.lib.stablePkgsFor pkgs.stdenv.hostPlatform.system;
+  };
+
+  flake.modules.homeManager.stablePkgs = { pkgs, ... }: {
+    _module.args.stablePkgs = self.lib.stablePkgsFor pkgs.stdenv.hostPlatform.system;
+  };
+}

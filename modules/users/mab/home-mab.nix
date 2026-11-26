@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
 
   # Home configuration flake using home-manager
-  flake.homeModules.homeMab =
+  flake.modules.homeManager.homeMab =
     {
       config,
       pkgs,
@@ -10,12 +10,8 @@
     {
 
       imports = [
-        self.homeManagerModules.stablePkgs
-        self.homeModules.shell
-        self.homeModules.mabBraveOrigin
-        self.homeModules.vscodeExtensions
-        self.homeModules.zed
-        self.homeModules.umbriel
+        self.modules.homeManager.stablePkgs
+        self.modules.homeManager.mabBraveOrigin
       ];
 
       # Set user/directory options
@@ -31,32 +27,12 @@
         proton-authenticator
         protonmail-desktop
 
-        # Development
-        devenv # Declarative development environments
-        nixfmt # Nix formatter
-        nil # Nix language server
-        nixd # Nix language server
-
         # Utilities
         restic-browser
 
         # Miscellaneous
         cowsay
       ];
-
-      # Declarative development environments
-      programs.devenv = {
-        enable = true;
-        enableBashIntegration = true;
-        enableZshIntegration = true;
-        enableFishIntegration = true;
-      };
-      programs.direnv = {
-        enable = true;
-        enableBashIntegration = true;
-        enableZshIntegration = true;
-        enableFishIntegration = true;
-      };
 
       fonts.fontconfig.enable = true;
 
@@ -125,9 +101,6 @@
         # Copy wallpapers
         "wallpapers".source = "${self}/assets/wallpapers";
       };
-
-      # Required for home-manager to activate
-      home.stateVersion = "26.05"; # match this to the HM/NixOS version you started with
 
     };
 }
