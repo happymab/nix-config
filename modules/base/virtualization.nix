@@ -7,9 +7,14 @@
 
       # Enable virtual TPM
       qemu.swtpm.enable = true;
+
+      onShutdown = "shutdown";
     };
 
-    virtualisation.libvirtd.onShutdown = "shutdown";
+    users.users.qemu.extraGroups = [
+      "render"
+      "video"
+    ];
 
     # Packages
     environment.systemPackages = with pkgs; [
