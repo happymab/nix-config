@@ -13,7 +13,6 @@
 
       # ── Base config ────────────────────────────────────
       self.modules.nixos.umbrielVm
-      self.modules.nixos.development
       self.modules.nixos.vmKernel
 
       # ── Disko ─────────────────────────────────────────────────
@@ -25,6 +24,10 @@
 
       # ── User and Home configuration ───────────────────────────
       self.modules.nixos.userMab
+
+      # ── Additional modules ────────────────────────────────────
+      self.modules.nixos.devTools
+      self.modules.nixos.vscode
 
     ];
 
