@@ -5,7 +5,7 @@
     imports = with self.modules.nixos; [
       baseVm
       kde
-      umbriel
+      umbrielNoctalia
     ];
 
   };

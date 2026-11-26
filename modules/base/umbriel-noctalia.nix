@@ -1,12 +1,12 @@
 { self, inputs, ... }: {
-  flake.modules.nixos.umbriel = { pkgs, ... }: {
+  flake.modules.nixos.umbrielNoctalia = { pkgs, ... }: {
 
     # Use official Umbriel flake
     imports = [ inputs.umbriel.nixosModules.default ];
 
     # Import Home-Manager module for Umbriel (defined below)
     home-manager.sharedModules = [
-      self.modules.homeManager.umbriel
+      self.modules.homeManager.umbrielNoctalia
     ];
 
     # Add luciole to nixpkgs
@@ -37,7 +37,7 @@
   };
 
   # ========== Home-Manager module for Umbriel ==========
-  flake.modules.homeManager.umbriel = { pkgs, ... }: {
+  flake.modules.homeManager.umbrielNoctalia = { pkgs, ... }: {
 
     imports = [ inputs.umbriel.homeModules.default ];
 
