@@ -11,7 +11,7 @@
       onShutdown = "shutdown";
     };
 
-    users.users.qemu.extraGroups = [
+    users.users.qemu-libvirtd.extraGroups = [
       "render"
       "video"
     ];
