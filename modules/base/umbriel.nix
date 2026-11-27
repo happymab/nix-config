@@ -29,13 +29,9 @@
   };
 
   # ========== Home-Manager module for Umbriel ==========
-  flake.modules.homeManager.umbriel = { pkgs, ... }: {
+  flake.modules.homeManager.umbriel = { pkgs, config, ... }: {
 
     imports = [ inputs.umbriel.homeModules.default ];
-
-    programs.umbriel = {
-      enable = true;
-    };
 
     xdg.dataFile."dbus-1/services/org.freedesktop.secrets.service".text = ''
       [D-BUS Service]
@@ -61,6 +57,153 @@
         ExecStart = "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init";
       };
       Install.WantedBy = [ "umbriel-session.target" ];
+    };
+
+    programs.umbriel = {
+      enable = true;
+      settings = {
+        general = {
+          autostart = [ "noctalia" ];
+          show_cheatsheet = false;
+        };
+
+        layout.gap = 5;
+
+        input = {
+          keyboard.layout = "us,ch,th";
+          touchpad.natural_scroll = true;
+        };
+
+        keybinds = {
+          # Launching
+          "Mod" = "spawn noctalia msg panel-toggle launcher";
+          "Mod+T" = "spawn kitty";
+          "Mod+B" = "spawn brave-origin";
+          "Mod+H" = "cheatsheet-toggle";
+          "Mod+E" = "spawn luciole";
+
+          # Keyboard
+          "Mod+Shift+K" = "keyboard-layout-next";
+
+          # Windows
+          "Mod+Q" = "window-close";
+          "Mod+Shift+Q" = "window-kill";
+          "Mod+F" = "window-toggle-fullscreen";
+          "Mod+M" = "window-toggle-maximize";
+          "Mod+Shift+M" = "window-toggle-maximize-to-edges";
+          "Mod+O" = "overview-toggle";
+
+          # Focus
+          "Mod+Left" = "window-focus-left";
+          "Mod+Right" = "window-focus-right";
+          "Mod+Up" = "window-focus-up";
+          "Mod+Down" = "window-focus-down";
+          "Mod+Home" = "column-focus-first";
+          "Mod+End" = "column-focus-last";
+          "Mod+WheelUp" = "window-focus-left";
+          "Mod+WheelDown" = "window-focus-right";
+
+          # Columns (scrolling layout)
+          "Mod+R" = "window-cycle-primary-extent";
+          "Mod+Shift+R" = "window-cycle-primary-extent-back";
+          "Mod+Shift+Left" = "column-move-left";
+          "Mod+Shift+Right" = "column-move-right";
+          "Mod+Shift+WheelUp" = "column-move-left";
+          "Mod+Shift+WheelDown" = "column-move-right";
+
+          # Workspaces & outputs
+          "Mod+1" = "workspace-switch 1";
+          "Mod+2" = "workspace-switch 2";
+          "Mod+3" = "workspace-switch 3";
+          "Mod+4" = "workspace-switch 4";
+          "Mod+5" = "workspace-switch 5";
+          "Mod+6" = "workspace-switch 6";
+          "Mod+7" = "workspace-switch 7";
+          "Mod+8" = "workspace-switch 8";
+          "Mod+9" = "workspace-switch 9";
+          "Mod+Ctrl+Left" = "output-focus-left";
+          "Mod+Ctrl+Right" = "output-focus-right";
+          "Mod+Ctrl+Up" = "output-focus-up";
+          "Mod+Ctrl+Down" = "output-focus-down";
+          "Mod+Page_Down" = "workspace-next";
+          "Mod+Page_Up" = "workspace-previous";
+          "Mod+Ctrl+L" = "workspace-set-layout toggle scrolling master stacking";
+
+          # Scratchpads
+          "Mod+Space" = "scratchpad-toggle";
+          "Mod+S" = "window-move-to-scratchpad";
+          "Mod+Shift+S" = "window-restore-from-scratchpad";
+
+          # Session & maintenance
+          "Mod+Shift+E" = "spawn noctalia msg panel-toggle power";
+          "Mod+L" = "spawn noctalia msg session lock-and-suspend";
+
+          # Media & brightness via Noctalia IPC
+          "XF86AudioRaiseVolume" = {
+            action = "spawn noctalia msg volume-up";
+            allow_when_locked = true;
+          };
+          "XF86AudioLowerVolume" = {
+            action = "spawn noctalia msg volume-down";
+            allow_when_locked = true;
+          };
+          "XF86AudioMute" = {
+            action = "spawn noctalia msg volume-mute";
+            allow_when_locked = true;
+            repeat = false;
+          };
+          "XF86AudioPlay" = {
+            action = "spawn noctalia msg media toggle";
+            allow_when_locked = true;
+            repeat = false;
+          };
+          "XF86AudioNext" = {
+            action = "spawn noctalia msg media next";
+            allow_when_locked = true;
+          };
+          "XF86AudioPrev" = {
+            action = "spawn noctalia msg media previous";
+            allow_when_locked = true;
+          };
+          "XF86MonBrightnessUp" = {
+            action = "spawn noctalia msg brightness-up";
+            allow_when_locked = true;
+          };
+          "XF86MonBrightnessDown" = {
+            action = "spawn noctalia msg brightness-down";
+            allow_when_locked = true;
+          };
+          "XF86SelectiveScreenshot" = {
+            action = "spawn noctalia msg screenshot-fullscreen";
+            allow_when_locked = true;
+          };
+          "Mod+XF86SelectiveScreenshot" = {
+            action = "spawn noctalia msg screenshot-region";
+            allow_when_locked = true;
+          };
+          "Alt+XF86SelectiveScreenshot" = {
+            action = "spawn noctalia msg screenshot-window";
+            allow_when_locked = true;
+          };
+
+          # Pointer
+          "Mod+MouseMiddle" = "layout-scroll-drag";
+        };
+
+        window_rule = [
+          {
+            match.app_id = [ "^brave.*$" ];
+            default_maximize = true;
+          }
+        ];
+
+        # NOTE: ~-expanded paths so this works regardless of where the
+        # generated config lands; keep outputs.toml owned by the plugin.
+        include.optional.files = [
+          "${config.home.homeDirectory}/.config/umbriel/outputs.toml"
+          "${config.home.homeDirectory}/.config/umbriel/noctalia.toml"
+        ];
+      };
     };
 
   };
