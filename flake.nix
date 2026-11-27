@@ -35,6 +35,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Noctalia shell
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # AMD NPU drivers and local lemonade AI server
     nix-amd-ai.url = "github:noamsto/nix-amd-ai";
 
