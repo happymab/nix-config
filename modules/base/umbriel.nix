@@ -1,16 +1,13 @@
 { self, inputs, ... }: {
-  flake.modules.nixos.umbrielNoctalia = { pkgs, ... }: {
+  flake.modules.nixos.umbriel = { pkgs, ... }: {
 
     # Use official Umbriel flake
     imports = [ inputs.umbriel.nixosModules.default ];
 
     # Import Home-Manager module for Umbriel (defined below)
     home-manager.sharedModules = [
-      self.modules.homeManager.umbrielNoctalia
+      self.modules.homeManager.umbriel
     ];
-
-    # Add luciole to nixpkgs
-    nixpkgs.overlays = [ inputs.luciole.overlays.default ];
 
     # Configure cache for Umbriel flake
     nix.settings = {
@@ -26,18 +23,13 @@
     # Install packages
     environment.systemPackages = with pkgs; [
       kitty
-      noctalia
-      luciole # File Manager
-      kdePackages.kcolorscheme # Theming of KDE applications
-      adw-gtk3 # Theming of GTK applications
       glib.bin # gdbus, gsettings — glib's bin output
-      sshfs # optional, phone file browsing
     ];
 
   };
 
   # ========== Home-Manager module for Umbriel ==========
-  flake.modules.homeManager.umbrielNoctalia = { pkgs, ... }: {
+  flake.modules.homeManager.umbriel = { pkgs, ... }: {
 
     imports = [ inputs.umbriel.homeModules.default ];
 
