@@ -138,7 +138,7 @@
           polkit_agent = true;
           umbriel_audio_provider_enabled = true;
           panel.launcher_placement = "attached";
-          # screenshot.directory = "${config.home.homeDirectory}/Pictures/Screenshots";
+          screenshot.directory = "${config.home.homeDirectory}/Pictures/Screenshots";
         };
 
         theme = {
@@ -155,9 +155,9 @@
           ];
         };
 
-        # wallpaper = {
-        #   directory = "${config.home.homeDirectory}/.local/share/wallpapers";
-        # };
+        wallpaper = {
+          directory = "${config.home.homeDirectory}/.local/share/wallpapers";
+        };
 
         widget = {
           bar.type = "prponkshe/umbriel-displays:bar";
