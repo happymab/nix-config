@@ -1,10 +1,4 @@
-{
-  self,
-  inputs,
-  config,
-  ...
-}:
-{
+{ self, inputs, ... }: {
   flake.modules.nixos.noctalia = { pkgs, ... }: {
 
     # Use official Noctalia flake
@@ -46,7 +40,7 @@
   };
 
   # ========== Home-Manager module for Noctalia ==========
-  flake.modules.homeManager.noctalia = { pkgs, ... }: {
+  flake.modules.homeManager.noctalia = { pkgs, config, ... }: {
 
     imports = [ inputs.noctalia.homeModules.default ];
 
