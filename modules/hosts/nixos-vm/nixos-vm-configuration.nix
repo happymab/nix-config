@@ -14,7 +14,6 @@
       # ── Base config ────────────────────────────────────
       self.modules.nixos.umbrielVm
       self.modules.nixos.vmKernel
-      self.modules.nixos.mediaCreate
 
       # ── Disko ─────────────────────────────────────────────────
       self.modules.nixos.diskoBtrfsLuks
@@ -29,6 +28,7 @@
       # ── Additional modules ────────────────────────────────────
       self.modules.nixos.devTools
       self.modules.nixos.vscode
+      self.modules.nixos.obsStudio
 
     ];
 

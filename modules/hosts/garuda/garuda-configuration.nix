@@ -25,6 +25,9 @@
       # ── User and Home configuration ───────────────────────────
       self.modules.nixos.userMab
 
+      # ── Additional modules ────────────────────────────────────
+      self.modules.nixos.obsStudio
+
     ];
 
     # Disko drive definition
