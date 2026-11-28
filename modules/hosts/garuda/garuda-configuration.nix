@@ -14,6 +14,7 @@
       self.modules.nixos.umbrielDesktop
       self.modules.nixos.amdStrixPoint
       self.modules.nixos.development
+      self.modules.nixos.mediaCreate
 
       # ── Disko ─────────────────────────────────────────────────
       self.modules.nixos.diskoBtrfsLuks
@@ -24,9 +25,6 @@
 
       # ── User and Home configuration ───────────────────────────
       self.modules.nixos.userMab
-
-      # ── Additional modules ────────────────────────────────────
-      self.modules.nixos.obsStudio
 
     ];
 
