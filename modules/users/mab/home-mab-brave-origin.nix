@@ -21,19 +21,19 @@
               name = "Standard";
               profileDir = "Default";
               icon = "brave-origin_blue";
-              class = "brave.origin.standard";
+              class = "standard";
             }
             {
               name = "Development";
               profileDir = "Development";
               icon = "brave-origin_pink";
-              class = "brave.origin.development";
+              class = "development";
             }
             {
               name = "Investing";
               profileDir = "Investing";
               icon = "brave-origin_green";
-              class = "brave.origin.investing";
+              class = "investing";
             }
             {
               name = "Banking";
