@@ -196,7 +196,10 @@
 
         window_rule = [
           {
-            match.app_id = [ "^brave.*$" ];
+            match.app_id = [
+              "^brave.*$"
+              "*$FreeTube"
+            ];
             default_maximize = true;
           }
         ];
