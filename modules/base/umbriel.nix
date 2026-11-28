@@ -198,7 +198,7 @@
           {
             match.app_id = [
               "^brave.*$"
-              "*$FreeTube"
+              ".*FreeTube"
             ];
             default_maximize = true;
           }
