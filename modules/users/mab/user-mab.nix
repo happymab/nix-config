@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
 
   # User configuration flake
-  flake.modules.nixos.userMab = { pkgs, ... }: {
+  flake.modules.nixos.userMab = { pkgs, config, ... }: {
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."mab" = {

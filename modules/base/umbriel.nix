@@ -152,10 +152,6 @@
             allow_when_locked = true;
             repeat = false;
           };
-          "XF86AudioMicMute" = {
-            action = "spawn noctalia msg mic-mute";
-            allow_when_locked = true;
-          };
           "XF86AudioPlay" = {
             action = "spawn noctalia msg media toggle";
             allow_when_locked = true;
